@@ -1978,7 +1978,7 @@ HD.plan = {
       case 'test': {
         stopAll();
         var info = $('#tinfo');
-        if (info) info.textContent = !Aud.ok ? t('noSpeechShort') : t('voicesInfo', Aud.hi.length, (isEn() ? Aud.en : Aud.ta) ? t('yes') : t('no'));
+        if (info) info.textContent = !Aud.ok ? t('noSpeechShort') + ' [v2 cap=' + (!!window.Capacitor) + ' plat=' + ((window.Capacitor && window.Capacitor.getPlatform) ? window.Capacitor.getPlatform() : '-') + ' reg=' + !!(window.Capacitor && window.Capacitor.registerPlugin) + ' ua=' + (/; wv\)/.test(navigator.userAgent) ? 'wv' : 'other') + ']' : t('voicesInfo', Aud.hi.length, (isEn() ? Aud.en : Aud.ta) ? t('yes') : t('no'));
         say('नमस्ते, आप कैसे हैं?', { rate: rateHi() });
         break;
       }
