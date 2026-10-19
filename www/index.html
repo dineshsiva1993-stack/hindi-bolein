@@ -2067,12 +2067,12 @@ HD.plan = {
   ];
   var AI = { scen: null, turns: [], log: [], busy: false, rec: null, listening: false, smp: undefined };
   /* ---------- native Android bridge (Capacitor) ---------- */
-  var CAP = window.Capacitor, NATIVE = !!(CAP && CAP.isNativePlatform && CAP.isNativePlatform());
+  var CAP = window.Capacitor, NATIVE = !!(CAP && CAP.registerPlugin && ((CAP.isNativePlatform && CAP.isNativePlatform()) || (CAP.getPlatform && CAP.getPlatform() !== 'web') || /; wv\)/.test(navigator.userAgent)));
   var NSR = NATIVE ? CAP.registerPlugin('SpeechRecognition') : null, NTTS = NATIVE ? CAP.registerPlugin('TextToSpeech') : null;
   if (NTTS) { Aud.ok = true; Aud.hi = [{ lang: 'hi-IN' }]; Aud.ta = { lang: 'ta-IN' }; Aud.en = { lang: 'en-US' }; Aud.ready = true; }
   function nativeSay(text, o) {
     if (!text) return Promise.resolve(false);
-    return NTTS.speak({ text: text, lang: o.lang || 'hi-IN', rate: o.rate || 1, pitch: o.pitch || 1, volume: 1, category: 'ambient' }).then(function () { return true; }).catch(function () { return false; });
+    return NTTS.speak({ text: text, lang: o.lang || 'hi-IN', rate: o.rate || 1, pitch: o.pitch || 1, volume: 1, category: 'ambient' }).then(function () { if (Aud.err) { Aud.err = ''; renderBanner(); } return true; }).catch(function (e) { Aud.err = String((e && (e.message || e.errorMessage || e.code)) || e || 'tts-error'); renderBanner(); return false; });
   }
   function NativeSR() {
     var me = this, last = [], h1, h2, live = false;
