@@ -1,0 +1,2302 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>இந்தி பேசுவோம்</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&family=Noto+Sans+Tamil:wght@400;500;600&family=Tiro+Devanagari+Hindi&display=swap">
+<style>
+/* Layout: one phone-width column, sticky header with speed and voice controls, content area, fixed 4-tab bar.
+   The shirorekha (headline stroke) of Devanagari is echoed once, as a kumkum rule under the wordmark. */
+:root {
+  --bg: #EEF2EF;
+  --surface: #FFFFFF;
+  --surface2: #E3EAE6;
+  --ink: #14231F;
+  --mute: #566761;
+  --line: #CCD7D1;
+  --accent: #0B6B5D;
+  --accent-ink: #FFFFFF;
+  --soft: #D3EAE2;
+  --kumkum: #B8322B;
+  --good: #1B7A44;
+  --bad: #B8322B;
+  --f-ui: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --f-hi: 'Tiro Devanagari Hindi', 'Noto Sans Devanagari', 'Mangal', serif;
+  --f-ta: 'Figtree', 'Noto Sans Tamil', 'Latha', 'Nirmala UI', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0E1715; --surface: #16231F; --surface2: #1E2F2A; --ink: #E7EFEB; --mute: #9DB0A8; --line: #2A3D37;
+    --accent: #4CC7AC; --accent-ink: #06201A; --soft: #1B3A33; --kumkum: #FF7A6B; --good: #5BD08A; --bad: #FF7A6B;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0E1715; --surface: #16231F; --surface2: #1E2F2A; --ink: #E7EFEB; --mute: #9DB0A8; --line: #2A3D37;
+  --accent: #4CC7AC; --accent-ink: #06201A; --soft: #1B3A33; --kumkum: #FF7A6B; --good: #5BD08A; --bad: #FF7A6B;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--ink);
+  font: 15px/1.5 var(--f-ui);
+  -webkit-text-size-adjust: 100%;
+}
+body::before {
+  content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px);
+  z-index: 10; background: var(--bg);
+}
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; padding: 0; -webkit-tap-highlight-color: transparent; }
+button:focus-visible, [role="button"]:focus-visible, select:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.ta { font-family: var(--f-ta); }
+.hi { font-family: var(--f-hi); }
+.wrap {
+  max-width: 720px; margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+
+/* header */
+.top { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 9; background: var(--bg); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding-block: 10px; }
+.brand { font-family: var(--f-hi); font-size: 26px; line-height: 1.1; position: relative; padding-bottom: 7px; white-space: nowrap; }
+.brand::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 3px; border-radius: 2px; background: var(--kumkum); }
+.ctl { display: flex; align-items: center; gap: 8px; }
+.seg { display: inline-flex; border: 1px solid var(--line); border-radius: 10px; overflow: hidden; background: var(--surface); }
+.seg button { min-height: 40px; padding: 0 11px; font-size: 13px; font-weight: 600; color: var(--mute); font-family: var(--f-ta), var(--f-ui); }
+.seg button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+.tog { min-height: 40px; min-width: 40px; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); font-weight: 700; font-size: 15px; color: var(--mute); font-family: var(--f-ta); }
+.tog[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.tog[disabled] { opacity: .45; cursor: not-allowed; }
+
+.tog.txt { padding: 0 10px; min-width: 52px; font-size: 13px; font-weight: 600; }
+.seg.lang button { min-width: 40px; padding: 0 9px; font-family: var(--f-ui); }
+main { padding-block: 16px 110px; min-height: 70vh; }
+.notice { margin: 12px 0 0; padding: 10px 12px; border-radius: 12px; background: var(--surface); border: 1px solid var(--kumkum); font-size: 13.5px; font-family: var(--f-ta), var(--f-ui); }
+
+/* hero */
+.hero { padding: 6px 0 14px; }
+.hero h1 { margin: 0; font-family: var(--f-hi); font-weight: 400; font-size: clamp(34px, 9vw, 52px); line-height: 1.15; text-wrap: balance; }
+.hero p { margin: 6px 0 0; color: var(--mute); font-family: var(--f-ta); font-size: 15px; }
+.stats { display: flex; flex-wrap: wrap; gap: 8px 16px; margin-top: 12px; font-size: 13px; color: var(--mute); }
+.stats b { color: var(--ink); font-variant-numeric: tabular-nums; }
+.search { width: 100%; min-height: 46px; border: 1px solid var(--line); border-radius: 12px; background: var(--surface); color: var(--ink); padding: 0 14px; font: inherit; font-family: var(--f-ta), var(--f-ui); margin-top: 6px; }
+.search::placeholder { color: var(--mute); }
+
+.daily { margin-top: 16px; display: grid; grid-template-columns: 44px 1fr; gap: 12px; align-items: center; padding: 12px; border-radius: 14px; background: var(--soft); }
+.daily .lbl { font-size: 12px; letter-spacing: .06em; text-transform: uppercase; color: var(--mute); font-family: var(--f-ta), var(--f-ui); }
+.daily .hi { font-size: 21px; line-height: 1.35; }
+.daily .ta { font-size: 13.5px; color: var(--mute); }
+
+.gh { display: flex; align-items: baseline; gap: 8px; margin: 22px 0 10px; padding-bottom: 6px; border-bottom: 1px solid var(--line); }
+.gh h2 { margin: 0; font-size: 17px; font-family: var(--f-ta); font-weight: 600; }
+.gh span { color: var(--mute); font-size: 12.5px; }
+.grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+.card { display: flex; flex-direction: column; gap: 2px; text-align: left; padding: 12px; min-width: 0; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; min-height: 112px; }
+.card:active { transform: scale(.985); }
+.card .g { font-family: var(--f-hi); font-size: 30px; line-height: 1.2; color: var(--accent); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.card .t { font-family: var(--f-ta); font-size: 14px; font-weight: 600; line-height: 1.35; margin-top: auto; }
+.card .e { font-size: 12px; color: var(--mute); line-height: 1.3; }
+.card .n { font-size: 11.5px; color: var(--mute); font-variant-numeric: tabular-nums; }
+
+/* section view */
+.bar { display: flex; align-items: center; gap: 10px; }
+.back { min-height: 44px; min-width: 44px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); display: grid; place-items: center; }
+.sh { margin: 12px 0 4px; }
+.sh h2 { margin: 0; font-family: var(--f-ta); font-size: 22px; line-height: 1.3; font-weight: 600; text-wrap: balance; }
+.sh .e { color: var(--mute); font-size: 13px; }
+.note { margin: 10px 0 0; padding: 10px 12px; border-radius: 12px; background: var(--surface2); font-family: var(--f-ta); font-size: 13.5px; color: var(--mute); }
+.actions { display: flex; flex-wrap: wrap; gap: 8px; margin: 14px 0 10px; }
+.btn { min-height: 44px; padding: 0 16px; border-radius: 12px; font-weight: 600; font-family: var(--f-ta), var(--f-ui); background: var(--surface); border: 1px solid var(--line); display: inline-flex; align-items: center; gap: 8px; }
+.btn.pri { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+.btn[aria-pressed="true"] { background: var(--soft); border-color: var(--accent); color: var(--accent); }
+.btn.pri[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+
+.list { display: flex; flex-direction: column; gap: 8px; }
+.row { display: grid; grid-template-columns: 44px minmax(0, 1fr) 40px; gap: 12px; align-items: center; padding: 10px 6px 10px 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+.row.on { border-color: var(--accent); box-shadow: 0 0 0 2px var(--soft); background: var(--soft); }
+.play { width: 44px; height: 44px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; position: relative; flex: none; }
+.row.on .play::after, .daily.on .play::after, .bub.on .bplay::after { content: ""; position: absolute; inset: -4px; border-radius: 50%; border: 2px solid var(--accent); animation: pulse 1.1s ease-out infinite; }
+@keyframes pulse { from { transform: scale(.85); opacity: .9; } to { transform: scale(1.25); opacity: 0; } }
+.txt { min-width: 0; cursor: pointer; }
+.txt .hi { font-size: 24px; line-height: 1.35; overflow-wrap: anywhere; }
+.txt .hi.big { font-size: 40px; line-height: 1.2; color: var(--accent); }
+.txt .pr { font-family: var(--f-ta); color: var(--accent); font-size: 15px; font-weight: 500; line-height: 1.4; overflow-wrap: anywhere; }
+.txt .ro { font-size: 12.5px; color: var(--mute); font-style: italic; overflow-wrap: anywhere; }
+.txt .mn { margin-top: 3px; font-family: var(--f-ta); font-size: 14.5px; line-height: 1.45; overflow-wrap: anywhere; }
+.txt .mn small { color: var(--mute); font-family: var(--f-ui); font-size: 12.5px; display: block; }
+.star { width: 40px; height: 44px; display: grid; place-items: center; color: var(--mute); }
+.star[aria-pressed="true"] { color: var(--kumkum); }
+.empty { padding: 28px 12px; text-align: center; color: var(--mute); font-family: var(--f-ta); }
+
+/* dialogues */
+.dcard { display: flex; align-items: center; gap: 12px; width: 100%; text-align: left; padding: 14px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; min-width: 0; }
+.dcard .t { font-family: var(--f-ta); font-weight: 600; font-size: 16px; }
+.dcard .e { color: var(--mute); font-size: 13px; }
+.dcard .c { margin-left: auto; color: var(--mute); font-size: 12.5px; white-space: nowrap; }
+.dcard .ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: var(--soft); color: var(--accent); flex: none; font-family: var(--f-hi); font-size: 22px; }
+.chat { display: flex; flex-direction: column; gap: 12px; margin-top: 8px; }
+.bub { display: flex; gap: 10px; align-items: flex-start; max-width: 92%; padding: 12px; border-radius: 16px; background: var(--surface); border: 1px solid var(--line); min-width: 0; cursor: pointer; }
+.bub.r1 { align-self: flex-end; background: var(--soft); border-color: transparent; }
+.bub.on { outline: 2px solid var(--accent); }
+.bplay { width: 36px; height: 36px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; flex: none; position: relative; }
+.bub .who { font-family: var(--f-ta); font-size: 12px; color: var(--mute); font-weight: 600; margin-bottom: 2px; }
+.bub .body { min-width: 0; }
+.bub .hi { font-size: 21px; line-height: 1.4; overflow-wrap: anywhere; }
+.bub .pr { font-family: var(--f-ta); color: var(--accent); font-size: 14.5px; line-height: 1.4; overflow-wrap: anywhere; }
+.bub .ro { font-size: 12px; color: var(--mute); font-style: italic; overflow-wrap: anywhere; }
+.bub .mn { margin-top: 3px; font-family: var(--f-ta); font-size: 14px; overflow-wrap: anywhere; }
+.bub .mn small { display: block; color: var(--mute); font-family: var(--f-ui); font-size: 12px; }
+
+/* practice */
+.panel { background: var(--surface); border: 1px solid var(--line); border-radius: 16px; padding: 16px; }
+.panel h3 { margin: 0 0 4px; font-family: var(--f-ta); font-size: 17px; }
+.sel { width: 100%; min-height: 46px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); color: var(--ink); padding: 0 12px; font: inherit; font-family: var(--f-ta), var(--f-ui); }
+.stack { display: flex; flex-direction: column; gap: 12px; }
+.fc { text-align: center; padding: 22px 16px; min-height: 280px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; }
+.fc .hi { font-size: clamp(30px, 8vw, 40px); line-height: 1.3; overflow-wrap: anywhere; }
+.fc .pr { font-family: var(--f-ta); color: var(--accent); font-size: 18px; }
+.fc .ro { color: var(--mute); font-style: italic; font-size: 14px; }
+.fc .mn { font-family: var(--f-ta); font-size: 20px; line-height: 1.4; }
+.fc .mn small { display: block; font-family: var(--f-ui); color: var(--mute); font-size: 14px; }
+.bigplay { width: 72px; height: 72px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; position: relative; }
+.bigplay.on::after { content: ""; position: absolute; inset: -6px; border-radius: 50%; border: 3px solid var(--accent); animation: pulse 1.1s ease-out infinite; }
+.prog { height: 6px; border-radius: 3px; background: var(--surface2); overflow: hidden; }
+.prog i { display: block; height: 100%; background: var(--accent); border-radius: 3px; transition: width .25s; }
+.meta { display: flex; justify-content: space-between; font-size: 13px; color: var(--mute); font-variant-numeric: tabular-nums; }
+.opt { width: 100%; text-align: left; padding: 12px 14px; min-height: 52px; background: var(--surface); border: 1.5px solid var(--line); border-radius: 12px; font-family: var(--f-ta); font-size: 16px; line-height: 1.4; }
+.opt small { display: block; font-family: var(--f-ui); color: var(--mute); font-size: 12.5px; }
+.opt.ok { border-color: var(--good); background: color-mix(in srgb, var(--good) 16%, var(--surface)); }
+.opt.no { border-color: var(--bad); background: color-mix(in srgb, var(--bad) 14%, var(--surface)); }
+.opt[disabled] { cursor: default; }
+.score { font-size: 44px; font-weight: 700; font-variant-numeric: tabular-nums; line-height: 1.1; }
+.miss { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+.miss div { display: flex; justify-content: space-between; gap: 10px; padding: 8px 10px; border-radius: 10px; background: var(--surface2); }
+.miss .hi { font-size: 18px; }
+.miss .ta { font-size: 14px; text-align: right; }
+
+/* plan */
+.week { padding: 14px; margin-bottom: 10px; background: var(--surface); border: 1px solid var(--line); border-radius: 14px; }
+.week.now { border-color: var(--accent); box-shadow: 0 0 0 2px var(--soft); }
+.week h3 { margin: 0; font-family: var(--f-ta); font-size: 16px; display: flex; justify-content: space-between; gap: 8px; align-items: baseline; }
+.week h3 span { font-family: var(--f-ui); font-size: 12.5px; color: var(--mute); font-weight: 400; }
+.week p { margin: 6px 0 0; font-family: var(--f-ta); font-size: 14px; }
+.week .goal { color: var(--accent); font-weight: 600; }
+.days { display: grid; grid-template-columns: repeat(6, 1fr); gap: 6px; margin: 10px 0 14px; }
+.day { min-height: 44px; border-radius: 10px; border: 1px solid var(--line); background: var(--surface); font-weight: 600; font-variant-numeric: tabular-nums; color: var(--mute); }
+.day[aria-pressed="true"] { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+.tip { padding: 12px 0; border-bottom: 1px solid var(--line); font-family: var(--f-ta); }
+.tip b { display: block; font-size: 15px; }
+.tip span { font-size: 14px; color: var(--mute); }
+
+/* tabs */
+.tabs { position: fixed; left: 0; right: 0; bottom: 0; z-index: 9; background: var(--surface); border-top: 1px solid var(--line);
+  padding-left: max(8px, env(safe-area-inset-left, 0px)); padding-right: max(8px, env(safe-area-inset-right, 0px)); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.tabs .in { max-width: 720px; margin: 0 auto; display: grid; grid-template-columns: repeat(5, 1fr); }
+.tab { min-height: 58px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2px; color: var(--mute); font-size: 11.5px; font-weight: 600; font-family: var(--f-ta), var(--f-ui); }
+.tab[aria-current="page"] { color: var(--accent); }
+.tab svg { width: 22px; height: 22px; }
+@media (prefers-reduced-motion: reduce) { .row.on .play::after, .bub.on .bplay::after, .bigplay.on::after { animation: none; } .prog i { transition: none; } }
+
+/* ai talk */
+.aib{align-self:flex-start;max-width:92%;padding:12px;border-radius:16px;background:var(--surface);border:1px solid var(--line);display:flex;gap:10px;align-items:flex-start;min-width:0}
+.aib.me{align-self:flex-end;background:var(--soft);border-color:transparent;display:block}
+.aib .who{font-family:var(--f-ta);font-size:12px;color:var(--mute);font-weight:600;margin-bottom:2px}
+.aib .hi{font-size:21px;line-height:1.4;overflow-wrap:anywhere}
+.aib .pr{font-family:var(--f-ta);color:var(--accent);font-size:14.5px;line-height:1.4}
+.aib .ro{font-size:12px;color:var(--mute);font-style:italic}
+.aib .mn{margin-top:3px;font-family:var(--f-ta);font-size:14px}
+.aifb{align-self:flex-end;max-width:92%;padding:12px;border-radius:14px;border:1.5px solid var(--good);background:color-mix(in srgb,var(--good) 12%,var(--surface));font-family:var(--f-ta);font-size:14.5px}
+.aifb.bad{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 10%,var(--surface))}
+.aifb .lbl{font-size:12px;font-weight:700;color:var(--mute)}
+.aifb .hi{font-family:var(--f-hi);font-size:22px;line-height:1.4}
+.aifb .pr{color:var(--accent);font-weight:500}
+.aifb .ro{font-family:var(--f-ui);font-size:12px;color:var(--mute);font-style:italic}
+.aifb .why,.aifb .tip{margin-top:6px;line-height:1.5}
+.aifb .tip{color:var(--mute)}
+.aiact{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.aiact .btn{min-height:40px;padding:0 12px;font-size:13.5px}
+.aisw{margin-top:8px}
+.aisw .w{display:inline-block;margin:2px 3px 2px 0;padding:2px 8px;border-radius:8px;font-family:var(--f-hi);font-size:20px;border:1.5px solid var(--line)}
+.aisw .w2{border-color:var(--good);color:var(--good)}.aisw .w1{border-color:#B7791F;color:#B7791F}.aisw .w0{border-color:var(--bad);color:var(--bad)}
+.aistat{min-height:22px;margin:6px 2px 0;font-size:13.5px;color:var(--mute);font-family:var(--f-ta)}
+.aistat.bad{color:var(--bad)}
+.aibar{position:sticky;bottom:calc(62px + env(safe-area-inset-bottom,0px));background:var(--bg);padding:8px 0;display:flex;gap:8px;align-items:center}
+.aibar input{flex:1;min-width:0;min-height:48px;border:1px solid var(--line);border-radius:24px;padding:0 16px;background:var(--surface);color:var(--ink);font:inherit;font-family:var(--f-hi),var(--f-ta),var(--f-ui)}
+.mic{width:64px;height:64px;border-radius:50%;background:var(--kumkum);color:var(--accent-ink);display:grid;place-items:center;flex:none;position:relative}
+.mic.on::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:3px solid var(--kumkum);animation:pulse 1.1s ease-out infinite}
+.snd{width:48px;height:48px;border-radius:50%;background:var(--accent);color:var(--accent-ink);display:grid;place-items:center;flex:none}
+@media (prefers-reduced-motion: reduce){.mic.on::after{animation:none}}
+</style>
+
+<div id="app">
+  <header class="top">
+    <div class="wrap">
+      <div class="brand" aria-label="Hindi bolein">हिंदी बोलें</div>
+      <div class="ctl">
+        <div class="seg lang" role="group" aria-label="Language">
+          <button type="button" id="lTa" data-act="lang" data-v="ta" aria-pressed="true" lang="ta">த</button>
+          <button type="button" id="lEn" data-act="lang" data-v="en" aria-pressed="false">EN</button>
+        </div>
+        <button type="button" class="tog txt" id="tSlow" data-act="rate" aria-pressed="false">மெது</button>
+        <button type="button" class="tog" id="tMean" data-act="mean" aria-pressed="false">த</button>
+      </div>
+    </div>
+  </header>
+  <div class="wrap"><div id="banner"></div></div>
+  <main class="wrap" id="view"></main>
+</div>
+<nav class="tabs" aria-label="பிரிவுகள்">
+  <div class="in">
+    <button type="button" class="tab" data-act="tab" data-tab="learn">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5A2.5 2.5 0 0 1 6.5 3H20v16H6.5A2.5 2.5 0 0 0 4 21.5z"/><path d="M4 5.5v16"/><path d="M9 8h7"/></svg>
+      கற்க
+    </button>
+    <button type="button" class="tab" data-act="tab" data-tab="dialogues">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h11a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2H9l-4 3v-3H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/><path d="M19 10h1a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-1v3l-3-3h-4"/></svg>
+      உரையாடல்
+    </button>
+    <button type="button" class="tab" data-act="tab" data-tab="ai">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+      பேசு
+    </button>
+    <button type="button" class="tab" data-act="tab" data-tab="practice">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4.5"/><path d="M12 12l5-5"/></svg>
+      பயிற்சி
+    </button>
+    <button type="button" class="tab" data-act="tab" data-tab="plan">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 10h17M8 3v4M16 3v4"/><path d="M8.5 15l2.2 2.2 4.3-4.4"/></svg>
+      30 நாள்
+    </button>
+  </div>
+</nav>
+
+<script>
+const HD = {
+  groups: [
+    { id: 'start', ta: 'தொடக்கம்', en: 'Letters & numbers' },
+    { id: 'words', ta: 'அடிப்படைச் சொற்கள்', en: 'Everyday words' },
+    { id: 'verbs', ta: 'வினைகள்', en: '17 verbs',
+      note: 'ஆண் பேசும் வடிவங்கள் கொடுக்கப்பட்டுள்ளன. பெண் பேசினால் -ता → -ती, -रहा → -रही, गया → गई, -ऊँगा → -ऊँगी. இறந்த காலத்தில் செயப்படுபொருள் உள்ள வினைகளுக்கு எழுவாய்க்குப் பின் ने வரும் (मैंने खाया); जाना, आना, रहना போன்றவற்றில் வராது.' },
+    { id: 'grammar', ta: 'இலக்கணமும் அச்சுகளும்', en: 'Grammar & patterns' },
+    { id: 'talk', ta: 'சூழ்நிலைப் பேச்சு', en: 'Real-life talk' }
+  ],
+  sections: [],
+  dialogues: [],
+  plan: {}
+};
+function sec(id, grp, ta, en, raw, o) { HD.sections.push(Object.assign({ id, grp, ta, en, raw }, o || {})); }
+
+sec('vowels', 'start', 'உயிரெழுத்துகள்', 'Vowels', `
+अ|அ|a — अनार (anaar)|மாதுளை|Pomegranate|अनार
+आ|ஆ|aa — आम (aam)|மாம்பழம்|Mango|आम
+इ|இ|i — इमली (imlee)|புளி|Tamarind|इमली
+ई|ஈ|ee — ईख (eekh)|கரும்பு|Sugarcane|ईख
+उ|உ|u — उल्लू (ullu)|ஆந்தை|Owl|उल्लू
+ऊ|ஊ|oo — ऊन (oon)|கம்பளி|Wool|ऊन
+ऋ|ரி|ri — ऋषि (rishi)|முனிவர்|Sage|ऋषि
+ए|ஏ|e — एक (ek)|ஒன்று|One|एक
+ऐ|ஐ|ai — ऐनक (ainak)|மூக்குக் கண்ணாடி|Spectacles|ऐनक
+ओ|ஓ|o — ओखली (okhlee)|உரல்|Mortar|ओखली
+औ|ஔ|au — औरत (aurat)|பெண்மணி|Woman|औरत
+अं|அம்|am — अंगूर (angoor)|திராட்சை|Grapes|अंगूर
+अः|அஃ|ah — प्रातः (praatah)|காலை|Morning|प्रातः
+`, { noquiz: true, letters: true, note: 'எழுத்தைத் தொட்டால் அதன் எடுத்துக்காட்டுச் சொல் ஒலிக்கும்.' });
+
+sec('consonants', 'start', 'மெய்யெழுத்துகள்', 'Consonants', `
+क|க|ka — कमल (kamal)|தாமரை|Lotus|कमल
+ख|க + h|kha — खरगोश (khargosh)|முயல்|Rabbit|खरगोश
+ग|க (g)|ga — गमला (gamlaa)|பூந்தொட்டி|Flower pot|गमला
+घ|க (gh)|gha — घर (ghar)|வீடு|House|घर
+ङ|ங|nga — பிற எழுத்துடன் மட்டும்|—|Used in clusters|अंग
+च|ச|cha — चम्मच (chammach)|கரண்டி|Spoon|चम्मच
+छ|ச + h|chha — छाता (chhaataa)|குடை|Umbrella|छाता
+ज|ஜ|ja — जहाज़ (jahaaz)|கப்பல்|Ship|जहाज़
+झ|ஜ + h|jha — झंडा (jhandaa)|கொடி|Flag|झंडा
+ञ|ஞ|nya — பிற எழுத்துடன் மட்டும்|—|Used in clusters|ज्ञान
+ट|ட|ta — टमाटर (tamaatar)|தக்காளி|Tomato|टमाटर
+ठ|ட + h|tha — ठंड (thand)|குளிர்|Cold|ठंड
+ड|ட (d)|da — डाक (daak)|தபால்|Post|डाक
+ढ|ட (dh)|dha — ढोल (dhol)|மேளம்|Drum|ढोल
+ण|ண|na — பெரும்பாலும் சொல் நடுவில்|—|Mid-word|गणना
+त|த|ta — तारा (taaraa)|நட்சத்திரம்|Star|तारा
+थ|த + h|tha — थाली (thaalee)|தட்டு|Plate|थाली
+द|த (d)|da — दरवाज़ा (darvaazaa)|கதவு|Door|दरवाज़ा
+ध|த (dh)|dha — धनुष (dhanush)|வில்|Bow|धनुष
+न|ந|na — नल (nal)|குழாய்|Tap|नल
+प|ப|pa — पतंग (patang)|பட்டம்|Kite|पतंग
+फ|ப + h|pha — फल (phal)|பழம்|Fruit|फल
+ब|ப (b)|ba — बकरी (bakree)|ஆடு|Goat|बकरी
+भ|ப (bh)|bha — भालू (bhaaloo)|கரடி|Bear|भालू
+म|ம|ma — मछली (machhlee)|மீன்|Fish|मछली
+य|ய|ya — यात्रा (yaatraa)|பயணம்|Journey|यात्रा
+र|ர|ra — रोटी (rotee)|ரொட்டி|Roti|रोटी
+ल|ல|la — लड्डू (laddoo)|லட்டு|Laddu|लड्डू
+व|வ|va — वन (van)|காடு|Forest|वन
+श|ஶ / ஷ|sha — शेर (sher)|சிங்கம்|Lion|शेर
+ष|ஷ|sha — षट्कोण (shatkon)|அறுகோணம்|Hexagon|षट्कोण
+स|ஸ|sa — सेब (seb)|ஆப்பிள்|Apple|सेब
+ह|ஹ|ha — हाथ (haath)|கை|Hand|हाथ
+क्ष|க்ஷ|ksha — क्षमा (kshamaa)|மன்னிப்பு|Forgiveness|क्षमा
+त्र|த்ர|tra — पत्र (patra)|கடிதம்|Letter|पत्र
+ज्ञ|ஜ்ஞ (க்யா)|gya — ज्ञान (gyaan)|அறிவு|Knowledge|ज्ञान
+ड़|ட (flap)|ra (flap) — लड़का (ladkaa)|பையன்|Boy|लड़का
+ढ़|ட (flap, h)|rha — पढ़ना (padhnaa)|படிக்க|To read|पढ़ना
+ज़|ஜ (z)|za — ज़रूर (zaroor)|கண்டிப்பாக|Certainly|ज़रूर
+फ़|ஃப|fa — फ़ोन (fon)|தொலைபேசி|Phone|फ़ोन
+`, { noquiz: true, letters: true, note: 'க/ச/த/ப-வுக்கு k/g, t/d, p/b வேறுபாடு உண்டு. ஒலிப்பு வரியின் கீழே உள்ள ஆங்கில எழுத்தையும் சேர்த்துப் படியுங்கள்.' });
+
+sec('matras', 'start', 'உயிர்மெய் குறியீடுகள்', 'Vowel signs (matras)', `
+क|க|ka|குறியீடு இல்லை|No matra
+का|கா|kaa|ा (aa) குறியீடு|Sign ा (aa)
+कि|கி|ki|ि (i) குறியீடு|Sign ि (i)
+की|கீ|kee|ी (ee) குறியீடு|Sign ी (ee)
+कु|கு|ku|ु (u) குறியீடு|Sign ु (u)
+कू|கூ|koo|ू (oo) குறியீடு|Sign ू (oo)
+कृ|க்ரி|kri|ृ (ri) குறியீடு|Sign ृ (ri)
+के|கே|ke|े (e) குறியீடு|Sign े (e)
+कै|கை|kai|ै (ai) குறியீடு|Sign ै (ai)
+को|கோ|ko|ो (o) குறியீடு|Sign ो (o)
+कौ|கௌ|kau|ौ (au) குறியீடு|Sign ौ (au)
+कं|கம்|kam|ं (am) குறியீடு|Sign ं (am)
+कः|கஃ|kah|ः (ah) குறியீடு|Sign ः (ah)
+`, { noquiz: true, letters: true, note: 'க் + உயிர் = ஒரு சேர்க்கை. நீண்ட ஒலிகளை (aa, ee, oo) நன்றாக நீட்டுங்கள்.' });
+
+sec('nums', 'start', 'எண்கள்', 'Numbers 0–100 and more', `
+शून्य|ஷூன்ய|shoonya|பூஜ்யம்|0 (०)
+एक|ஏக்|ek|ஒன்று|1 (१)
+दो|தோ|do|இரண்டு|2 (२)
+तीन|தீன்|teen|மூன்று|3 (३)
+चार|சார்|chaar|நான்கு|4 (४)
+पाँच|பாஞ்ச்|paanch|ஐந்து|5 (५)
+छह|சஹ்|chhah|ஆறு|6 (६)
+सात|ஸாத்|saat|ஏழு|7 (७)
+आठ|ஆட்|aath|எட்டு|8 (८)
+नौ|நௌ|nau|ஒன்பது|9 (९)
+दस|தஸ்|das|பத்து|10 (१०)
+ग्यारह|க்யாரஹ்|gyaarah|பதினொன்று|11 (११)
+बारह|பாரஹ்|baarah|பன்னிரண்டு|12 (१२)
+तेरह|தேரஹ்|terah|பதிமூன்று|13 (१३)
+चौदह|சௌதஹ்|chaudah|பதினான்கு|14 (१४)
+पंद्रह|பந்த்ரஹ்|pandrah|பதினைந்து|15 (१५)
+सोलह|ஸோலஹ்|solah|பதினாறு|16 (१६)
+सत्रह|ஸத்ரஹ்|satrah|பதினேழு|17 (१७)
+अठारह|அடாரஹ்|athaarah|பதினெட்டு|18 (१८)
+उन्नीस|உன்னீஸ்|unnees|பத்தொன்பது|19 (१९)
+बीस|பீஸ்|bees|இருபது|20 (२०)
+तीस|தீஸ்|tees|முப்பது|30 (३०)
+चालीस|சாலீஸ்|chaalees|நாற்பது|40 (४०)
+पचास|பசாஸ்|pachaas|ஐம்பது|50 (५०)
+साठ|ஸாட்|saath|அறுபது|60 (६०)
+सत्तर|ஸத்தர்|sattar|எழுபது|70 (७०)
+अस्सी|அஸ்ஸீ|assee|எண்பது|80 (८०)
+नब्बे|நப்பே|nabbe|தொண்ணூறு|90 (९०)
+सौ|ஸௌ|sau|நூறு|100 (१००)
+हज़ार|ஹஜார்|hazaar|ஆயிரம்|1,000
+लाख|லாக்|laakh|லட்சம்|1,00,000
+करोड़|கரோட்|karod|கோடி|1,00,00,000
+पहला|பஹ்லா|pahlaa|முதல்|First
+दूसरा|தூஸ்ரா|doosraa|இரண்டாவது|Second
+तीसरा|தீஸ்ரா|teesraa|மூன்றாவது|Third
+आधा|ஆதா|aadhaa|அரை|Half
+पौना|பௌனா|paunaa|முக்கால்|Three-quarters
+सवा|ஸவா|savaa|கால் அதிகம் (1¼)|Plus a quarter
+डेढ़|டேட்|dedh|ஒன்றரை|One and a half
+ढाई|டாயி|dhaai|இரண்டரை|Two and a half
+`);
+
+sec('nums2', 'start', '21 முதல் 99 வரை', 'Numbers 21–99', `
+इक्कीस|இக்கீஸ்|ikkees|இருபத்தொன்று|21
+बाईस|பாயீஸ்|baayees|இருபத்திரண்டு|22
+तेईस|தேயீஸ்|teyees|இருபத்துமூன்று|23
+चौबीस|சௌபீஸ்|chaubees|இருபத்துநான்கு|24
+पच्चीस|பச்சீஸ்|pachchees|இருபத்தைந்து|25
+छब्बीस|சப்பீஸ்|chhabbees|இருபத்தாறு|26
+सत्ताईस|ஸத்தாயீஸ்|sattaayees|இருபத்தேழு|27
+अट्ठाईस|அட்டாயீஸ்|atthaayees|இருபத்தெட்டு|28
+उनतीस|உந்தீஸ்|untees|இருபத்தொன்பது|29
+इकतीस|இக்தீஸ்|iktees|முப்பத்தொன்று|31
+बत्तीस|பத்தீஸ்|battees|முப்பத்திரண்டு|32
+तैंतीस|தைந்தீஸ்|taintees|முப்பத்துமூன்று|33
+चौंतीस|சௌந்தீஸ்|chauntees|முப்பத்துநான்கு|34
+पैंतीस|பைந்தீஸ்|paintees|முப்பத்தைந்து|35
+छत्तीस|சத்தீஸ்|chhattees|முப்பத்தாறு|36
+सैंतीस|ஸைந்தீஸ்|saintees|முப்பத்தேழு|37
+अड़तीस|அட்தீஸ்|adtees|முப்பத்தெட்டு|38
+उनतालीस|உந்தாலீஸ்|untaalees|முப்பத்தொன்பது|39
+इकतालीस|இக்தாலீஸ்|iktaalees|நாற்பத்தொன்று|41
+बयालीस|பயாலீஸ்|bayaalees|நாற்பத்திரண்டு|42
+तैंतालीस|தைந்தாலீஸ்|taintaalees|நாற்பத்துமூன்று|43
+चवालीस|சவாலீஸ்|chavaalees|நாற்பத்துநான்கு|44
+पैंतालीस|பைந்தாலீஸ்|paintaalees|நாற்பத்தைந்து|45
+छियालीस|சியாலீஸ்|chhiyaalees|நாற்பத்தாறு|46
+सैंतालीस|ஸைந்தாலீஸ்|saintaalees|நாற்பத்தேழு|47
+अड़तालीस|அட்தாலீஸ்|adtaalees|நாற்பத்தெட்டு|48
+उनचास|உஞ்சாஸ்|unchaas|நாற்பத்தொன்பது|49
+इक्यावन|இக்யாவன்|ikyaavan|ஐம்பத்தொன்று|51
+बावन|பாவன்|baavan|ஐம்பத்திரண்டு|52
+तिरपन|திர்பன்|tirpan|ஐம்பத்துமூன்று|53
+चौवन|சௌவன்|chauvan|ஐம்பத்துநான்கு|54
+पचपन|பச்பன்|pachpan|ஐம்பத்தைந்து|55
+छप्पन|சப்பன்|chhappan|ஐம்பத்தாறு|56
+सत्तावन|ஸத்தாவன்|sattaavan|ஐம்பத்தேழு|57
+अट्ठावन|அட்டாவன்|atthaavan|ஐம்பத்தெட்டு|58
+उनसठ|உன்ஸட்|unsath|ஐம்பத்தொன்பது|59
+इकसठ|இக்ஸட்|iksath|அறுபத்தொன்று|61
+बासठ|பாஸட்|baasath|அறுபத்திரண்டு|62
+तिरसठ|திர்ஸட்|tirsath|அறுபத்துமூன்று|63
+चौंसठ|சௌன்ஸட்|chaunsath|அறுபத்துநான்கு|64
+पैंसठ|பைன்ஸட்|painsath|அறுபத்தைந்து|65
+छियासठ|சியாஸட்|chhiyaasath|அறுபத்தாறு|66
+सड़सठ|ஸட்ஸட்|sadsath|அறுபத்தேழு|67
+अड़सठ|அட்ஸட்|adsath|அறுபத்தெட்டு|68
+उनहत्तर|உன்ஹத்தர்|unhattar|அறுபத்தொன்பது|69
+इकहत्तर|இகத்தர்|ikhattar|எழுபத்தொன்று|71
+बहत्तर|பஹத்தர்|bahattar|எழுபத்திரண்டு|72
+तिहत्तर|திஹத்தர்|tihattar|எழுபத்துமூன்று|73
+चौहत्तर|சௌஹத்தர்|chauhattar|எழுபத்துநான்கு|74
+पचहत्तर|பசஹத்தர்|pachahattar|எழுபத்தைந்து|75
+छिहत्तर|சிஹத்தர்|chhihattar|எழுபத்தாறு|76
+सतहत्तर|ஸதஹத்தர்|satahattar|எழுபத்தேழு|77
+अठहत्तर|அடஹத்தர்|athahattar|எழுபத்தெட்டு|78
+उनासी|உனாஸீ|unaasee|எழுபத்தொன்பது|79
+इक्यासी|இக்யாஸீ|ikyaasee|எண்பத்தொன்று|81
+बयासी|பயாஸீ|bayaasee|எண்பத்திரண்டு|82
+तिरासी|திராஸீ|tiraasee|எண்பத்துமூன்று|83
+चौरासी|சௌராஸீ|chauraasee|எண்பத்துநான்கு|84
+पचासी|பசாஸீ|pachaasee|எண்பத்தைந்து|85
+छियासी|சியாஸீ|chhiyaasee|எண்பத்தாறு|86
+सत्तासी|ஸத்தாஸீ|sattaasee|எண்பத்தேழு|87
+अट्ठासी|அட்டாஸீ|atthaasee|எண்பத்தெட்டு|88
+नवासी|நவாஸீ|navaasee|எண்பத்தொன்பது|89
+इक्यानवे|இக்யானவே|ikyaanave|தொண்ணூற்றொன்று|91
+बानवे|பானவே|baanave|தொண்ணூற்றிரண்டு|92
+तिरानवे|திரானவே|tiraanave|தொண்ணூற்றுமூன்று|93
+चौरानवे|சௌரானவே|chauraanave|தொண்ணூற்றுநான்கு|94
+पचानवे|பசானவே|pachaanave|தொண்ணூற்றைந்து|95
+छियानवे|சியானவே|chhiyaanave|தொண்ணூற்றாறு|96
+सत्तानवे|ஸத்தானவே|sattaanave|தொண்ணூற்றேழு|97
+अट्ठानवे|அட்டானவே|atthaanave|தொண்ணூற்றெட்டு|98
+निन्यानवे|நின்யானவே|ninyaanave|தொண்ணூற்றொன்பது|99
+`, { note: 'இந்தியில் 21–99 வரை ஒவ்வொரு எண்ணுக்கும் தனிப்பெயர் உண்டு. விலை, நேரம், ஃபோன் எண் பேச இது முக்கியம்.' });
+
+sec('greet', 'words', 'வணக்கம் & அடிப்படை', 'Greetings & basics', `
+नमस्ते|நமஸ்தே|namaste|வணக்கம்|Hello / Greetings
+सुप्रभात|ஸுப்ரபாத்|suprabhaat|காலை வணக்கம்|Good morning
+शुभ रात्रि|ஷுப் ராத்ரீ|shubh raatree|இனிய இரவு|Good night
+स्वागत है|ஸ்வாகத் ஹை|swaagat hai|வரவேற்கிறோம்|Welcome
+धन्यवाद|தன்யவாத்|dhanyavaad|நன்றி|Thank you
+शुक्रिया|ஷுக்ரியா|shukriyaa|நன்றி (பேச்சு வழக்கு)|Thanks (informal)
+कृपया|க்ரிப்யா|kripyaa|தயவுசெய்து|Please
+माफ़ कीजिए|மாஃப் கீஜியே|maaf kijiye|மன்னிக்கவும்|Sorry / Excuse me
+हाँ|ஹான்|haan|ஆம்|Yes
+नहीं|நஹின்|nahin|இல்லை|No
+ठीक है|டீக் ஹை|theek hai|சரி|Okay / Fine
+कोई बात नहीं|கோயி பாத் நஹின்|koi baat nahin|பரவாயில்லை|No problem
+अलविदा|அல்விதா|alvidaa|போய் வருகிறேன்|Goodbye
+फिर मिलेंगे|பிர் மிலேங்கே|phir milenge|மீண்டும் சந்திப்போம்|See you again
+आप कैसे हैं?|ஆப் கைஸே ஹைன்?|aap kaise hain?|நீங்கள் எப்படி இருக்கிறீர்கள்?|How are you?
+मैं ठीक हूँ|மைன் டீக் ஹூன்|main theek hoon|நான் நலமாக இருக்கிறேன்|I am fine
+आपका नाम क्या है?|ஆப்கா நாம் க்யா ஹை?|aapkaa naam kyaa hai?|உங்கள் பெயர் என்ன?|What is your name?
+मेरा नाम ... है|மேரா நாம் ... ஹை|meraa naam ... hai|என் பெயர் ...|My name is ...|मेरा नाम रवि है
+नाम|நாம்|naam|பெயர்|Name
+`);
+
+sec('pron', 'words', 'பிரதிப்பெயர்கள்', 'Pronouns', `
+मैं|மைன்|main|நான்|I
+हम|ஹம்|ham|நாங்கள் / நாம்|We
+तू|தூ|too|நீ (மிக நெருக்கம்)|You (very intimate)
+तुम|தும்|tum|நீ / நீங்கள் (நட்பு)|You (informal)
+आप|ஆப்|aap|நீங்கள் (மரியாதை)|You (formal / respectful)
+वह / वो|வஹ் / வோ|vah / vo|அவன் / அவள் / அது|He / She / That
+वे|வே|ve|அவர்கள்|They
+यह / ये|யஹ் / யே|yah / ye|இவன் / இவள் / இது|He / She / This
+ये|யே|ye|இவர்கள் / இவை|These
+मेरा / मेरी|மேரா / மேரீ|meraa / meree|என்|My
+हमारा / हमारी|ஹமாரா / ஹமாரீ|hamaaraa / hamaaree|எங்கள் / நம்|Our
+तुम्हारा / तुम्हारी|தும்ஹாரா / தும்ஹாரீ|tumhaaraa / tumhaaree|உன்|Your (informal)
+आपका / आपकी|ஆப்கா / ஆப்கீ|aapkaa / aapkee|உங்கள்|Your (formal)
+उसका / उसकी|உஸ்கா / உஸ்கீ|uskaa / uskee|அவனுடைய / அவளுடைய|His / Her
+उनका / उनकी|உன்கா / உன்கீ|unkaa / unkee|அவர்களுடைய|Their
+मुझे|முஜே|mujhe|எனக்கு / என்னை|To me / Me
+तुम्हें|தும்ஹேன்|tumhen|உனக்கு / உன்னை|To you
+उसे|உஸே|use|அவனுக்கு / அவளுக்கு|To him / her
+हमें|ஹமேன்|hamen|எங்களுக்கு|To us
+ख़ुद|குத்|khud|தானே / சுயமாக|Self / oneself
+`);
+
+sec('ques', 'words', 'கேள்விச் சொற்கள்', 'Question words', `
+क्या|க்யா|kyaa|என்ன|What
+कौन|கௌன்|kaun|யார்|Who
+कहाँ|கஹான்|kahaan|எங்கே|Where
+कब|கப்|kab|எப்போது|When
+क्यों|க்யோன்|kyon|ஏன்|Why
+कैसे|கைஸே|kaise|எப்படி|How
+कितना / कितनी|கித்னா / கித்னீ|kitnaa / kitnee|எவ்வளவு|How much
+कितने|கித்னே|kitne|எத்தனை|How many
+कौन सा|கௌன் ஸா|kaun saa|எது|Which
+किसका|கிஸ்கா|kiskaa|யாருடைய|Whose
+कितने बजे|கித்னே பஜே|kitne baje|எத்தனை மணிக்கு|At what time
+कहाँ से|கஹான் ஸே|kahaan se|எங்கிருந்து|From where
+कहाँ तक|கஹான் தக்|kahaan tak|எவ்வளவு தூரம் / எதுவரை|Up to where
+`);
+
+sec('days', 'words', 'நாட்கள், மாதங்கள், நேரம்', 'Days, months & time', `
+सोमवार|ஸோம்வார்|somvaar|திங்கள்|Monday
+मंगलवार|மங்கல்வார்|mangalvaar|செவ்வாய்|Tuesday
+बुधवार|புத்வார்|budhvaar|புதன்|Wednesday
+गुरुवार|குருவார்|guruvaar|வியாழன்|Thursday
+शुक्रवार|ஷுக்ரவார்|shukravaar|வெள்ளி|Friday
+शनिवार|ஷனிவார்|shanivaar|சனி|Saturday
+रविवार|ரவிவார்|ravivaar|ஞாயிறு|Sunday
+जनवरी|ஜன்வரீ|janvaree|ஜனவரி|January
+फ़रवरी|ஃபர்வரீ|farvaree|பிப்ரவரி|February
+मार्च|மார்ச்|maarch|மார்ச்|March
+अप्रैल|அப்ரைல்|aprail|ஏப்ரல்|April
+मई|மை|mai|மே|May
+जून|ஜூன்|joon|ஜூன்|June
+जुलाई|ஜுலாயி|julaai|ஜூலை|July
+अगस्त|அகஸ்த்|agast|ஆகஸ்ட்|August
+सितंबर|ஸிதம்பர்|sitambar|செப்டம்பர்|September
+अक्टूबर|அக்டூபர்|aktoobar|அக்டோபர்|October
+नवंबर|நவம்பர்|navambar|நவம்பர்|November
+दिसंबर|திஸம்பர்|disambar|டிசம்பர்|December
+आज|ஆஜ்|aaj|இன்று|Today
+कल|கல்|kal|நேற்று / நாளை (சூழலைப் பொறுத்து)|Yesterday / Tomorrow (by context)
+परसों|பர்ஸோன்|parson|நாளை மறுநாள் / நேற்று முன்தினம்|Day after tomorrow / day before yesterday
+सुबह|ஸுபஹ்|subah|காலை|Morning
+दोपहर|தோபஹர்|dopahar|மதியம்|Afternoon
+शाम|ஷாம்|shaam|மாலை|Evening
+रात|ராத்|raat|இரவு|Night
+अभी|அபீ|abhee|இப்போது / இப்பொழுதே|Right now
+अब|அப்|ab|இப்போது|Now
+पहले|பஹ்லே|pahle|முன்பு|Before / Earlier
+बाद में|பாத் மேயின்|baad mein|பிறகு|Later / Afterwards
+हमेशा|ஹமேஷா|hameshaa|எப்போதும்|Always
+कभी कभी|கபீ கபீ|kabhee kabhee|சில சமயங்களில்|Sometimes
+कभी नहीं|கபீ நஹின்|kabhee nahin|ஒருபோதும் இல்லை|Never
+जल्दी|ஜல்தீ|jaldee|விரைவாக|Quickly / Early
+देर|தேர்|der|தாமதம்|Delay / Late
+समय|ஸமய்|samay|நேரம்|Time
+घंटा|கண்டா|ghantaa|மணி நேரம்|Hour
+मिनट|மினட்|minat|நிமிடம்|Minute
+दिन|தின்|din|நாள் / பகல்|Day
+सप्ताह|ஸப்தாஹ்|saptaah|வாரம்|Week
+महीना|மஹீனா|maheenaa|மாதம்|Month
+साल / वर्ष|ஸால் / வர்ஷ்|saal / varsh|வருடம்|Year
+बजे|பஜே|baje|மணிக்கு|O'clock
+`);
+
+sec('family', 'words', 'குடும்பமும் உறவுகளும்', 'Family & relations', `
+परिवार|பரிவார்|parivaar|குடும்பம்|Family
+माँ / माता|மா / மாதா|maa / maataa|அம்மா|Mother
+पिता / पापा|பிதா / பாபா|pitaa / paapaa|அப்பா|Father
+भाई|பாயி|bhaai|சகோதரன் / அண்ணன் / தம்பி|Brother
+बहन|பேஹேன்|behen|சகோதரி / அக்கா / தங்கை|Sister
+बेटा|பேடா|betaa|மகன்|Son
+बेटी|பேடீ|betee|மகள்|Daughter
+पति|பதீ|patee|கணவன்|Husband
+पत्नी|பத்னீ|patnee|மனைவி|Wife
+दादा|தாதா|daadaa|தாத்தா (அப்பாவின் அப்பா)|Paternal grandfather
+दादी|தாதீ|daadee|பாட்டி (அப்பாவின் அம்மா)|Paternal grandmother
+नाना|நானா|naanaa|தாத்தா (அம்மாவின் அப்பா)|Maternal grandfather
+नानी|நானீ|naanee|பாட்டி (அம்மாவின் அம்மா)|Maternal grandmother
+ताऊ|தாவு|taau|பெரியப்பா|Father's elder brother
+चाचा|சாசா|chaachaa|சித்தப்பா|Father's younger brother
+चाची|சாசீ|chaachee|சித்தி (சித்தப்பாவின் மனைவி)|Wife of father's younger brother
+बुआ|புயா|buaa|அத்தை (அப்பாவின் சகோதரி)|Father's sister
+मामा|மாமா|maamaa|மாமா (அம்மாவின் சகோதரன்)|Mother's brother
+मामी|மாமீ|maamee|மாமி|Wife of mother's brother
+मौसी|மௌஸீ|mausee|சித்தி / பெரியம்மா (அம்மாவின் சகோதரி)|Mother's sister
+दोस्त|தோஸ்த்|dost|நண்பன் / நண்பி|Friend
+बच्चा|பச்சா|bachchaa|குழந்தை|Child
+लड़का|லட்கா|ladkaa|பையன்|Boy
+लड़की|லட்கீ|ladkee|பெண் (சிறுமி)|Girl
+आदमी|ஆத்மீ|aadmee|ஆண் / மனிதன்|Man
+औरत|ஔரத்|aurat|பெண்மணி|Woman
+पड़ोसी|படோஸீ|padosee|அண்டை வீட்டார்|Neighbour
+मेहमान|மேஹ்மான்|mehmaan|விருந்தினர்|Guest
+`);
+
+sec('body', 'words', 'உடல் உறுப்புகள்', 'Body parts', `
+सिर|ஸிர்|sir|தலை|Head
+चेहरा|சேஹ்ரா|chehraa|முகம்|Face
+आँख|ஆன்க்|aankh|கண்|Eye
+कान|கான்|kaan|காது|Ear
+नाक|நாக்|naak|மூக்கு|Nose
+मुँह|முன்ஹ்|munh|வாய்|Mouth
+दाँत|தாந்த்|daant|பல்|Tooth
+जीभ|ஜீப்|jeebh|நாக்கு|Tongue
+बाल|பால்|baal|முடி|Hair
+गर्दन|கர்தன்|gardan|கழுத்து|Neck
+गला|கலா|galaa|தொண்டை|Throat
+कंधा|கந்தா|kandhaa|தோள்|Shoulder
+हाथ|ஹாத்|haath|கை|Hand / Arm
+उंगली|உங்க்லீ|unglee|விரல்|Finger
+पेट|பேட்|pet|வயிறு|Stomach
+पीठ|பீட்|peeth|முதுகு|Back
+दिल|தில்|dil|இதயம்|Heart
+पैर|பைர்|pair|கால்|Foot / Leg
+घुटना|குட்னா|ghutnaa|முழங்கால்|Knee
+त्वचा|த்வசா|tvachaa|தோல்|Skin
+हड्डी|ஹட்டீ|haddee|எலும்பு|Bone
+ख़ून|கூன்|khoon|இரத்தம்|Blood
+सिरदर्द|ஸிர்தர்த்|sirdard|தலைவலி|Headache
+बुख़ार|புகார்|bukhaar|காய்ச்சல்|Fever
+दवा|தவா|davaa|மருந்து|Medicine
+`);
+
+sec('colors', 'words', 'நிறங்கள்', 'Colours', `
+लाल|லால்|laal|சிவப்பு|Red
+नीला|நீலா|neelaa|நீலம்|Blue
+हरा|ஹரா|haraa|பச்சை|Green
+पीला|பீலா|peelaa|மஞ்சள்|Yellow
+काला|காலா|kaalaa|கருப்பு|Black
+सफ़ेद|ஸஃபேத்|safed|வெள்ளை|White
+नारंगी|நாரங்கீ|naarangee|ஆரஞ்சு|Orange
+गुलाबी|குலாபீ|gulaabee|இளஞ்சிவப்பு|Pink
+बैंगनी|பைங்க்னீ|baingnee|ஊதா|Purple
+भूरा|பூரா|bhooraa|பழுப்பு|Brown
+स्लेटी|ஸ்லடீ|slatee|சாம்பல் நிறம்|Grey
+सुनहरा|ஸுனஹ்ரா|sunahraa|தங்க நிறம்|Golden
+रंग|ரங்|rang|நிறம்|Colour
+`);
+
+sec('food', 'words', 'உணவும் பானமும்', 'Food & drink', `
+खाना|கானா|khaanaa|உணவு|Food / Meal
+पानी|பானீ|paanee|தண்ணீர்|Water
+रोटी|ரோடீ|rotee|ரொட்டி / சப்பாத்தி|Flatbread
+चावल|சாவல்|chaaval|அரிசி / சாதம்|Rice
+दाल|தால்|daal|பருப்பு|Lentils / Dal
+सब्ज़ी|ஸப்ஜீ|sabzee|காய்கறி|Vegetable / Curry
+फल|பல்|phal|பழம்|Fruit
+दूध|தூத்|doodh|பால்|Milk
+दही|தஹீ|dahee|தயிர்|Curd / Yogurt
+मक्खन|மக்கன்|makkhan|வெண்ணெய்|Butter
+चाय|சாய்|chaay|தேநீர்|Tea
+कॉफ़ी|கோஃபீ|kofee|காபி|Coffee
+नमक|நமக்|namak|உப்பு|Salt
+चीनी|சீனீ|cheenee|சர்க்கரை|Sugar
+मिर्च|மிர்ச்|mirch|மிளகாய்|Chilli
+तेल|தேல்|tel|எண்ணெய்|Oil
+अंडा|அண்டா|andaa|முட்டை|Egg
+मछली|மச்லீ|machhlee|மீன்|Fish
+मांस|மான்ஸ்|maans|இறைச்சி|Meat
+आलू|ஆலூ|aaloo|உருளைக்கிழங்கு|Potato
+प्याज़|ப்யாஜ்|pyaaz|வெங்காயம்|Onion
+टमाटर|டமாடர்|tamaatar|தக்காளி|Tomato
+लहसुन|லஹ்ஸுன்|lahsun|பூண்டு|Garlic
+अदरक|அத்ரக்|adrak|இஞ்சி|Ginger
+केला|கேலா|kelaa|வாழைப்பழம்|Banana
+आम|ஆம்|aam|மாம்பழம்|Mango
+सेब|ஸேப்|seb|ஆப்பிள்|Apple
+नारियल|நாரியல்|naariyal|தேங்காய்|Coconut
+मिठाई|மிடாயி|mithaai|இனிப்பு|Sweet (dessert)
+नाश्ता|நாஷ்தா|naashtaa|காலை உணவு|Breakfast
+दोपहर का खाना|தோபஹர் கா கானா|dopahar kaa khaanaa|மதிய உணவு|Lunch
+रात का खाना|ராத் கா கானா|raat kaa khaanaa|இரவு உணவு|Dinner
+भूख|பூக்|bhookh|பசி|Hunger
+प्यास|ப்யாஸ்|pyaas|தாகம்|Thirst
+`);
+
+sec('adj', 'words', 'பெயரடைகள் & விவரச் சொற்கள்', 'Adjectives & describing words', `
+अच्छा|அச்சா|achchhaa|நல்ல|Good
+बुरा|புரா|buraa|கெட்ட|Bad
+बड़ा|படா|badaa|பெரிய|Big
+छोटा|சோடா|chhotaa|சிறிய|Small
+लंबा|லம்பா|lambaa|நீளமான / உயரமான|Long / Tall
+मोटा|மோடா|motaa|தடிமனான / குண்டான|Thick / Fat
+पतला|பத்லா|patlaa|மெல்லிய / ஒல்லியான|Thin
+नया|நயா|nayaa|புதிய|New
+पुराना|புரானா|puraanaa|பழைய|Old (things)
+गरम|கரம்|garam|சூடான|Hot
+ठंडा|டண்டா|thandaa|குளிர்ந்த|Cold
+सुंदर|ஸுந்தர்|sundar|அழகான|Beautiful
+आसान|ஆஸான்|aasaan|எளிதான|Easy
+मुश्किल|முஷ்கில்|mushkil|கடினமான|Difficult
+सस्ता|ஸஸ்தா|sastaa|மலிவான|Cheap
+महँगा|மேஹ்ங்கா|mehngaa|விலை உயர்ந்த|Expensive
+तेज़|தேஜ்|tez|வேகமான / கூர்மையான|Fast / Sharp
+धीमा|தீமா|dheemaa|மெதுவான|Slow
+भारी|பாரீ|bhaaree|கனமான|Heavy
+हल्का|ஹல்கா|halkaa|இலேசான|Light
+खुश|குஷ்|khush|மகிழ்ச்சியான|Happy
+दुखी|துகீ|dukhee|வருத்தமான|Sad
+बीमार|பீமார்|beemaar|நோயுற்ற|Sick
+स्वस्थ|ஸ்வஸ்த்|swasth|ஆரோக்கியமான|Healthy
+सही|ஸஹீ|sahee|சரியான|Correct / Right
+गलत|கலத்|galat|தவறான|Wrong
+साफ़|ஸாஃப்|saaf|சுத்தமான|Clean
+गंदा|கந்தா|gandaa|அழுக்கான|Dirty
+मीठा|மீடா|meethaa|இனிப்பான|Sweet
+खट्टा|கட்டா|khattaa|புளிப்பான|Sour
+तीखा|தீகா|teekhaa|காரமான|Spicy
+कड़वा|கட்வா|kadvaa|கசப்பான|Bitter
+ख़ाली|காலீ|khaalee|காலியான|Empty
+भरा|பரா|bharaa|நிரம்பிய|Full
+ज़्यादा|ஜ்யாதா|zyaadaa|அதிகம்|More
+कम|கம்|kam|குறைவு|Less / Few
+थोड़ा|தோடா|thodaa|கொஞ்சம்|A little
+बहुत|பஹுத்|bahut|மிகவும் / நிறைய|Very / A lot
+सब|ஸப்|sab|எல்லாம்|All
+कुछ|குச்|kuchh|சில / ஏதாவது|Some / Something
+कोई|கோயி|koi|யாராவது / ஏதாவது|Anyone / Any
+हर|ஹர்|har|ஒவ்வொரு|Every
+ज़रूरी|ஜரூரீ|zarooree|அவசியமான|Necessary / Important
+अलग|அலக்|alag|தனியான / வேறுபட்ட|Separate / Different
+एक जैसा|ஏக் ஜைஸா|ek jaisaa|ஒரே மாதிரி|Same / Similar
+`);
+
+sec('places', 'words', 'இடங்களும் பொருட்களும்', 'Places & things', `
+घर|கர்|ghar|வீடு|House / Home
+कमरा|கம்ரா|kamraa|அறை|Room
+दरवाज़ा|தர்வாஜா|darvaazaa|கதவு|Door
+खिड़की|கிட்கீ|khidkee|ஜன்னல்|Window
+रसोई|ரஸோயீ|rasoee|சமையலறை|Kitchen
+बिस्तर|பிஸ்தர்|bistar|படுக்கை|Bed
+कुर्सी|குர்ஸீ|kursee|நாற்காலி|Chair
+मेज़|மேஜ்|mez|மேசை|Table
+किताब|கிதாப்|kitaab|புத்தகம்|Book
+कलम|கலம்|kalam|பேனா|Pen
+काग़ज़|காகஜ்|kaagaz|காகிதம்|Paper
+थैला|தைலா|thailaa|பை|Bag
+चाबी|சாபீ|chaabee|சாவி|Key
+ताला|தாலா|taalaa|பூட்டு|Lock
+फ़ोन|ஃபோன்|fon|தொலைபேசி|Phone
+घड़ी|கடீ|ghadee|கடிகாரம்|Watch / Clock
+पैसा|பைஸா|paisaa|பணம்|Money
+कपड़े|கப்டே|kapde|துணிகள்|Clothes
+जूते|ஜூதே|joote|காலணிகள்|Shoes
+चश्मा|சஷ்மா|chashmaa|கண்ணாடி (கண்)|Spectacles
+छाता|சாதா|chhaataa|குடை|Umbrella
+सामान|ஸாமான்|saamaan|பொருட்கள் / சாமான்|Goods / Luggage
+गाड़ी|காடீ|gaadee|வண்டி / கார்|Vehicle / Car
+साइकिल|ஸாயிகில்|saaikil|சைக்கிள்|Bicycle
+बस|பஸ்|bas|பேருந்து|Bus
+रेल / ट्रेन|ரேல் / ட்ரேன்|rel / tren|ரயில்|Train
+हवाई जहाज़|ஹவாயீ ஜஹாஜ்|havaaee jahaaz|விமானம்|Aeroplane
+सड़क|ஸடக்|sadak|சாலை|Road
+रास्ता|ராஸ்தா|raastaa|பாதை / வழி|Way / Path
+शहर|ஷேஹர்|shehar|நகரம்|City
+गाँव|கான்வ்|gaanv|கிராமம்|Village
+देश|தேஷ்|desh|நாடு|Country
+दुकान|துகான்|dukaan|கடை|Shop
+बाज़ार|பாஜார்|baazaar|சந்தை|Market
+स्कूल|ஸ்கூல்|skool|பள்ளி|School
+दफ़्तर|தஃப்தர்|daftar|அலுவலகம்|Office
+अस्पताल|அஸ்பதால்|aspataal|மருத்துவமனை|Hospital
+मंदिर|மந்திர்|mandir|கோவில்|Temple
+बैंक|பைங்க்|baink|வங்கி|Bank
+स्टेशन|ஸ்டேஷன்|steshan|நிலையம்|Station
+होटल|ஹோடல்|hotal|ஹோட்டல்|Hotel
+शौचालय|ஷௌசாலய்|shauchaalay|கழிவறை|Toilet
+जगह|ஜகஹ்|jagah|இடம்|Place / Space
+`);
+
+sec('nature', 'words', 'இயற்கையும் விலங்குகளும்', 'Nature & animals', `
+नदी|நதீ|nadee|ஆறு|River
+समुद्र|ஸமுத்ர்|samudr|கடல்|Sea
+पहाड़|பஹாட்|pahaad|மலை|Mountain
+पेड़|பேட்|ped|மரம்|Tree
+फूल|பூல்|phool|பூ|Flower
+सूरज|ஸூரஜ்|sooraj|சூரியன்|Sun
+चाँद|சாந்த்|chaand|நிலா|Moon
+तारा|தாரா|taaraa|நட்சத்திரம்|Star
+आसमान|ஆஸ்மான்|aasmaan|வானம்|Sky
+बारिश|பாரிஷ்|baarish|மழை|Rain
+हवा|ஹவா|havaa|காற்று|Wind / Air
+धूप|தூப்|dhoop|வெயில்|Sunshine
+आग|ஆக்|aag|நெருப்பு|Fire
+मिट्टी|மிட்டீ|mittee|மண்|Soil
+मौसम|மௌஸம்|mausam|வானிலை / பருவம்|Weather / Season
+कुत्ता|குத்தா|kuttaa|நாய்|Dog
+बिल्ली|பில்லீ|billee|பூனை|Cat
+गाय|காய்|gaay|பசு|Cow
+घोड़ा|கோடா|ghodaa|குதிரை|Horse
+चिड़िया|சிடியா|chidiyaa|பறவை / சிட்டுக்குருவி|Bird
+हाथी|ஹாதீ|haathee|யானை|Elephant
+शेर|ஷேர்|sher|சிங்கம்|Lion
+`);
+
+sec('dir', 'words', 'இடம் & திசைச் சொற்கள்', 'Direction & position', `
+यहाँ|யஹான்|yahaan|இங்கே|Here
+वहाँ|வஹான்|vahaan|அங்கே|There
+दाएँ|தாயேன்|daayen|வலது|Right
+बाएँ|பாயேன்|baayen|இடது|Left
+सीधा|ஸீதா|seedhaa|நேராக|Straight
+पास|பாஸ்|paas|அருகில்|Near
+दूर|தூர்|door|தொலைவில்|Far
+ऊपर|ஊபர்|oopar|மேலே|Up / Above
+नीचे|நீசே|neeche|கீழே|Down / Below
+आगे|ஆகே|aage|முன்னால்|Ahead / In front
+पीछे|பீசே|peechhe|பின்னால்|Behind
+अंदर|அந்தர்|andar|உள்ளே|Inside
+बाहर|பாஹர்|baahar|வெளியே|Outside
+बीच में|பீச் மேயின்|beech mein|நடுவில்|In the middle
+सामने|ஸாம்னே|saamne|எதிரில்|In front of / Opposite
+`);
+
+sec('conn', 'words', 'இணைப்புச் சொற்கள் & வேற்றுமை உருபுகள்', 'Connectors & postpositions', `
+में|மேயின்|mein|இல்|In
+पर|பர்|par|மேல் / இல்|On / At
+से|ஸே|se|இருந்து / ஆல் / உடன்|From / By / With
+को|கோ|ko|க்கு / ஐ|To (object marker)
+का / की / के|கா / கீ / கே|kaa / kee / ke|உடைய / இன்|Of (possessive)
+तक|தக்|tak|வரை|Until / Up to
+के साथ|கே ஸாத்|ke saath|உடன்|With (accompanied by)
+के बिना|கே பினா|ke binaa|இல்லாமல்|Without
+के लिए|கே லியே|ke liye|க்காக|For
+के पास|கே பாஸ்|ke paas|அருகில் / கையில்|Near / Possessing
+और|ஔர்|aur|மற்றும் / மேலும்|And / More
+या|யா|yaa|அல்லது|Or
+लेकिन|லேகின்|lekin|ஆனால்|But
+क्योंकि|க்யோங்கி|kyonki|ஏனெனில்|Because
+इसलिए|இஸ்லியே|isliye|அதனால்|Therefore
+अगर|அகர்|agar|என்றால் / ஒருவேளை|If
+तो|தோ|to|அப்படியென்றால் / எனவே|Then / So
+भी|பீ|bhee|உம் (கூட)|Also / Too
+ही|ஹீ|hee|தான் / ஏ (அழுத்தம்)|Only / Emphasis
+सिर्फ़|ஸிர்ஃப்|sirf|மட்டும்|Only / Just
+फिर|பிர்|phir|பிறகு / மீண்டும்|Then / Again
+अभी तक|அபீ தக்|abhee tak|இன்னும் / இதுவரை|Still / Until now
+बिलकुल|பில்குல்|bilkul|முற்றிலும்|Absolutely
+शायद|ஷாயத்|shaayad|ஒருவேளை|Maybe
+ज़रूर|ஜரூர்|zaroor|கண்டிப்பாக|Certainly
+`);
+
+sec('work', 'words', 'வேலை & அன்றாடம்', 'Work & daily life', `
+काम|காம்|kaam|வேலை|Work
+नौकरी|நௌக்ரீ|naukree|வேலை (பணி)|Job
+मालिक|மாலிக்|maalik|முதலாளி / உரிமையாளர்|Owner / Boss
+कर्मचारी|கர்ம்சாரீ|karmchaaree|ஊழியர்|Employee
+वेतन / तनख़्वाह|வேதன் / தங்க்வாஹ்|vetan / tankhwaah|சம்பளம்|Salary
+छुट्टी|சுட்டீ|chhuttee|விடுமுறை|Holiday / Leave
+बात|பாத்|baat|விஷயம் / பேச்சு|Matter / Talk
+सवाल / प्रश्न|ஸவால் / ப்ரஷ்ன்|savaal / prashn|கேள்வி|Question
+जवाब / उत्तर|ஜவாப் / உத்தர்|javaab / uttar|பதில்|Answer
+समस्या|ஸமஸ்யா|samasyaa|பிரச்சினை|Problem
+मदद|மதத்|madad|உதவி|Help
+शुरू|ஷுரூ|shuroo|தொடக்கம்|Start / Begin
+ख़त्म|கதம்|khatam|முடிவு / முடிந்தது|End / Finished
+मतलब|மத்லப்|matlab|அர்த்தம்|Meaning
+सच|ஸச்|sach|உண்மை|Truth
+झूठ|ஜூட்|jhooth|பொய்|Lie
+दिक्क़त|திக்கத்|dikkat|சிரமம்|Difficulty / Trouble
+`);
+
+sec('tobe', 'grammar', "'இருக்கிறேன்' – होना (to be)", 'To be: present, past, future', `
+मैं हूँ|மைன் ஹூன்|main hoon|நான் இருக்கிறேன்|I am
+तुम हो|தும் ஹோ|tum ho|நீ இருக்கிறாய்|You are (informal)
+आप हैं|ஆப் ஹைன்|aap hain|நீங்கள் இருக்கிறீர்கள்|You are (formal)
+वह है|வஹ் ஹை|vah hai|அவன் / அவள் / அது இருக்கிறது|He / She / It is
+हम हैं|ஹம் ஹைன்|ham hain|நாங்கள் இருக்கிறோம்|We are
+वे हैं|வே ஹைன்|ve hain|அவர்கள் இருக்கிறார்கள்|They are
+मैं था / थी|மைன் தா / தீ|main thaa / thee|நான் இருந்தேன் (♂ / ♀)|I was
+तुम थे / थीं|தும் தே / தீன்|tum the / theen|நீ இருந்தாய் (♂ / ♀)|You were
+आप थे|ஆப் தே|aap the|நீங்கள் இருந்தீர்கள்|You were (formal)
+वह था / थी|வஹ் தா / தீ|vah thaa / thee|அவன் / அவள் இருந்தான் / இருந்தாள்|He / She was
+हम थे|ஹம் தே|ham the|நாங்கள் இருந்தோம்|We were
+वे थे|வே தே|ve the|அவர்கள் இருந்தார்கள்|They were
+मैं होऊँगा|மைன் ஹூங்கா|main hoongaa|நான் இருப்பேன்|I will be (♂)
+तुम होगे|தும் ஹோகே|tum hoge|நீ இருப்பாய்|You will be
+आप होंगे|ஆப் ஹோங்கே|aap honge|நீங்கள் இருப்பீர்கள்|You will be (formal)
+वह होगा / होगी|வஹ் ஹோகா / ஹோகீ|vah hogaa / hogee|அவன் / அவள் இருப்பான் / இருப்பாள்|He / She will be
+हम होंगे|ஹம் ஹோங்கே|ham honge|நாங்கள் இருப்போம்|We will be
+वे होंगे|வே ஹோங்கே|ve honge|அவர்கள் இருப்பார்கள்|They will be
+मेरे पास किताब है।|மேரே பாஸ் கிதாப் ஹை.|mere paas kitaab hai.|என்னிடம் புத்தகம் இருக்கிறது.|I have a book. (mere paas = with me)
+उसके पास गाड़ी है।|உஸ்கே பாஸ் காடீ ஹை.|uske paas gaadee hai.|அவனிடம் / அவளிடம் வண்டி இருக்கிறது.|He / She has a car.
+मेरे पास समय नहीं है।|மேரே பாஸ் ஸமய் நஹின் ஹை.|mere paas samay nahin hai.|என்னிடம் நேரம் இல்லை.|I don't have time.
+`);
+
+sec('grammar', 'grammar', 'இலக்கணக் குறிப்புகள்', 'Grammar basics & examples', `
+मैं चाय पीता हूँ।|மைன் சாய் பீதா ஹூன்.|main chaay peetaa hoon.|நான் தேநீர் குடிக்கிறேன்.|I drink tea. (male)
+मैं चाय पीती हूँ।|மைன் சாய் பீதீ ஹூன்.|main chaay peetee hoon.|நான் தேநீர் குடிக்கிறேன்.|I drink tea. (female)
+वह स्कूल जाता है।|வஹ் ஸ்கூல் ஜாதா ஹை.|vah skool jaataa hai.|அவன் பள்ளிக்குப் போகிறான்.|He goes to school.
+वह स्कूल जाती है।|வஹ் ஸ்கூல் ஜாதீ ஹை.|vah skool jaatee hai.|அவள் பள்ளிக்குப் போகிறாள்.|She goes to school.
+मैं खाना खा रहा हूँ।|மைன் கானா கா ரஹா ஹூன்.|main khaanaa khaa rahaa hoon.|நான் சாப்பிட்டுக்கொண்டிருக்கிறேன்.|I am eating. (continuous)
+मैं घर गया।|மைன் கர் கயா.|main ghar gayaa.|நான் வீட்டுக்குப் போனேன்.|I went home. (past)
+मैंने खाना खाया।|மைன்னே கானா காயா.|mainne khaanaa khaayaa.|நான் சாப்பிட்டேன்.|I ate food. (past, with 'ne')
+मैं कल जाऊँगा।|மைன் கல் ஜாவூங்கா.|main kal jaaoongaa.|நான் நாளை போவேன்.|I will go tomorrow. (future)
+मैं नहीं जाता।|மைன் நஹின் ஜாதா.|main nahin jaataa.|நான் போவதில்லை.|I don't go. (negative)
+घर में|கர் மேயின்|ghar mein|வீட்டில்|In the house
+मेज़ पर|மேஜ் பர்|mez par|மேசையில் / மேசை மேல்|On the table
+दोस्त के साथ|தோஸ்த் கே ஸாத்|dost ke saath|நண்பனுடன்|With a friend
+मेरा घर|மேரா கர்|meraa ghar|என் வீடு|My house
+मेरी किताब|மேரீ கிதாப்|meree kitaab|என் புத்தகம்|My book
+`);
+
+sec('patterns', 'grammar', 'வாக்கிய அச்சுகள்', 'Sentence patterns', `
+मुझे ... चाहिए।|முஜே ... சாஹியே.|mujhe ... chaahiye.|எனக்கு ... வேண்டும்.|I need ...|मुझे चाय चाहिए
+मुझे चाय चाहिए।|முஜே சாய் சாஹியே.|mujhe chaay chaahiye.|எனக்குத் தேநீர் வேண்டும்.|I need tea.
+मुझे आपकी मदद चाहिए।|முஜே ஆப்கீ மதத் சாஹியே.|mujhe aapkee madad chaahiye.|எனக்கு உங்கள் உதவி வேண்டும்.|I need your help.
+मुझे ... आता है।|முஜே ... ஆதா ஹை.|mujhe ... aataa hai.|எனக்கு ... தெரியும் (செய்யத் தெரியும்).|I know how to ...|मुझे खाना बनाना आता है
+मुझे खाना बनाना आता है।|முஜே கானா பனானா ஆதா ஹை.|mujhe khaanaa banaanaa aataa hai.|எனக்குச் சமைக்கத் தெரியும்.|I know how to cook.
+मुझे गाड़ी चलाना आता है।|முஜே காடீ சலானா ஆதா ஹை.|mujhe gaadee chalaanaa aataa hai.|எனக்கு வண்டி ஓட்டத் தெரியும்.|I know how to drive.
+मैं ... चाहता हूँ।|மைன் ... சாஹ்தா ஹூன்.|main ... chaahtaa hoon.|நான் ... விரும்புகிறேன்.|I want to ...|मैं पानी चाहता हूँ
+मैं हिंदी में बात करना चाहता हूँ।|மைன் ஹிந்தீ மேயின் பாத் கர்னா சாஹ்தா ஹூன்.|main hindee mein baat karnaa chaahtaa hoon.|நான் இந்தியில் பேச விரும்புகிறேன்.|I want to talk in Hindi.
+मैं आपसे कुछ पूछना चाहता हूँ।|மைன் ஆப்ஸே குச் பூச்னா சாஹ்தா ஹூன்.|main aapse kuchh poochhnaa chaahtaa hoon.|நான் உங்களிடம் ஒன்று கேட்க விரும்புகிறேன்.|I want to ask you something.
+क्या मैं ... सकता हूँ?|க்யா மைன் ... ஸக்தா ஹூன்?|kyaa main ... saktaa hoon?|நான் ... செய்யலாமா?|Can I ...?|क्या मैं जा सकता हूँ
+क्या मैं अंदर आ सकता हूँ?|க்யா மைன் அந்தர் ஆ ஸக்தா ஹூன்?|kyaa main andar aa saktaa hoon?|நான் உள்ளே வரலாமா?|May I come in?
+क्या मैं यहाँ बैठ सकता हूँ?|க்யா மைன் யஹான் பைட் ஸக்தா ஹூன்?|kyaa main yahaan baith saktaa hoon?|நான் இங்கே உட்காரலாமா?|May I sit here?
+क्या आप ... सकते हैं?|க்யா ஆப் ... ஸக்தே ஹைன்?|kyaa aap ... sakte hain?|நீங்கள் ... செய்ய முடியுமா?|Can you ...?|क्या आप आ सकते हैं
+क्या आप धीरे बोल सकते हैं?|க்யா ஆப் தீரே போல் ஸக்தே ஹைன்?|kyaa aap dheere bol sakte hain?|நீங்கள் மெதுவாகப் பேச முடியுமா?|Can you speak slowly?
+मैं ... सकता हूँ / नहीं सकता।|மைன் ... ஸக்தா ஹூன் / நஹின் ஸக்தா.|main ... saktaa hoon / nahin saktaa.|என்னால் ... முடியும் / முடியாது.|I can / cannot ...|मैं जा सकता हूँ
+मैं यह नहीं कर सकता।|மைன் யஹ் நஹின் கர் ஸக்தா.|main yah nahin kar saktaa.|என்னால் இதைச் செய்ய முடியாது.|I cannot do this.
+... कहाँ है?|... கஹான் ஹை?|... kahaan hai?|... எங்கே?|Where is ...?|घर कहाँ है
+बस स्टॉप कहाँ है?|பஸ் ஸ்டோப் கஹான் ஹை?|bas stop kahaan hai?|பேருந்து நிறுத்தம் எங்கே?|Where is the bus stop?
+मुझे ... पसंद है।|முஜே ... பஸந்த் ஹை.|mujhe ... pasand hai.|எனக்கு ... பிடிக்கும்.|I like ...|मुझे चाय पसंद है
+मुझे संगीत पसंद है।|முஜே ஸங்கீத் பஸந்த் ஹை.|mujhe sangeet pasand hai.|எனக்கு இசை பிடிக்கும்.|I like music.
+मुझे यह रंग पसंद नहीं है।|முஜே யஹ் ரங் பஸந்த் நஹின் ஹை.|mujhe yah rang pasand nahin hai.|எனக்கு இந்த நிறம் பிடிக்கவில்லை.|I don't like this colour.
+मुझे ... जाना है।|முஜே ... ஜானா ஹை.|mujhe ... jaanaa hai.|நான் ... போக வேண்டும்.|I have to go to ...|मुझे घर जाना है
+मुझे बाज़ार जाना है।|முஜே பாஜார் ஜானா ஹை.|mujhe baazaar jaanaa hai.|நான் சந்தைக்குப் போக வேண்டும்.|I have to go to the market.
+मुझे काम करना है।|முஜே காம் கர்னா ஹை.|mujhe kaam karnaa hai.|நான் வேலை செய்ய வேண்டும்.|I have to work.
+आपको ... चाहिए।|ஆப்கோ ... சாஹியே.|aapko ... chaahiye.|நீங்கள் ... செய்ய வேண்டும்.|You should ...|आपको जाना चाहिए
+आपको आराम करना चाहिए।|ஆப்கோ ஆராம் கர்னா சாஹியே.|aapko aaraam karnaa chaahiye.|நீங்கள் ஓய்வெடுக்க வேண்டும்.|You should rest.
+खाने के बाद|கானே கே பாத்|khaane ke baad|சாப்பிட்ட பிறகு|After eating
+सोने से पहले|ஸோனே ஸே பஹ்லே|sone se pahle|தூங்குவதற்கு முன்பு|Before sleeping
+मैं देर से आया क्योंकि बारिश हो रही थी।|மைன் தேர் ஸே ஆயா க்யோங்கி பாரிஷ் ஹோ ரஹீ தீ.|main der se aayaa kyonki baarish ho rahee thee.|நான் தாமதமாக வந்தேன், ஏனெனில் மழை பெய்துகொண்டிருந்தது.|I came late because it was raining.
+`, { note: 'இந்த அச்சுகளில் ... இடத்தில் வேறு சொல்லைப் போட்டுப் பேசிப் பழகுங்கள்.' });
+
+sec('intro', 'talk', 'அறிமுகம் & பேச்சுத் தொடக்கம்', 'Introductions & small talk', `
+आपसे मिलकर अच्छा लगा।|ஆப்ஸே மில்கர் அச்சா லகா.|aapse milkar achchhaa lagaa.|உங்களைச் சந்தித்தது மகிழ்ச்சி.|Nice to meet you.
+आप कहाँ से हैं?|ஆப் கஹான் ஸே ஹைன்?|aap kahaan se hain?|நீங்கள் எங்கிருந்து வருகிறீர்கள்?|Where are you from?
+मैं तमिलनाडु से हूँ।|மைன் தமில்நாடு ஸே ஹூன்.|main tamilnaadu se hoon.|நான் தமிழ்நாட்டிலிருந்து வருகிறேன்.|I am from Tamil Nadu.
+मेरी मातृभाषा तमिल है।|மேரீ மாத்ரிபாஷா தமில் ஹை.|meree maatribhaashaa tamil hai.|என் தாய்மொழி தமிழ்.|My mother tongue is Tamil.
+मैं अभी हिंदी सीख रहा हूँ, इसलिए गलती हो सकती है।|மைன் அபீ ஹிந்தீ ஸீக் ரஹா ஹூன், இஸ்லியே கல்தீ ஹோ ஸக்தீ ஹை.|main abhee hindee seekh rahaa hoon, isliye galtee ho saktee hai.|நான் இப்போதுதான் இந்தி கற்றுக்கொள்கிறேன், அதனால் தவறு இருக்கலாம்.|I'm still learning Hindi, so there may be mistakes.
+आपकी हिंदी बहुत अच्छी है।|ஆப்கீ ஹிந்தீ பஹுத் அச்சீ ஹை.|aapkee hindee bahut achchhee hai.|உங்கள் இந்தி மிகவும் நன்றாக இருக்கிறது.|Your Hindi is very good.
+क्या आप शादीशुदा हैं?|க்யா ஆப் ஷாதீஷுதா ஹைன்?|kyaa aap shaadeeshudaa hain?|நீங்கள் திருமணமானவரா?|Are you married?
+आपके कितने बच्चे हैं?|ஆப்கே கித்னே பச்சே ஹைன்?|aapke kitne bachche hain?|உங்களுக்கு எத்தனை குழந்தைகள்?|How many children do you have?
+आपकी उम्र कितनी है?|ஆப்கீ உம்ர் கித்னீ ஹை?|aapkee umr kitnee hai?|உங்கள் வயது என்ன?|How old are you?
+मेरी उम्र बीस साल है।|மேரீ உம்ர் பீஸ் ஸால் ஹை.|meree umr bees saal hai.|என் வயது இருபது ஆண்டுகள்.|I am twenty years old.
+आपका फ़ोन नंबर क्या है?|ஆப்கா ஃபோன் நம்பர் க்யா ஹை?|aapkaa fon nambar kyaa hai?|உங்கள் தொலைபேசி எண் என்ன?|What is your phone number?
+बहुत दिनों बाद मिले!|பஹுத் தினோன் பாத் மிலே!|bahut dinon baad mile!|நீண்ட நாட்களுக்குப் பிறகு சந்திக்கிறோம்!|Long time no see!
+सब ठीक है?|ஸப் டீக் ஹை?|sab theek hai?|எல்லாம் நலமா?|Is everything fine?
+घर में सब कैसे हैं?|கர் மேயின் ஸப் கைஸே ஹைன்?|ghar mein sab kaise hain?|வீட்டில் எல்லோரும் எப்படி இருக்கிறார்கள்?|How is everyone at home?
+आपसे बात करके अच्छा लगा।|ஆப்ஸே பாத் கர்கே அச்சா லகா.|aapse baat karke achchhaa lagaa.|உங்களுடன் பேசியது மகிழ்ச்சி.|Nice talking to you.
+फिर मिलते हैं।|பிர் மில்தே ஹைன்.|phir milte hain.|மீண்டும் சந்திப்போம்.|Let's meet again.
+अपना ध्यान रखिए।|அப்னா த்யான் ரகியே.|apnaa dhyaan rakhiye.|உங்களைப் பார்த்துக்கொள்ளுங்கள்.|Take care.
+जन्मदिन की शुभकामनाएँ!|ஜன்மதின் கீ ஷுப்காம்னாயேன்!|janmadin kee shubhkaamnaaen!|பிறந்தநாள் வாழ்த்துகள்!|Happy birthday!
+`);
+
+sec('clock', 'talk', 'நேரம் சொல்லுதல்', 'Telling the time & days', `
+अभी कितने बजे हैं?|அபீ கித்னே பஜே ஹைன்?|abhee kitne baje hain?|இப்போது மணி என்ன?|What time is it now?
+दो बजे हैं।|தோ பஜே ஹைன்.|do baje hain.|இரண்டு மணி.|It is 2 o'clock.
+सवा दो बजे हैं।|ஸவா தோ பஜே ஹைன்.|savaa do baje hain.|இரண்டேகால் மணி (2:15).|It is 2:15.
+ढाई बजे हैं।|டாயீ பஜே ஹைன்.|dhaaee baje hain.|இரண்டரை மணி (2:30).|It is 2:30.
+पौने तीन बजे हैं।|பௌனே தீன் பஜே ஹைன்.|paune teen baje hain.|மூன்றுக்குக் கால் குறைவு (2:45).|It is 2:45 (quarter to three).
+साढ़े नौ बजे|ஸாடே நௌ பஜே|saadhe nau baje|ஒன்பதரை மணி|At 9:30
+सुबह आठ बजे|ஸுபஹ் ஆட் பஜே|subah aath baje|காலை எட்டு மணிக்கு|At 8 in the morning
+शाम को पाँच बजे|ஷாம் கோ பாஞ்ச் பஜே|shaam ko paanch baje|மாலை ஐந்து மணிக்கு|At 5 in the evening
+आज कौन सा दिन है?|ஆஜ் கௌன் ஸா தின் ஹை?|aaj kaun saa din hai?|இன்று என்ன கிழமை?|What day is it today?
+आज सोमवार है।|ஆஜ் ஸோம்வார் ஹை.|aaj somvaar hai.|இன்று திங்கட்கிழமை.|Today is Monday.
+मैं रोज़ सुबह छह बजे उठता हूँ।|மைன் ரோஜ் ஸுபஹ் சஹ் பஜே உட்தா ஹூன்.|main roz subah chhah baje uthtaa hoon.|நான் தினமும் காலை ஆறு மணிக்கு எழுகிறேன்.|I get up at 6 every morning.
+कल मिलते हैं।|கல் மில்தே ஹைன்.|kal milte hain.|நாளை சந்திப்போம்.|See you tomorrow.
+मैं दस मिनट में पहुँच जाऊँगा।|மைன் தஸ் மினட் மேயின் பஹுஞ்ச் ஜாவூங்கா.|main das minat mein pahunch jaaoongaa.|நான் பத்து நிமிடத்தில் வந்துவிடுவேன்.|I will reach in ten minutes.
+`);
+
+sec('shop', 'talk', 'கடை & பேரம் பேசுதல்', 'Shopping & bargaining', `
+इसकी क्या कीमत है?|இஸ்கீ க்யா கீமத் ஹை?|iskee kyaa keemat hai?|இதன் விலை என்ன?|What is its price?
+कोई छूट मिलेगी?|கோயி சூட் மிலேகீ?|koi chhoot milegee?|ஏதாவது தள்ளுபடி கிடைக்குமா?|Will there be any discount?
+आख़िरी दाम क्या है?|ஆகிரீ தாம் க்யா ஹை?|aakhiree daam kyaa hai?|கடைசி விலை என்ன?|What is the final price?
+बहुत ज़्यादा है, थोड़ा कम कीजिए।|பஹுத் ஜ்யாதா ஹை, தோடா கம் கீஜியே.|bahut zyaadaa hai, thodaa kam keejiye.|மிக அதிகம், கொஞ்சம் குறையுங்கள்.|It's too much, please reduce a little.
+मैं सौ रुपये दूँगा।|மைன் ஸௌ ருபயே தூங்கா.|main sau rupaye doongaa.|நான் நூறு ரூபாய் தருவேன்.|I will give a hundred rupees.
+मुझे यह चाहिए।|முஜே யஹ் சாஹியே.|mujhe yah chaahiye.|எனக்கு இது வேண்டும்.|I want this.
+दूसरा रंग दिखाइए।|தூஸ்ரா ரங் திகாயியே.|doosraa rang dikhaaiye.|வேறு நிறம் காட்டுங்கள்.|Show another colour.
+क्या बड़ा साइज़ है?|க்யா படா ஸாயிஜ் ஹை?|kyaa badaa saaiz hai?|பெரிய அளவு இருக்கிறதா?|Do you have a bigger size?
+मैं बस देख रहा हूँ।|மைன் பஸ் தேக் ரஹா ஹூன்.|main bas dekh rahaa hoon.|நான் சும்மா பார்க்கிறேன்.|I am just looking.
+इसे पैक कर दीजिए।|இஸே பைக் கர் தீஜியே.|ise paik kar deejiye.|இதைப் பேக் செய்து கொடுங்கள்.|Please pack this.
+बिल दीजिए।|பில் தீஜியே.|bil deejiye.|பில் கொடுங்கள்.|Give me the bill.
+क्या आप कार्ड लेते हैं?|க்யா ஆப் கார்ட் லேதே ஹைன்?|kyaa aap kaard lete hain?|நீங்கள் கார்டு ஏற்கிறீர்களா?|Do you accept cards?
+यूपीआई से पेमेंट हो जाएगा?|யூபீஆயீ ஸே பேமேண்ட் ஹோ ஜாயேகா?|yoopeeaaee se pement ho jaayegaa?|UPI மூலம் பணம் செலுத்தலாமா?|Can I pay by UPI?
+खुले पैसे हैं?|குலே பைஸே ஹைன்?|khule paise hain?|சில்லறை இருக்கிறதா?|Do you have change?
+यह ख़राब है।|யஹ் கராப் ஹை.|yah kharaab hai.|இது பழுதடைந்திருக்கிறது.|This is damaged.
+मुझे यह बदलना है।|முஜே யஹ் பதல்னா ஹை.|mujhe yah badalnaa hai.|நான் இதை மாற்ற வேண்டும்.|I want to exchange this.
+`);
+
+sec('travel', 'talk', 'பயணம் & வழி கேட்டல்', 'Travel & directions', `
+स्टेशन का रास्ता किधर है?|ஸ்டேஷன் கா ராஸ்தா கிதர் ஹை?|steshan kaa raastaa kidhar hai?|நிலையத்துக்கு வழி எந்தப் பக்கம்?|Which way is the station?
+सीधे जाइए।|ஸீதே ஜாயியே.|seedhe jaaiye.|நேராகப் போங்கள்.|Go straight.
+दाएँ मुड़िए।|தாயேன் முடியே.|daayen mudiye.|வலப்பக்கம் திரும்புங்கள்.|Turn right.
+बाएँ मुड़िए।|பாயேன் முடியே.|baayen mudiye.|இடப்பக்கம் திரும்புங்கள்.|Turn left.
+यहाँ से कितनी दूर है?|யஹான் ஸே கித்னீ தூர் ஹை?|yahaan se kitnee door hai?|இங்கிருந்து எவ்வளவு தூரம்?|How far is it from here?
+पैदल कितना समय लगेगा?|பைதல் கித்னா ஸமய் லகேகா?|paidal kitnaa samay lagegaa?|நடந்து போக எவ்வளவு நேரமாகும்?|How long on foot?
+अगली बस कब आएगी?|அகலீ பஸ் கப் ஆயேகீ?|agalee bas kab aayegee?|அடுத்த பேருந்து எப்போது வரும்?|When will the next bus come?
+यह ट्रेन कहाँ जाती है?|யஹ் ட்ரேன் கஹான் ஜாதீ ஹை?|yah tren kahaan jaatee hai?|இந்த ரயில் எங்கே போகிறது?|Where does this train go?
+टिकट कहाँ मिलेगा?|டிகட் கஹான் மிலேகா?|tikat kahaan milegaa?|டிக்கெட் எங்கே கிடைக்கும்?|Where will I get a ticket?
+एक टिकट दीजिए।|ஏக் டிகட் தீஜியே.|ek tikat deejiye.|ஒரு டிக்கெட் கொடுங்கள்.|One ticket please.
+प्लेटफ़ॉर्म कौन सा है?|ப்லேட்ஃபோர்ம் கௌன் ஸா ஹை?|pletform kaun saa hai?|பிளாட்பாரம் எது?|Which platform is it?
+गाड़ी कितने बजे छूटेगी?|காடீ கித்னே பஜே சூடேகீ?|gaadee kitne baje chhootegee?|வண்டி எத்தனை மணிக்குப் புறப்படும்?|What time does it leave?
+ऑटो वाले भैया, मीटर से चलेंगे?|ஆடோ வாலே பையா, மீடர் ஸே சலேங்கே?|aato vaale bhaiyaa, meetar se chalenge?|ஆட்டோ அண்ணா, மீட்டர் போடுவீர்களா?|Brother, will you go by meter?
+यहाँ रोक दीजिए।|யஹான் ரோக் தீஜியே.|yahaan rok deejiye.|இங்கே நிறுத்துங்கள்.|Stop here please.
+मैं रास्ता भूल गया हूँ।|மைன் ராஸ்தா பூல் கயா ஹூன்.|main raastaa bhool gayaa hoon.|நான் வழி தவறிவிட்டேன்.|I have lost my way.
+पास में कोई होटल है?|பாஸ் மேயின் கோயி ஹோடல் ஹை?|paas mein koi hotal hai?|அருகில் ஏதாவது ஹோட்டல் இருக்கிறதா?|Is there a hotel nearby?
+मुझे एक कमरा चाहिए।|முஜே ஏக் கம்ரா சாஹியே.|mujhe ek kamraa chaahiye.|எனக்கு ஒரு அறை வேண்டும்.|I need a room.
+एक रात का कितना किराया है?|ஏக் ராத் கா கித்னா கிராயா ஹை?|ek raat kaa kitnaa kiraayaa hai?|ஒரு இரவுக்கு வாடகை எவ்வளவு?|What is the rent per night?
+`);
+
+sec('resto', 'talk', 'உணவகம்', 'At a restaurant', `
+मेज़ ख़ाली है?|மேஜ் காலீ ஹை?|mez khaalee hai?|மேசை காலியாக இருக்கிறதா?|Is a table free?
+दो लोगों के लिए मेज़ चाहिए।|தோ லோகோன் கே லியே மேஜ் சாஹியே.|do logon ke liye mez chaahiye.|இருவருக்கு மேசை வேண்டும்.|A table for two.
+मेनू दिखाइए।|மேனூ திகாயியே.|menoo dikhaaiye.|மெனு காட்டுங்கள்.|Show the menu.
+आज क्या ख़ास है?|ஆஜ் க்யா காஸ் ஹை?|aaj kyaa khaas hai?|இன்று என்ன சிறப்பு?|What is special today?
+मुझे शाकाहारी खाना चाहिए।|முஜே ஷாகாஹாரீ கானா சாஹியே.|mujhe shaakaahaaree khaanaa chaahiye.|எனக்கு சைவ உணவு வேண்டும்.|I need vegetarian food.
+कम मिर्च डालिए।|கம் மிர்ச் டாலியே.|kam mirch daaliye.|காரம் குறைவாகப் போடுங்கள்.|Put less chilli.
+और एक रोटी लाइए।|ஔர் ஏக் ரோடீ லாயியே.|aur ek rotee laaiye.|இன்னொரு ரொட்டி கொண்டு வாருங்கள்.|Bring one more roti.
+पानी दीजिए।|பானீ தீஜியே.|paanee deejiye.|தண்ணீர் கொடுங்கள்.|Please give water.
+खाना बहुत स्वादिष्ट है।|கானா பஹுத் ஸ்வாதிஷ்ட் ஹை.|khaanaa bahut svaadisht hai.|உணவு மிகவும் சுவையாக இருக்கிறது.|The food is delicious.
+बस, हो गया।|பஸ், ஹோ கயா.|bas, ho gayaa.|போதும், ஆயிற்று.|That's enough, done.
+बिल कितना हुआ?|பில் கித்னா ஹுஆ?|bil kitnaa huaa?|பில் எவ்வளவு ஆனது?|How much is the bill?
+इसमें प्याज़ है?|இஸ்மேயின் ப்யாஜ் ஹை?|ismein pyaaz hai?|இதில் வெங்காயம் இருக்கிறதா?|Does this have onion?
+चाय में चीनी कम डालिए।|சாய் மேயின் சீனீ கம் டாலியே.|chaay mein cheenee kam daaliye.|தேநீரில் சர்க்கரை குறைவாகப் போடுங்கள்.|Less sugar in the tea.
+पार्सल बाँध दीजिए।|பார்ஸல் பாந்த் தீஜியே.|paarsal baandh deejiye.|பார்சல் கட்டித் தாருங்கள்.|Pack it as a parcel.
+`);
+
+sec('phone', 'talk', 'தொலைபேசி & மெசேஜ்', 'Phone & messages', `
+हेलो, मैं रवि बोल रहा हूँ।|ஹேலோ, மைன் ரவி போல் ரஹா ஹூன்.|helo, main ravi bol rahaa hoon.|ஹலோ, நான் ரவி பேசுகிறேன்.|Hello, this is Ravi speaking.
+क्या मैं रमेश जी से बात कर सकता हूँ?|க்யா மைன் ரமேஷ் ஜீ ஸே பாத் கர் ஸக்தா ஹூன்?|kyaa main ramesh jee se baat kar saktaa hoon?|நான் ரமேஷ் அவர்களுடன் பேசலாமா?|Can I speak to Ramesh?
+वे अभी नहीं हैं।|வே அபீ நஹின் ஹைன்.|ve abhee nahin hain.|அவர் இப்போது இல்லை.|He / she is not here now.
+थोड़ी देर में फ़ोन कीजिए।|தோடீ தேர் மேயின் ஃபோன் கீஜியே.|thodee der mein fon keejiye.|கொஞ்ச நேரம் கழித்து போன் செய்யுங்கள்.|Call back in a little while.
+आवाज़ नहीं आ रही है।|ஆவாஜ் நஹின் ஆ ரஹீ ஹை.|aavaaz nahin aa rahee hai.|சத்தம் வரவில்லை.|I can't hear you.
+नेटवर्क नहीं है।|நேட்வர்க் நஹின் ஹை.|netvark nahin hai.|நெட்வொர்க் இல்லை.|There is no network.
+मैं बाद में फ़ोन करूँगा।|மைன் பாத் மேயின் ஃபோன் கரூங்கா.|main baad mein fon karoongaa.|நான் பிறகு போன் செய்வேன்.|I will call later.
+मुझे मैसेज भेज दीजिए।|முஜே மேஸேஜ் பேஜ் தீஜியே.|mujhe mesej bhej deejiye.|எனக்கு மெசேஜ் அனுப்புங்கள்.|Send me a message.
+मुझे वॉट्सऐप पर भेजिए।|முஜே வாட்ஸைப் பர் பேஜியே.|mujhe vaatsaip par bhejiye.|வாட்ஸ்அப்பில் அனுப்புங்கள்.|Send it on WhatsApp.
+मेरा नंबर लिख लीजिए।|மேரா நம்பர் லிக் லீஜியே.|meraa nambar likh leejiye.|என் எண்ணை எழுதிக்கொள்ளுங்கள்.|Note down my number.
+`);
+
+sec('office', 'talk', 'அலுவலகம் & வேலை', 'Office & work talk', `
+मैं दफ़्तर जा रहा हूँ।|மைன் தஃப்தர் ஜா ரஹா ஹூன்.|main daftar jaa rahaa hoon.|நான் அலுவலகம் போய்க்கொண்டிருக்கிறேன்.|I am going to the office.
+आज बहुत काम है।|ஆஜ் பஹுத் காம் ஹை.|aaj bahut kaam hai.|இன்று நிறைய வேலை இருக்கிறது.|There is a lot of work today.
+यह काम कब तक होगा?|யஹ் காம் கப் தக் ஹோகா?|yah kaam kab tak hogaa?|இந்த வேலை எப்போதுக்குள் முடியும்?|By when will this work be done?
+कल तक हो जाएगा।|கல் தக் ஹோ ஜாயேகா.|kal tak ho jaayegaa.|நாளைக்குள் முடிந்துவிடும்.|It will be done by tomorrow.
+मुझे थोड़ा समय चाहिए।|முஜே தோடா ஸமய் சாஹியே.|mujhe thodaa samay chaahiye.|எனக்குக் கொஞ்சம் நேரம் வேண்டும்.|I need a little time.
+मैं देखता हूँ।|மைன் தேக்தா ஹூன்.|main dekhtaa hoon.|நான் பார்க்கிறேன்.|Let me see / I'll check.
+मैं अभी करता हूँ।|மைன் அபீ கர்தா ஹூன்.|main abhee kartaa hoon.|நான் இப்போதே செய்கிறேன்.|I'll do it right now.
+मुझे बता दीजिए।|முஜே பதா தீஜியே.|mujhe bataa deejiye.|எனக்குச் சொல்லிவிடுங்கள்.|Please let me know.
+समझ में आया?|ஸமஜ் மேயின் ஆயா?|samajh mein aayaa?|புரிந்ததா?|Did you understand?
+कोई सवाल है?|கோயி ஸவால் ஹை?|koi savaal hai?|ஏதாவது கேள்வி இருக்கிறதா?|Any questions?
+यह ग़लती कहाँ हुई?|யஹ் கல்தீ கஹான் ஹுயீ?|yah galtee kahaan huee?|இந்தத் தவறு எங்கே நடந்தது?|Where did this mistake happen?
+इसे ठीक कर दीजिए।|இஸே டீக் கர் தீஜியே.|ise theek kar deejiye.|இதைச் சரி செய்துவிடுங்கள்.|Please fix this.
+मीटिंग कितने बजे है?|மீடிங் கித்னே பஜே ஹை?|meeting kitne baje hai?|மீட்டிங் எத்தனை மணிக்கு?|What time is the meeting?
+मुझे छुट्टी चाहिए।|முஜே சுட்டீ சாஹியே.|mujhe chhuttee chaahiye.|எனக்கு விடுமுறை வேண்டும்.|I need leave.
+सब लोग आ गए?|ஸப் லோக் ஆ கயே?|sab log aa gae?|எல்லோரும் வந்துவிட்டார்களா?|Have all come?
+`);
+
+sec('health', 'talk', 'உடல்நலம் & அவசரம்', 'Health & emergency', `
+मेरे सिर में दर्द है।|மேரே ஸிர் மேயின் தர்த் ஹை.|mere sir mein dard hai.|எனக்குத் தலைவலி.|I have a headache.
+मेरे पेट में दर्द है।|மேரே பேட் மேயின் தர்த் ஹை.|mere pet mein dard hai.|எனக்கு வயிற்று வலி.|I have a stomach ache.
+मुझे बुख़ार है।|முஜே புகார் ஹை.|mujhe bukhaar hai.|எனக்குக் காய்ச்சல்.|I have a fever.
+मुझे चक्कर आ रहा है।|முஜே சக்கர் ஆ ரஹா ஹை.|mujhe chakkar aa rahaa hai.|எனக்குத் தலை சுற்றுகிறது.|I feel dizzy.
+मुझे डॉक्टर के पास जाना है।|முஜே டோக்டர் கே பாஸ் ஜானா ஹை.|mujhe doktar ke paas jaanaa hai.|நான் மருத்துவரிடம் போக வேண்டும்.|I need to see a doctor.
+यहाँ पास में अस्पताल कहाँ है?|யஹான் பாஸ் மேயின் அஸ்பதால் கஹான் ஹை?|yahaan paas mein aspataal kahaan hai?|அருகில் மருத்துவமனை எங்கே?|Where is a hospital nearby?
+मुझे दवा चाहिए।|முஜே தவா சாஹியே.|mujhe davaa chaahiye.|எனக்கு மருந்து வேண்டும்.|I need medicine.
+एंबुलेंस बुलाइए।|ஐம்புலேன்ஸ் புலாயியே.|aimbulens bulaaiye.|ஆம்புலன்ஸ் அழையுங்கள்.|Call an ambulance.
+पुलिस को बुलाइए।|புலிஸ் கோ புலாயியே.|pulis ko bulaaiye.|காவல்துறையை அழையுங்கள்.|Call the police.
+आग लग गई है!|ஆக் லக் கயீ ஹை!|aag lag gaee hai!|தீ பிடித்துவிட்டது!|There is a fire!
+मेरा बैग खो गया है।|மேரா பைக் கோ கயா ஹை.|meraa baig kho gayaa hai.|என் பை தொலைந்துவிட்டது.|My bag is lost.
+बचाओ!|பசாவோ!|bachaao!|காப்பாற்றுங்கள்!|Help! / Save me!
+`);
+
+sec('feel', 'talk', 'உணர்வுகள் & பேச்சு வழக்கு', 'Feelings & everyday expressions', `
+मुझे लगता है कि ...|முஜே லக்தா ஹை கி ...|mujhe lagtaa hai ki ...|என்று எனக்குத் தோன்றுகிறது ...|I think that ...
+मैं सहमत हूँ।|மைன் ஸஹ்மத் ஹூன்.|main sahmat hoon.|நான் ஒப்புக்கொள்கிறேன்.|I agree.
+मैं सहमत नहीं हूँ।|மைன் ஸஹ்மத் நஹின் ஹூன்.|main sahmat nahin hoon.|நான் ஒப்புக்கொள்ளவில்லை.|I disagree.
+मुझे अच्छा लगा।|முஜே அச்சா லகா.|mujhe achchhaa lagaa.|எனக்கு நன்றாக இருந்தது.|I liked it.
+मुझे बुरा लगा।|முஜே புரா லகா.|mujhe buraa lagaa.|எனக்கு வருத்தமாக இருந்தது.|I felt bad.
+मुझे डर लग रहा है।|முஜே டர் லக் ரஹா ஹை.|mujhe dar lag rahaa hai.|எனக்குப் பயமாக இருக்கிறது.|I am scared.
+मैं बहुत थक गया हूँ।|மைன் பஹுத் தக் கயா ஹூன்.|main bahut thak gayaa hoon.|நான் மிகவும் களைத்துவிட்டேன்.|I am very tired.
+मुझे नींद आ रही है।|முஜே நீந்த் ஆ ரஹீ ஹை.|mujhe neend aa rahee hai.|எனக்குத் தூக்கம் வருகிறது.|I am feeling sleepy.
+मुझे ग़ुस्सा आ रहा है।|முஜே குஸ்ஸா ஆ ரஹா ஹை.|mujhe gussaa aa rahaa hai.|எனக்குக் கோபம் வருகிறது.|I am getting angry.
+चिंता मत कीजिए।|சிந்தா மத் கீஜியே.|chintaa mat keejiye.|கவலைப்படாதீர்கள்.|Don't worry.
+मुझे माफ़ कर दीजिए।|முஜே மாஃப் கர் தீஜியே.|mujhe maaf kar deejiye.|என்னை மன்னித்துவிடுங்கள்.|Please forgive me.
+बहुत बढ़िया!|பஹுத் படியா!|bahut badhiyaa!|மிகவும் அருமை!|Excellent!
+वाह!|வாஹ்!|vaah!|சபாஷ்! / அட!|Wow!
+अरे!|அரே!|are!|அடடா! / ஏய்!|Hey! / Oh!
+अच्छा।|அச்சா.|achchhaa.|அப்படியா. / சரி.|I see. / Okay.
+चलो।|சலோ.|chalo.|வா, போகலாம்.|Let's go. (informal)
+चलिए।|சலியே.|chaliye.|வாருங்கள், போகலாம்.|Let's go. (polite)
+बस।|பஸ்.|bas.|போதும்.|Enough.
+जी हाँ।|ஜீ ஹான்.|jee haan.|ஆம் (மரியாதையாக).|Yes (respectful)
+जी नहीं।|ஜீ நஹின்.|jee nahin.|இல்லை (மரியாதையாக).|No (respectful)
+जी?|ஜீ?|jee?|என்ன? / சொல்லுங்கள்?|Pardon? / Yes?
+ज़रूर!|ஜரூர்!|zaroor!|கண்டிப்பாக!|Of course!
+सच में?|ஸச் மேயின்?|sach mein?|உண்மையாகவா?|Really?
+क्या हुआ?|க்யா ஹுஆ?|kyaa huaa?|என்ன ஆயிற்று?|What happened?
+ठीक है, देखते हैं।|டீக் ஹை, தேக்தே ஹைன்.|theek hai, dekhte hain.|சரி, பார்க்கலாம்.|Okay, we'll see.
+मज़ा आ गया!|மஜா ஆ கயா!|mazaa aa gayaa!|ரொம்ப ஜாலியாக இருந்தது!|That was fun!
+`);
+
+sec('useful', 'talk', 'மேலும் பயனுள்ள வாக்கியங்கள்', 'More useful sentences', `
+आप कहाँ रहते हैं?|ஆப் கஹான் ரேஹ்தே ஹைன்?|aap kahaan rehte hain?|நீங்கள் எங்கே வசிக்கிறீர்கள்?|Where do you live?
+मैं तमिलनाडु में रहता हूँ।|மைன் தமில்நாடு மேயின் ரேஹ்தா ஹூன்.|main tamilnaadu mein rehtaa hoon.|நான் தமிழ்நாட்டில் வசிக்கிறேன்.|I live in Tamil Nadu. (male)
+आप क्या काम करते हैं?|ஆப் க்யா காம் கர்தே ஹைன்?|aap kyaa kaam karte hain?|நீங்கள் என்ன வேலை செய்கிறீர்கள்?|What work do you do?
+मैं हिंदी सीख रहा हूँ।|மைன் ஹிந்தீ ஸீக் ரஹா ஹூன்.|main hindee seekh rahaa hoon.|நான் இந்தி கற்றுக்கொண்டிருக்கிறேன்.|I am learning Hindi. (male)
+मैं हिंदी सीख रही हूँ।|மைன் ஹிந்தீ ஸீக் ரஹீ ஹூன்.|main hindee seekh rahee hoon.|நான் இந்தி கற்றுக்கொண்டிருக்கிறேன்.|I am learning Hindi. (female)
+मुझे हिंदी नहीं आती।|முஜே ஹிந்தீ நஹின் ஆதீ.|mujhe hindee nahin aatee.|எனக்கு இந்தி தெரியாது.|I don't know Hindi.
+मुझे थोड़ी हिंदी आती है।|முஜே தோடீ ஹிந்தீ ஆதீ ஹை.|mujhe thodee hindee aatee hai.|எனக்குக் கொஞ்சம் இந்தி தெரியும்.|I know a little Hindi.
+क्या आप अंग्रेज़ी बोलते हैं?|க்யா ஆப் அங்க்ரேஜீ போல்தே ஹைன்?|kyaa aap angrezee bolte hain?|நீங்கள் ஆங்கிலம் பேசுவீர்களா?|Do you speak English?
+कृपया धीरे बोलिए।|க்ரிப்யா தீரே போலியே.|kripyaa dheere boliye.|தயவுசெய்து மெதுவாகப் பேசுங்கள்.|Please speak slowly.
+फिर से कहिए।|பிர் ஸே கஹியே.|phir se kahiye.|மீண்டும் சொல்லுங்கள்.|Please say it again.
+मैं समझ गया।|மைன் ஸமஜ் கயா.|main samajh gayaa.|எனக்குப் புரிந்தது.|I understood. (male)
+मैं नहीं समझा।|மைன் நஹின் ஸம்ஜா.|main nahin samjhaa.|எனக்குப் புரியவில்லை.|I did not understand. (male)
+इसका मतलब क्या है?|இஸ்கா மத்லப் க்யா ஹை?|iskaa matlab kyaa hai?|இதன் அர்த்தம் என்ன?|What does this mean?
+यह क्या है?|யஹ் க்யா ஹை?|yah kyaa hai?|இது என்ன?|What is this?
+वह कौन है?|வஹ் கௌன் ஹை?|vah kaun hai?|அவர் யார்?|Who is he/she?
+यह मेरा दोस्त है।|யஹ் மேரா தோஸ்த் ஹை.|yah meraa dost hai.|இவர் என் நண்பர்.|This is my friend.
+मैं आपसे मिलकर खुश हूँ।|மைன் ஆப்ஸே மில்கர் குஷ் ஹூன்.|main aapse milkar khush hoon.|உங்களைச் சந்தித்ததில் மகிழ்ச்சி.|Pleased to meet you.
+यह कितने का है?|யஹ் கித்னே கா ஹை?|yah kitne kaa hai?|இது எவ்வளவு?|How much is this?
+बहुत महँगा है।|பஹுத் மேஹ்ங்கா ஹை.|bahut mehngaa hai.|மிகவும் விலை அதிகம்.|It is very expensive.
+थोड़ा कम कीजिए।|தோடா கம் கிஜியே.|thodaa kam kijiye.|கொஞ்சம் குறையுங்கள்.|Please reduce it a little.
+मुझे पानी चाहिए।|முஜே பானீ சாஹியே.|mujhe paanee chaahiye.|எனக்குத் தண்ணீர் வேண்டும்.|I need water.
+मुझे भूख लगी है।|முஜே பூக் லகீ ஹை.|mujhe bhookh lagee hai.|எனக்குப் பசிக்கிறது.|I am hungry.
+मुझे प्यास लगी है।|முஜே ப்யாஸ் லகீ ஹை.|mujhe pyaas lagee hai.|எனக்குத் தாகமாக இருக்கிறது.|I am thirsty.
+मुझे यह पसंद है।|முஜே யஹ் பஸந்த் ஹை.|mujhe yah pasand hai.|எனக்கு இது பிடிக்கும்.|I like this.
+मुझे पता नहीं।|முஜே பதா நஹின்.|mujhe pataa nahin.|எனக்குத் தெரியாது.|I don't know.
+मुझे पता है।|முஜே பதா ஹை.|mujhe pataa hai.|எனக்குத் தெரியும்.|I know.
+शौचालय कहाँ है?|ஷௌசாலய் கஹான் ஹை?|shauchaalay kahaan hai?|கழிவறை எங்கே?|Where is the toilet?
+स्टेशन कहाँ है?|ஸ்டேஷன் கஹான் ஹை?|steshan kahaan hai?|நிலையம் எங்கே?|Where is the station?
+क्या आप मेरी मदद कर सकते हैं?|க்யா ஆப் மேரீ மதத் கர் ஸக்தே ஹைன்?|kyaa aap meree madad kar sakte hain?|நீங்கள் எனக்கு உதவ முடியுமா?|Can you help me?
+मदद कीजिए!|மதத் கீஜியே!|madad keejiye!|உதவுங்கள்!|Help me!
+डॉक्टर को बुलाइए।|டோக்டர் கோ புலாயியே.|doctor ko bulaaiye.|மருத்துவரை அழையுங்கள்.|Please call a doctor.
+मैं बीमार हूँ।|மைன் பீமார் ஹூன்.|main beemaar hoon.|நான் நோயுற்றிருக்கிறேன்.|I am sick.
+आज मौसम अच्छा है।|ஆஜ் மௌஸம் அச்சா ஹை.|aaj mausam achchhaa hai.|இன்று வானிலை நன்றாக இருக்கிறது.|The weather is nice today.
+आप कितने बजे आएँगे?|ஆப் கித்னே பஜே ஆயேங்கே?|aap kitne baje aayenge?|நீங்கள் எத்தனை மணிக்கு வருவீர்கள்?|What time will you come?
+मैं कल आऊँगा।|மைன் கல் ஆவூங்கா.|main kal aaoongaa.|நான் நாளை வருவேன்.|I will come tomorrow. (male)
+ज़रा रुकिए।|ஜரா ருகியே.|zaraa rukiye.|கொஞ்சம் நில்லுங்கள்.|Please wait a moment.
+जल्दी कीजिए।|ஜல்தீ கீஜியே.|jaldee keejiye.|சீக்கிரம் செய்யுங்கள்.|Please be quick.
+काम हो गया।|காம் ஹோ கயா.|kaam ho gayaa.|வேலை முடிந்தது.|The work is done.
+कोई दिक्कत नहीं।|கோயி திக்கத் நஹின்.|koi dikkat nahin.|எந்தப் பிரச்சினையும் இல்லை.|No trouble at all.
+आपका दिन शुभ हो।|ஆப்கா தின் ஷுப் ஹோ.|aapkaa din shubh ho.|உங்கள் நாள் இனிதாக அமையட்டும்.|Have a good day.
+`);
+
+sec('v_khaana', 'verbs', 'खाना – சாப்பிடுவது', 'to eat', `
+मैं खाता हूँ|மைன் காதா ஹூன்|main khaataa hoon|நான் சாப்பிடுகிறேன் (வழக்கமாக)|I eat (habitually)
+मैं खा रहा हूँ|மைன் கா ரஹா ஹூன்|main khaa rahaa hoon|நான் சாப்பிட்டுக்கொண்டிருக்கிறேன்|I am eating
+मैंने खाया|மைன்னே காயா|mainne khaayaa|நான் சாப்பிட்டேன்|I ate
+मैं खाऊँगा|மைன் காவூங்கா|main khaaoongaa|நான் சாப்பிடுவேன்|I will eat
+आप खाइए|ஆப் காயியே|aap khaaiye|நீங்கள் சாப்பிடுங்கள்|Please eat
+मैं नहीं खाता|மைன் நஹின் காதா|main nahin khaataa|நான் சாப்பிடுவதில்லை|I don't eat
+`, { noquiz: false });
+
+sec('v_peena', 'verbs', 'पीना – குடிப்பது', 'to drink', `
+मैं पीता हूँ|மைன் பீதா ஹூன்|main peetaa hoon|நான் குடிக்கிறேன்|I drink
+मैं पी रहा हूँ|மைன் பீ ரஹா ஹூன்|main pee rahaa hoon|நான் குடித்துக்கொண்டிருக்கிறேன்|I am drinking
+मैंने पिया|மைன்னே பியா|mainne piyaa|நான் குடித்தேன்|I drank
+मैं पिऊँगा|மைன் பியூங்கா|main piyoongaa|நான் குடிப்பேன்|I will drink
+आप पीजिए|ஆப் பீஜியே|aap peejiye|நீங்கள் குடியுங்கள்|Please drink
+मैं नहीं पीता|மைன் நஹின் பீதா|main nahin peetaa|நான் குடிப்பதில்லை|I don't drink
+`);
+
+sec('v_jaana', 'verbs', 'जाना – போவது', 'to go', `
+मैं जाता हूँ|மைன் ஜாதா ஹூன்|main jaataa hoon|நான் போகிறேன்|I go
+मैं जा रहा हूँ|மைன் ஜா ரஹா ஹூன்|main jaa rahaa hoon|நான் போய்க்கொண்டிருக்கிறேன்|I am going
+मैं गया|மைன் கயா|main gayaa|நான் போனேன்|I went
+मैं जाऊँगा|மைன் ஜாவூங்கா|main jaaoongaa|நான் போவேன்|I will go
+आप जाइए|ஆப் ஜாயியே|aap jaaiye|நீங்கள் போங்கள்|Please go
+मैं नहीं जाता|மைன் நஹின் ஜாதா|main nahin jaataa|நான் போவதில்லை|I don't go
+`);
+
+sec('v_aana', 'verbs', 'आना – வருவது', 'to come', `
+मैं आता हूँ|மைன் ஆதா ஹூன்|main aataa hoon|நான் வருகிறேன்|I come
+मैं आ रहा हूँ|மைன் ஆ ரஹா ஹூன்|main aa rahaa hoon|நான் வந்துகொண்டிருக்கிறேன்|I am coming
+मैं आया|மைன் ஆயா|main aayaa|நான் வந்தேன்|I came
+मैं आऊँगा|மைன் ஆவூங்கா|main aaoongaa|நான் வருவேன்|I will come
+आप आइए|ஆப் ஆயியே|aap aaiye|நீங்கள் வாருங்கள்|Please come
+मैं नहीं आता|மைன் நஹின் ஆதா|main nahin aataa|நான் வருவதில்லை|I don't come
+`);
+
+sec('v_karna', 'verbs', 'करना – செய்வது', 'to do', `
+मैं करता हूँ|மைன் கர்தா ஹூன்|main kartaa hoon|நான் செய்கிறேன்|I do
+मैं कर रहा हूँ|மைன் கர் ரஹா ஹூன்|main kar rahaa hoon|நான் செய்துகொண்டிருக்கிறேன்|I am doing
+मैंने किया|மைன்னே கியா|mainne kiyaa|நான் செய்தேன்|I did
+मैं करूँगा|மைன் கரூங்கா|main karoongaa|நான் செய்வேன்|I will do
+आप कीजिए|ஆப் கீஜியே|aap keejiye|நீங்கள் செய்யுங்கள்|Please do
+मैं नहीं करता|மைன் நஹின் கர்தா|main nahin kartaa|நான் செய்வதில்லை|I don't do
+`);
+
+sec('v_dekhna', 'verbs', 'देखना – பார்ப்பது', 'to see / watch', `
+मैं देखता हूँ|மைன் தேக்தா ஹூன்|main dekhtaa hoon|நான் பார்க்கிறேன்|I see
+मैं देख रहा हूँ|மைன் தேக் ரஹா ஹூன்|main dekh rahaa hoon|நான் பார்த்துக்கொண்டிருக்கிறேன்|I am watching
+मैंने देखा|மைன்னே தேகா|mainne dekhaa|நான் பார்த்தேன்|I saw
+मैं देखूँगा|மைன் தேகூங்கா|main dekhoongaa|நான் பார்ப்பேன்|I will see
+आप देखिए|ஆப் தேகியே|aap dekhiye|நீங்கள் பாருங்கள்|Please look
+मैं नहीं देखता|மைன் நஹின் தேக்தா|main nahin dekhtaa|நான் பார்ப்பதில்லை|I don't watch
+`);
+
+sec('v_bolna', 'verbs', 'बोलना – பேசுவது', 'to speak', `
+मैं बोलता हूँ|மைன் போல்தா ஹூன்|main boltaa hoon|நான் பேசுகிறேன்|I speak
+मैं बोल रहा हूँ|மைன் போல் ரஹா ஹூன்|main bol rahaa hoon|நான் பேசிக்கொண்டிருக்கிறேன்|I am speaking
+मैंने बोला|மைன்னே போலா|mainne bolaa|நான் பேசினேன்|I spoke
+मैं बोलूँगा|மைன் போலூங்கா|main boloongaa|நான் பேசுவேன்|I will speak
+आप बोलिए|ஆப் போலியே|aap boliye|நீங்கள் பேசுங்கள்|Please speak
+मैं नहीं बोलता|மைன் நஹின் போல்தா|main nahin boltaa|நான் பேசுவதில்லை|I don't speak
+`);
+
+sec('v_sunna', 'verbs', 'सुनना – கேட்பது', 'to listen / hear', `
+मैं सुनता हूँ|மைன் ஸுந்தா ஹூன்|main suntaa hoon|நான் கேட்கிறேன்|I listen
+मैं सुन रहा हूँ|மைன் ஸுன் ரஹா ஹூன்|main sun rahaa hoon|நான் கேட்டுக்கொண்டிருக்கிறேன்|I am listening
+मैंने सुना|மைன்னே ஸுனா|mainne sunaa|நான் கேட்டேன்|I heard
+मैं सुनूँगा|மைன் ஸுனூங்கா|main sunoongaa|நான் கேட்பேன்|I will listen
+आप सुनिए|ஆப் ஸுனியே|aap suniye|நீங்கள் கேளுங்கள்|Please listen
+मैं नहीं सुनता|மைன் நஹின் ஸுந்தா|main nahin suntaa|நான் கேட்பதில்லை|I don't listen
+`);
+
+sec('v_padhna', 'verbs', 'पढ़ना – படிப்பது', 'to read / study', `
+मैं पढ़ता हूँ|மைன் பட்தா ஹூன்|main padhtaa hoon|நான் படிக்கிறேன்|I read
+मैं पढ़ रहा हूँ|மைன் பட் ரஹா ஹூன்|main padh rahaa hoon|நான் படித்துக்கொண்டிருக்கிறேன்|I am reading
+मैंने पढ़ा|மைன்னே படா|mainne padhaa|நான் படித்தேன்|I read (past)
+मैं पढ़ूँगा|மைன் படூங்கா|main padhoongaa|நான் படிப்பேன்|I will read
+आप पढ़िए|ஆப் படியே|aap padhiye|நீங்கள் படியுங்கள்|Please read
+मैं नहीं पढ़ता|மைன் நஹின் பட்தா|main nahin padhtaa|நான் படிப்பதில்லை|I don't read
+`);
+
+sec('v_likhna', 'verbs', 'लिखना – எழுதுவது', 'to write', `
+मैं लिखता हूँ|மைன் லிக்தா ஹூன்|main likhtaa hoon|நான் எழுதுகிறேன்|I write
+मैं लिख रहा हूँ|மைன் லிக் ரஹா ஹூன்|main likh rahaa hoon|நான் எழுதிக்கொண்டிருக்கிறேன்|I am writing
+मैंने लिखा|மைன்னே லிகா|mainne likhaa|நான் எழுதினேன்|I wrote
+मैं लिखूँगा|மைன் லிகூங்கா|main likhoongaa|நான் எழுதுவேன்|I will write
+आप लिखिए|ஆப் லிகியே|aap likhiye|நீங்கள் எழுதுங்கள்|Please write
+मैं नहीं लिखता|மைன் நஹின் லிக்தா|main nahin likhtaa|நான் எழுதுவதில்லை|I don't write
+`);
+
+sec('v_samajhna', 'verbs', 'समझना – புரிந்துகொள்வது', 'to understand', `
+मैं समझता हूँ|மைன் ஸமஜ்தா ஹூன்|main samajhtaa hoon|நான் புரிந்துகொள்கிறேன்|I understand
+मैं समझ रहा हूँ|மைன் ஸமஜ் ரஹா ஹூன்|main samajh rahaa hoon|நான் புரிந்துகொண்டிருக்கிறேன்|I am understanding
+मैं समझ गया|மைன் ஸமஜ் கயா|main samajh gayaa|எனக்குப் புரிந்தது|I understood
+मैं समझूँगा|மைன் ஸம்ஜூங்கா|main samjhoongaa|நான் புரிந்துகொள்வேன்|I will understand
+आप समझिए|ஆப் ஸமஜியே|aap samajhiye|நீங்கள் புரிந்துகொள்ளுங்கள்|Please understand
+मैं नहीं समझता|மைன் நஹின் ஸமஜ்தா|main nahin samajhtaa|எனக்குப் புரியவில்லை|I don't understand
+`);
+
+sec('v_lena', 'verbs', 'लेना – எடுப்பது / வாங்குவது', 'to take', `
+मैं लेता हूँ|மைன் லேதா ஹூன்|main letaa hoon|நான் எடுக்கிறேன்|I take
+मैं ले रहा हूँ|மைன் லே ரஹா ஹூன்|main le rahaa hoon|நான் எடுத்துக்கொண்டிருக்கிறேன்|I am taking
+मैंने लिया|மைன்னே லியா|mainne liyaa|நான் எடுத்தேன் / வாங்கினேன்|I took / bought
+मैं लूँगा|மைன் லூங்கா|main loongaa|நான் எடுத்துக்கொள்வேன்|I will take
+आप लीजिए|ஆப் லீஜியே|aap leejiye|நீங்கள் எடுத்துக்கொள்ளுங்கள்|Please take
+मैं नहीं लेता|மைன் நஹின் லேதா|main nahin letaa|நான் எடுத்துக்கொள்வதில்லை|I don't take
+`);
+
+sec('v_dena', 'verbs', 'देना – கொடுப்பது', 'to give', `
+मैं देता हूँ|மைன் தேதா ஹூன்|main detaa hoon|நான் கொடுக்கிறேன்|I give
+मैं दे रहा हूँ|மைன் தே ரஹா ஹூன்|main de rahaa hoon|நான் கொடுத்துக்கொண்டிருக்கிறேன்|I am giving
+मैंने दिया|மைன்னே தியா|mainne diyaa|நான் கொடுத்தேன்|I gave
+मैं दूँगा|மைன் தூங்கா|main doongaa|நான் கொடுப்பேன்|I will give
+आप दीजिए|ஆப் தீஜியே|aap deejiye|நீங்கள் கொடுங்கள்|Please give
+मैं नहीं देता|மைன் நஹின் தேதா|main nahin detaa|நான் கொடுப்பதில்லை|I don't give
+`);
+
+sec('v_milna', 'verbs', 'मिलना – சந்திப்பது / கிடைப்பது', 'to meet / to get', `
+मैं मिलता हूँ|மைன் மில்தா ஹூன்|main miltaa hoon|நான் சந்திக்கிறேன்|I meet
+मैं मिल रहा हूँ|மைன் மில் ரஹா ஹூன்|main mil rahaa hoon|நான் சந்தித்துக்கொண்டிருக்கிறேன்|I am meeting
+मैं मिला|மைன் மிலா|main milaa|நான் சந்தித்தேன்|I met
+मैं मिलूँगा|மைன் மிலூங்கா|main miloongaa|நான் சந்திப்பேன்|I will meet
+आप मिलिए|ஆப் மிலியே|aap miliye|நீங்கள் சந்தியுங்கள்|Please meet
+मैं नहीं मिलता|மைன் நஹின் மில்தா|main nahin miltaa|நான் சந்திப்பதில்லை|I don't meet
+`);
+
+sec('v_rehna', 'verbs', 'रहना – வசிப்பது / இருப்பது', 'to live / stay', `
+मैं रहता हूँ|மைன் ரேஹ்தா ஹூன்|main rehtaa hoon|நான் வசிக்கிறேன்|I live
+मैं यहाँ रह रहा हूँ|மைன் யஹான் ரேஹ் ரஹா ஹூன்|main yahaan reh rahaa hoon|நான் இங்கே தங்கியிருக்கிறேன்|I am staying here
+मैं वहाँ रहा|மைன் வஹான் ரஹா|main vahaan rahaa|நான் அங்கே தங்கினேன்|I stayed there
+मैं यहाँ रहूँगा|மைன் யஹான் ரேஹூங்கா|main yahaan rehoongaa|நான் இங்கே இருப்பேன்|I will stay here
+आप रहिए|ஆப் ரஹியே|aap rahiye|நீங்கள் இருங்கள்|Please stay
+मैं नहीं रहता|மைன் நஹின் ரேஹ்தா|main nahin rehtaa|நான் வசிப்பதில்லை|I don't live (there)
+`);
+
+sec('v_chaahna', 'verbs', 'चाहना – விரும்புவது', 'to want', `
+मैं चाहता हूँ|மைன் சாஹ்தா ஹூன்|main chaahtaa hoon|நான் விரும்புகிறேன்|I want
+मुझे चाहिए|முஜே சாஹியே|mujhe chaahiye|எனக்கு வேண்டும்|I need / I want (object)
+मैंने चाहा|மைன்னே சாஹா|mainne chaahaa|நான் விரும்பினேன்|I wanted
+मैं चाहूँगा|மைன் சாஹூங்கா|main chaahoongaa|நான் விரும்புவேன்|I will want
+आप चाहें तो|ஆப் சாஹேன் தோ|aap chaahen to|நீங்கள் விரும்பினால்|If you wish
+मैं नहीं चाहता|மைன் நஹின் சாஹ்தா|main nahin chaahtaa|நான் விரும்பவில்லை|I don't want
+`);
+
+sec('v_sona', 'verbs', 'सोना – தூங்குவது', 'to sleep', `
+मैं सोता हूँ|மைன் ஸோதா ஹூன்|main sotaa hoon|நான் தூங்குகிறேன்|I sleep
+मैं सो रहा हूँ|மைன் ஸோ ரஹா ஹூன்|main so rahaa hoon|நான் தூங்கிக்கொண்டிருக்கிறேன்|I am sleeping
+मैं सोया|மைன் ஸோயா|main soyaa|நான் தூங்கினேன்|I slept
+मैं सोऊँगा|மைன் ஸூங்கா|main soongaa|நான் தூங்குவேன்|I will sleep
+आप सोइए|ஆப் ஸோயியே|aap soiye|நீங்கள் தூங்குங்கள்|Please sleep
+मैं नहीं सोता|மைன் நஹின் ஸோதா|main nahin sotaa|நான் தூங்குவதில்லை|I don't sleep
+`);
+
+// dialogues: r = speaker index (0 or 1); lines: r|hi|pron|roman|ta|en
+HD.dialogues.push({
+  id: 'd_meet', ta: 'இரு நண்பர்கள் சந்திப்பு', en: 'Meeting someone new',
+  roles: ['அனிதா', 'ரவி'],
+  raw: `
+0|नमस्ते! आप कैसे हैं?|நமஸ்தே! ஆப் கைஸே ஹைன்?|namaste! aap kaise hain?|வணக்கம்! நீங்கள் எப்படி இருக்கிறீர்கள்?|Hello! How are you?
+1|मैं ठीक हूँ, धन्यवाद। आप कैसे हैं?|மைன் டீக் ஹூன், தன்யவாத். ஆப் கைஸே ஹைன்?|main theek hoon, dhanyavaad. aap kaise hain?|நான் நலம், நன்றி. நீங்கள் எப்படி?|I'm fine, thanks. And you?
+0|मैं भी ठीक हूँ। आपका नाम क्या है?|மைன் பீ டீக் ஹூன். ஆப்கா நாம் க்யா ஹை?|main bhee theek hoon. aapkaa naam kyaa hai?|நானும் நலம். உங்கள் பெயர் என்ன?|I'm fine too. What's your name?
+1|मेरा नाम रवि है। और आपका?|மேரா நாம் ரவி ஹை. ஔர் ஆப்கா?|meraa naam ravi hai. aur aapkaa?|என் பெயர் ரவி. உங்களுடையது?|My name is Ravi. And yours?
+0|मेरा नाम अनिता है। आप कहाँ रहते हैं?|மேரா நாம் அனிதா ஹை. ஆப் கஹான் ரேஹ்தே ஹைன்?|meraa naam anitaa hai. aap kahaan rehte hain?|என் பெயர் அனிதா. நீங்கள் எங்கே வசிக்கிறீர்கள்?|My name is Anita. Where do you live?
+1|मैं चेन्नई में रहता हूँ। और आप?|மைன் சேன்னயீ மேயின் ரேஹ்தா ஹூன். ஔர் ஆப்?|main chennaee mein rehtaa hoon. aur aap?|நான் சென்னையில் வசிக்கிறேன். நீங்கள்?|I live in Chennai. And you?
+0|मैं दिल्ली में रहती हूँ। आपसे मिलकर अच्छा लगा।|மைன் தில்லீ மேயின் ரேஹ்தீ ஹூன். ஆப்ஸே மில்கர் அச்சா லகா.|main dillee mein rehtee hoon. aapse milkar achchhaa lagaa.|நான் டெல்லியில் வசிக்கிறேன். உங்களைச் சந்தித்தது மகிழ்ச்சி.|I live in Delhi. Nice to meet you.
+1|मुझे भी। फिर मिलेंगे।|முஜே பீ. பிர் மிலேங்கே.|mujhe bhee. phir milenge.|எனக்கும். மீண்டும் சந்திப்போம்.|Me too. We'll meet again.
+`
+});
+
+HD.dialogues.push({
+  id: 'd_shop', ta: 'கடையில்', en: 'At the shop',
+  roles: ['கடைக்காரர்', 'வாடிக்கையாளர்'],
+  raw: `
+0|आइए, क्या चाहिए?|ஆயியே, க்யா சாஹியே?|aaiye, kyaa chaahiye?|வாங்க, என்ன வேண்டும்?|Come in, what do you need?
+1|मुझे एक शर्ट चाहिए।|முஜே ஏக் ஷர்ட் சாஹியே.|mujhe ek shart chaahiye.|எனக்கு ஒரு சட்டை வேண்டும்.|I need a shirt.
+0|यह देखिए। नीला रंग है।|யஹ் தேகியே. நீலா ரங் ஹை.|yah dekhiye. neelaa rang hai.|இதைப் பாருங்கள். நீல நிறம்.|Look at this. It's blue.
+1|इसकी क्या कीमत है?|இஸ்கீ க்யா கீமத் ஹை?|iskee kyaa keemat hai?|இதன் விலை என்ன?|What is its price?
+0|पाँच सौ रुपये।|பாஞ்ச் ஸௌ ருபயே.|paanch sau rupaye.|ஐநூறு ரூபாய்.|Five hundred rupees.
+1|बहुत ज़्यादा है। चार सौ में दीजिए।|பஹுத் ஜ்யாதா ஹை. சார் ஸௌ மேயின் தீஜியே.|bahut zyaadaa hai. chaar sau mein deejiye.|மிக அதிகம். நானூறுக்குக் கொடுங்கள்.|Too much. Give it for four hundred.
+0|ठीक है, चार सौ पचास दे दीजिए।|டீக் ஹை, சார் ஸௌ பசாஸ் தே தீஜியே.|theek hai, chaar sau pachaas de deejiye.|சரி, நானூற்றைம்பது கொடுங்கள்.|Okay, give four-fifty.
+1|ठीक है। मैं यूपीआई से पैसे दूँगा।|டீக் ஹை. மைன் யூபீஆயீ ஸே பைஸே தூங்கா.|theek hai. main yoopeeaaee se paise doongaa.|சரி. நான் UPI மூலம் பணம் தருகிறேன்.|Okay. I'll pay by UPI.
+`
+});
+
+HD.dialogues.push({
+  id: 'd_way', ta: 'வழி கேட்டல்', en: 'Asking the way',
+  roles: ['பயணி', 'வழிப்போக்கர்'],
+  raw: `
+0|माफ़ कीजिए, स्टेशन का रास्ता किधर है?|மாஃப் கீஜியே, ஸ்டேஷன் கா ராஸ்தா கிதர் ஹை?|maaf keejiye, steshan kaa raastaa kidhar hai?|மன்னிக்கவும், நிலையத்துக்கு வழி எந்தப் பக்கம்?|Excuse me, which way is the station?
+1|सीधे जाइए, फिर दाएँ मुड़िए।|ஸீதே ஜாயியே, பிர் தாயேன் முடியே.|seedhe jaaiye, phir daayen mudiye.|நேராகப் போங்கள், பிறகு வலப்பக்கம் திரும்புங்கள்.|Go straight, then turn right.
+0|यहाँ से कितनी दूर है?|யஹான் ஸே கித்னீ தூர் ஹை?|yahaan se kitnee door hai?|இங்கிருந்து எவ்வளவு தூரம்?|How far is it from here?
+1|बस दस मिनट पैदल।|பஸ் தஸ் மினட் பைதல்.|bas das minat paidal.|வெறும் பத்து நிமிட நடை.|Just ten minutes on foot.
+0|बहुत धन्यवाद।|பஹுத் தன்யவாத்.|bahut dhanyavaad.|மிக்க நன்றி.|Thank you very much.
+1|कोई बात नहीं।|கோயி பாத் நஹின்.|koi baat nahin.|பரவாயில்லை.|No problem.
+`
+});
+
+HD.dialogues.push({
+  id: 'd_resto', ta: 'உணவகத்தில்', en: 'At the restaurant',
+  roles: ['பணியாளர்', 'வாடிக்கையாளர்'],
+  raw: `
+0|आइए, कितने लोग हैं?|ஆயியே, கித்னே லோக் ஹைன்?|aaiye, kitne log hain?|வாங்க, எத்தனை பேர்?|Come in, how many people?
+1|हम तीन लोग हैं।|ஹம் தீன் லோக் ஹைன்.|ham teen log hain.|நாங்கள் மூன்று பேர்.|We are three people.
+0|यह लीजिए मेनू।|யஹ் லீஜியே மேனூ.|yah leejiye menoo.|இந்தாருங்கள் மெனு.|Here is the menu.
+1|दो चाय और एक डोसा दीजिए।|தோ சாய் ஔர் ஏக் டோஸா தீஜியே.|do chaay aur ek dosaa deejiye.|இரண்டு தேநீர், ஒரு தோசை கொடுங்கள்.|Two teas and one dosa please.
+0|और कुछ?|ஔர் குச்?|aur kuchh?|வேறு ஏதாவது?|Anything else?
+1|नहीं, बस। बिल ले आइए।|நஹின், பஸ். பில் லே ஆயியே.|nahin, bas. bil le aaiye.|இல்லை, போதும். பில் கொண்டு வாருங்கள்.|No, that's all. Bring the bill.
+`
+});
+
+HD.dialogues.push({
+  id: 'd_phone', ta: 'தொலைபேசியில்', en: 'On the phone',
+  roles: ['சுரேஷ்', 'ரமேஷ்'],
+  raw: `
+0|हेलो, क्या मैं रमेश जी से बात कर सकता हूँ?|ஹேலோ, க்யா மைன் ரமேஷ் ஜீ ஸே பாத் கர் ஸக்தா ஹூன்?|helo, kyaa main ramesh jee se baat kar saktaa hoon?|ஹலோ, நான் ரமேஷ் அவர்களுடன் பேசலாமா?|Hello, can I speak to Ramesh?
+1|जी, मैं रमेश बोल रहा हूँ। आप कौन?|ஜீ, மைன் ரமேஷ் போல் ரஹா ஹூன். ஆப் கௌன்?|jee, main ramesh bol rahaa hoon. aap kaun?|ஆம், நான் ரமேஷ் பேசுகிறேன். நீங்கள் யார்?|Yes, Ramesh speaking. Who is this?
+0|मैं सुरेश बोल रहा हूँ। कल की मीटिंग के बारे में बात करनी थी।|மைன் ஸுரேஷ் போல் ரஹா ஹூன். கல் கீ மீடிங் கே பாரே மேயின் பாத் கர்னீ தீ.|main suresh bol rahaa hoon. kal kee meeting ke baare mein baat karnee thee.|நான் சுரேஷ் பேசுகிறேன். நாளைய மீட்டிங் பற்றிப் பேச வேண்டியிருந்தது.|This is Suresh. I wanted to talk about tomorrow's meeting.
+1|जी, बताइए।|ஜீ, பதாயியே.|jee, bataaiye.|சொல்லுங்கள்.|Yes, tell me.
+0|मीटिंग दस बजे है।|மீடிங் தஸ் பஜே ஹை.|meeting das baje hai.|மீட்டிங் பத்து மணிக்கு.|The meeting is at ten.
+1|ठीक है, मैं समय पर आ जाऊँगा।|டீக் ஹை, மைன் ஸமய் பர் ஆ ஜாவூங்கா.|theek hai, main samay par aa jaaoongaa.|சரி, நான் நேரத்துக்கு வந்துவிடுவேன்.|Okay, I'll come on time.
+0|धन्यवाद।|தன்யவாத்.|dhanyavaad.|நன்றி.|Thank you.
+`
+});
+
+HD.plan = {
+  weeks: [
+    { n: 1, from: 1, to: 7, goal: 'இந்தி படிக்கத் தெரியும்; தன்னை அறிமுகம் செய்ய முடியும்',
+      todo: 'எழுத்துகள், எண்கள் 1–100, வணக்கம் & அடிப்படைச் சொற்கள், பிரதிப்பெயர்கள். தினமும் 20 சொற்கள் + சத்தமாகச் சொல்லுதல்.',
+      go: { tab: 'learn', sec: 'vowels' } },
+    { n: 2, from: 8, to: 14, goal: 'எளிய வாக்கியங்கள் சொல்ல முடியும்',
+      todo: "'होना', 'पास', கேள்விச் சொற்கள், 17 வினைகளின் அச்சுகள், குடும்பம், உணவு, நிறங்கள், நாட்கள்.",
+      go: { tab: 'learn', sec: 'v_khaana' } },
+    { n: 3, from: 15, to: 21, goal: 'அன்றாடத் தேவைகளுக்குப் பேச முடியும்',
+      todo: 'வாக்கிய அச்சுகள், கடை, பயணம், உணவகம், தொலைபேசி, அலுவலகம். தினமும் 15 வாக்கியங்களைச் சத்தமாகச் சொல்லுங்கள்.',
+      go: { tab: 'learn', sec: 'patterns' } },
+    { n: 4, from: 22, to: 30, goal: 'சின்ன உரையாடல்களை நம்பிக்கையுடன் நடத்த முடியும்',
+      todo: 'உரையாடல்களை மனப்பாடம் செய்து நண்பருடன் நடியுங்கள்; உங்கள் குரலைப் பதிவு செய்து கேளுங்கள்; இந்தி ஷோ / பாடல் + subtitles.',
+      go: { tab: 'dialogues' } }
+  ],
+  tips: [
+    ['தினமும் பேசுங்கள்', 'தவறு வந்தாலும் பேசுங்கள். இந்தி பேசும் நண்பர், சக ஊழியர், கடைக்காரர்களிடம் தினமும் 5 வாக்கியமாவது.'],
+    ['Shadowing', 'ஒரு இந்தி வாக்கியத்தைக் கேட்டு அதே வேகத்தில் அப்படியே திருப்பிச் சொல்லுங்கள்.'],
+    ['தாய்மொழியில் யோசிக்காதீர்கள்', 'சின்ன வாக்கிய அச்சுகளாக (patterns) மனப்பாடம் செய்யுங்கள். சொல்லுக்குச் சொல் மொழிபெயர்க்க வேண்டாம்.'],
+    ['மரியாதை', 'தெரியாதவர்களிடம் எப்போதும் आप, जी, कृपया பயன்படுத்துங்கள்.'],
+    ['தமிழுடன் ஒற்றுமை', 'இந்தி & தமிழ் இரண்டிலும் வாக்கிய வரிசை எழுவாய் – செயப்படுபொருள் – வினை. இதனால் வாக்கியம் அமைப்பது எளிது.']
+  ]
+};
+
+// parse
+(function () {
+  function parse(raw) {
+    return raw.trim().split('\n').map(function (l) {
+      var p = l.split('|');
+      return { hi: p[0].trim(), pr: (p[1] || '').trim(), ro: (p[2] || '').trim(), ta: (p[3] || '').trim(), en: (p[4] || '').trim(), sp: (p[5] || '').trim() };
+    });
+  }
+  HD.sections.forEach(function (s) {
+    s.items = parse(s.raw);
+    s.items.forEach(function (it, i) { it.id = s.id + '.' + i; it.sid = s.id; });
+    delete s.raw;
+  });
+  HD.dialogues.forEach(function (d) {
+    d.lines = d.raw.trim().split('\n').map(function (l, i) {
+      var p = l.split('|');
+      return { id: d.id + '.' + i, r: +p[0], hi: p[1].trim(), pr: p[2].trim(), ro: p[3].trim(), ta: p[4].trim(), en: p[5].trim(), sp: '' };
+    });
+    delete d.raw;
+  });
+})();
+
+
+</script>
+<script>
+(function () {
+  'use strict';
+  function $(s, r) { return (r || document).querySelector(s); }
+  function $$(s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+  function shuffle(a) { a = a.slice(); for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+  function after(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+  var REDUCED = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+
+  /* ---------- storage ---------- */
+  function sget(k, d) { try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : d; } catch (e) { return d; } }
+  function sset(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { } }
+
+  /* ---------- data ---------- */
+  var SECS = HD.sections, DLGS = HD.dialogues, GROUPS = HD.groups, PLAN = HD.plan;
+  var ALL = [], ITEM = {}, SBY = {}, DBY = {};
+  SECS.forEach(function (s) { SBY[s.id] = s; s.items.forEach(function (it) { it.sec = s; ALL.push(it); ITEM[it.id] = it; }); });
+  DLGS.forEach(function (d) { DBY[d.id] = d; d.lines.forEach(function (l) { ITEM[l.id] = l; }); });
+
+  var prefs = sget('hindi.prefs', { rate: 'norm', mean: false, lang: 'ta' });
+  if (prefs.lang !== 'en') prefs.lang = 'ta';
+  var LANG = prefs.lang;
+  var FAV = sget('hindi.fav', []);
+  var DAYS = sget('hindi.days', []);
+  function isFav(id) { return FAV.indexOf(id) > -1; }
+  function isDay(d) { return DAYS.indexOf(d) > -1; }
+
+  /* ---------- text in both languages ---------- */
+  var TX = {
+    tabLearn: ['கற்க', 'Learn'], tabTalk: ['உரையாடல்', 'Dialogues'], tabPractice: ['பயிற்சி', 'Practice'], tabPlan: ['30 நாள்', '30 days'],
+    navAria: ['பிரிவுகள்', 'Sections'],
+    slow: ['மெது', 'Slow'], slowTitle: ['மெதுவாக ஒலிக்கச் செய்', 'Play slowly'],
+    meanLbl: ['த', 'A'],
+    meanTitle: ['தமிழ் பொருளையும் ஒலிக்கச் செய்', 'Also speak the English meaning'],
+    meanNoVoice: ['இந்த சாதனத்தில் தமிழ் குரல் இல்லை', 'No English voice on this device'],
+    heroP: ['கேளுங்கள், பேசுங்கள். எந்த வரியைத் தொட்டாலும் இந்தியில் ஒலிக்கும்.', 'Listen and speak. Tap any line to hear it in Hindi.'],
+    statWords: ['சொற்கள் & வாக்கியங்கள்', 'words & sentences'], statDlg: ['உரையாடல்கள்', 'dialogues'], statVerbs: ['வினைகள்', 'verbs'],
+    testBtn: ['ஒலி சோதனை', 'Test sound'],
+    noSpeechShort: ['இந்த browser-ல் speech வசதி இல்லை', 'This browser has no speech support'],
+    voicesInfo: ['Hindi voices: %1 · Tamil voice: %2', 'Hindi voices: %1 · English voice: %2'],
+    yes: ['உண்டு', 'yes'], no: ['இல்லை', 'no'],
+    searchPh: ['தேடு: இந்தி / தமிழ் / English', 'Search Hindi, sound or English'], searchAria: ['தேடு', 'Search'],
+    results: ['முடிவுகள்', 'Results'], none: ['எதுவும் கிடைக்கவில்லை.', 'Nothing found.'], more: ['மேலும் குறிப்பாகத் தேடுங்கள்.', 'Refine your search to see more.'],
+    daily: ['இன்றைய வாக்கியம்', 'Sentence of the day'],
+    listen: ['கேள்', 'Listen'], back: ['பின்செல்', 'Back'],
+    seqPlay: ['எல்லாவற்றையும் ஒலிக்கச் செய்', 'Play all'], seqStop: ['நிறுத்து', 'Stop'],
+    favOnly: ['குறித்தவை', 'Starred'],
+    favEmpty: ['நட்சத்திரம் குறித்த வரிகள் இல்லை. வரியின் வலது பக்கம் உள்ள நட்சத்திரத்தைத் தொடுங்கள்.', 'No starred lines yet. Tap the star on the right of a line to save it.'],
+    starAria: ['நட்சத்திரம் குறி', 'Star this line'],
+    items: ['%1 வரிகள்', '%1 items'], lines: ['%1 வரிகள்', '%1 lines'],
+    dlgP: ['இருவர் பேசுவதைக் கேளுங்கள். மறைத்துவிட்டு நீங்களே சொல்லிப் பாருங்கள்.', 'Listen to two people talk. Then hide the text and say the lines yourself.'],
+    vAll: ['எல்லாம்', 'All'], vHp: ['இந்தி + ஒலிப்பு', 'Hindi + sound'], vH: ['இந்தி மட்டும்', 'Hindi only'], viewAria: ['காட்சி', 'View'],
+    pracP: ['கேட்டுப் பழகுங்கள். ஒலியைக் கேட்டு பொருளைக் கண்டுபிடியுங்கள்.', 'Practise by ear. Hear a word and find its meaning.'],
+    pFrom: ['எதிலிருந்து பயிற்சி?', 'Practise from'], pChoose: ['பிரிவைத் தேர்ந்தெடுங்கள்', 'Choose a section'],
+    optAll: ['எல்லாச் சொற்களும் (%1)', 'All words (%1)'], optFav: ['★ குறித்தவை (%1)', '★ Starred (%1)'],
+    poolEmpty: ['இந்தப் பிரிவில் வரிகள் இல்லை. முதலில் கற்க பகுதியில் நட்சத்திரம் குறியுங்கள்.', 'Nothing here yet. Star some lines in Learn first.'],
+    flashBtn: ['அட்டைகள் · Flashcards', 'Flashcards'], quizBtn: ['கேட்டுத் தேர்வு · Listening quiz', 'Listening quiz'],
+    card: ['அட்டை', 'Card'], question: ['கேள்வி', 'Question'], score: ['மதிப்பெண்', 'Score'],
+    roundDone: ['சுற்று முடிந்தது', 'Round complete'], known: ['தெரிந்தவை', 'Known'],
+    retry: ['தவறியவற்றை மீண்டும் (%1)', 'Retry missed (%1)'], newRound: ['புதிய சுற்று', 'New round'], finish: ['முடி', 'Finish'],
+    thinkP: ['கேட்டு, பொருளை யோசியுங்கள்', 'Listen and think of the meaning'], showMean: ['பொருளைக் காட்டு', 'Show meaning'],
+    again: ['மீண்டும் பார்க்க', 'Review again'], know: ['தெரியும் ✓', 'I know it ✓'],
+    quizDone: ['தேர்வு முடிந்தது', 'Quiz complete'], reheat: ['மீண்டும் கேளுங்கள்', 'Listen to these again'], allRight: ['எல்லாம் சரி!', 'All correct!'],
+    quizAgain: ['மீண்டும் ஒரு தேர்வு', 'Another quiz'], quizPrompt: ['கேளுங்கள், பொருளைத் தேர்ந்தெடுங்கள்', 'Listen, then pick the meaning'],
+    seeResult: ['முடிவைப் பார்', 'See result'], next: ['அடுத்தது', 'Next'], replay: ['மீண்டும் கேள்', 'Play again'],
+    planP: ['30 நாள் பயிற்சித் திட்டம். முடித்த நாளைத் தொட்டுக் குறியுங்கள்.', '30-day practice plan. Tap a day to mark it done.'],
+    daysDone: ['%1 / 30 நாட்கள்', '%1 / 30 days'], today: ['இன்றைய பயிற்சி · நாள் %1', 'Today · Day %1'],
+    week: ['வாரம் %1', 'Week %1'], start: ['தொடங்கு', 'Start'],
+    allDone: ['30 நாட்களும் முடிந்தது', 'All 30 days done'], congrats: ['வாழ்த்துகள்! உரையாடல்களை மீண்டும் மீண்டும் பேசிப் பழகுங்கள்.', 'Well done! Keep repeating the dialogues out loud.'],
+    goal: ['இலக்கு', 'Goal'], day: ['நாள்', 'Day'], tips: ['பயிற்சிக் குறிப்புகள்', 'Practice tips'], dayAria: ['நாள் %1', 'Day %1'],
+    bnNoSpeech: ['இந்த browser-ல் ஒலி (speech) வசதி இல்லை. Chrome அல்லது Safari-ல் திறந்து பாருங்கள்.', 'This browser has no speech support. Open the link in Chrome or Safari.'],
+    bnNoHindi: ['இந்த சாதனத்தில் Hindi குரல் கிடைக்கவில்லை. Phone Settings → Text-to-speech அல்லது Language பகுதியில் Hindi voice-ஐ install செய்தால் ஒலி சரியாக வரும்.', 'No Hindi voice was found on this device. Install a Hindi voice under Settings → Text-to-speech or Language and the sound will work.'],
+    bnStuck: ['ஒலி தொடங்கவில்லை%1. 1) Phone silent mode-ஐ off செய்யுங்கள், volume ஏற்றுங்கள். 2) இது Claude app உள்ளே திறந்திருந்தால், artifact link-ஐ Chrome அல்லது Safari browser-ல் திறந்து பாருங்கள். 3) Hindi voice install ஆகியிருக்கிறதா என்று பாருங்கள்.',
+      'Sound did not start%1. 1) Turn off silent mode and raise the volume. 2) If this is open inside the Claude app, open the artifact link in Chrome or Safari instead. 3) Check that a Hindi voice is installed.'],
+    ok: ['சரி', 'OK']
+  };
+  function t(k) {
+    var v = TX[k]; if (!v) return k;
+    var s = v[LANG === 'en' ? 1 : 0];
+    for (var i = 1; i < arguments.length; i++) s = s.replace('%' + i, arguments[i]);
+    return s;
+  }
+  var NOTE_EN = {
+    vowels: 'Tap a letter to hear its example word.',
+    consonants: 'Hindi separates k/g, t/d and p/b. Read the Roman line under each letter for the exact sound.',
+    matras: 'A consonant plus a vowel sign makes one syllable. Stretch the long sounds (aa, ee, oo).',
+    nums2: 'Every number from 21 to 99 has its own name in Hindi. It matters for prices, time and phone numbers.',
+    patterns: 'Replace the ... with other words and practise saying each pattern.'
+  };
+  var VERB_NOTE_EN = 'Male-speaker forms are shown. For a female speaker: -ता → -ती, -रहा → -रही, गया → गई, -ऊँगा → -ऊँगी. In the past tense, verbs that take an object use ने after the subject (मैंने खाया); जाना, आना, रहना and similar verbs do not.';
+  var ROLES_EN = { d_meet: ['Anita', 'Ravi'], d_shop: ['Shopkeeper', 'Customer'], d_way: ['Traveller', 'Passer-by'], d_resto: ['Waiter', 'Customer'], d_phone: ['Suresh', 'Ramesh'] };
+  var PLAN_EN = {
+    weeks: {
+      1: { goal: 'You can read Hindi and introduce yourself', todo: 'Letters, numbers 1–100, greetings and basic words, pronouns. 20 words a day, said out loud.' },
+      2: { goal: 'You can say simple sentences', todo: 'होना, पास, question words, the 17 verb patterns, family, food, colours, days.' },
+      3: { goal: 'You can speak for everyday needs', todo: 'Sentence patterns, shopping, travel, restaurant, phone, office. Say 15 sentences out loud every day.' },
+      4: { goal: 'You can hold short conversations with confidence', todo: 'Memorise the dialogues and act them out with a friend, record your voice and listen back, watch a Hindi show or listen to songs with subtitles.' }
+    },
+    tips: [
+      ['Speak every day', 'Speak even when you make mistakes. At least 5 sentences a day with a Hindi-speaking friend, colleague or shopkeeper.'],
+      ['Shadowing', 'Listen to a Hindi sentence and repeat it back at the same speed.'],
+      ["Don't think in your mother tongue", "Memorise short sentence patterns. Don't translate word by word."],
+      ['Respect', "With people you don't know, always use आप, जी and कृपया."],
+      ['The Tamil connection', 'Hindi and Tamil both put the verb last (subject – object – verb), so building sentences feels familiar.']
+    ]
+  };
+  var isEn = function () { return LANG === 'en'; };
+  function secTitle(s) {
+    if (!isEn()) return s.ta;
+    return s.grp === 'verbs' ? s.ta.split(' – ')[0] + ' – ' + s.en : s.en;
+  }
+  function meaning(it) { return isEn() ? it.en : it.ta; }
+  function noteOf(s) { return isEn() ? NOTE_EN[s.id] : s.note; }
+
+  /* ---------- icons ---------- */
+  var I = {
+    play: '<svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.2v13.6a1 1 0 0 0 1.5.86l11-6.8a1 1 0 0 0 0-1.72l-11-6.8A1 1 0 0 0 8 5.2z"/></svg>',
+    playS: '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M8 5.2v13.6a1 1 0 0 0 1.5.86l11-6.8a1 1 0 0 0 0-1.72l-11-6.8A1 1 0 0 0 8 5.2z"/></svg>',
+    playL: '<svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 10v4h3.5l4.5 4V6L6.5 10H3zm12.5 2a3.5 3.5 0 0 0-2-3.15v6.3a3.5 3.5 0 0 0 2-3.15zM13.5 4.3v2.1a6.5 6.5 0 0 1 0 11.2v2.1a8.5 8.5 0 0 0 0-15.4z"/></svg>',
+    stop: '<svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="6" width="12" height="12" rx="2"/></svg>',
+    starOff: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9 6.8 19.7l1-5.9L3.5 9.7l5.9-.8z"/></svg>',
+    starOn: '<svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.4 5.9.8-4.3 4.1 1 5.9L12 16.9 6.8 19.7l1-5.9L3.5 9.7l5.9-.8z"/></svg>',
+    back: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>'
+  };
+
+  /* ---------- audio ---------- */
+  var Aud = { ok: ('speechSynthesis' in window) && ('SpeechSynthesisUtterance' in window), hi: [], ta: null, en: null, ready: false, stuck: false, err: '' };
+  var run = 0;
+  var S = { tab: 'learn', sec: null, q: '', favOnly: false, dlg: null, dmode: 0, seq: false, dismissed: false };
+
+  function vlang(v) { return String(v.lang || '').replace('_', '-').toLowerCase(); }
+  function loadVoices() {
+    if (NTTS || !Aud.ok) return;
+    var vs = [];
+    try { vs = window.speechSynthesis.getVoices() || []; } catch (e) { }
+    Aud.hi = vs.filter(function (v) { return vlang(v).indexOf('hi') === 0; });
+    Aud.ta = vs.filter(function (v) { return vlang(v).indexOf('ta') === 0; })[0] || null;
+    var ens = vs.filter(function (v) { return vlang(v).indexOf('en') === 0; });
+    Aud.en = ens.filter(function (v) { return vlang(v) === 'en-in'; })[0] || ens[0] || null;
+    if (Aud.hi.length) Aud.ready = true;
+    syncCtl(); renderBanner();
+  }
+  function rateHi() { return prefs.rate === 'slow' ? 0.55 : 0.85; }
+  function spoken(s) {
+    return String(s).replace(/\.\.\./g, '').replace(/\([^)]*\)/g, '').replace(/\s*\/\s*/g, ', ').replace(/[—–]/g, ' ').replace(/\s+/g, ' ').trim();
+  }
+  function say(text, o) {
+    o = o || {};
+    if (NTTS) return nativeSay(text, o);
+    return new Promise(function (res) {
+      if (!Aud.ok || !text) { res(false); return; }
+      var done = false;
+      function fin(v) { if (!done) { done = true; res(v); } }
+      try {
+        var u = new SpeechSynthesisUtterance(text);
+        u.lang = o.lang || 'hi-IN';
+        u.rate = o.rate || 1;
+        u.pitch = o.pitch || 1;
+        var pool = o.lang === 'ta-IN' ? (Aud.ta ? [Aud.ta] : []) : (o.lang === 'en-US' ? (Aud.en ? [Aud.en] : []) : Aud.hi);
+        if (pool.length) { u.voice = pool[(o.voice || 0) % pool.length]; u.lang = u.voice.lang; }
+        var started = false;
+        u.onstart = function () { started = true; if (Aud.stuck || Aud.err) { Aud.stuck = false; Aud.err = ''; renderBanner(); } };
+        u.onend = function () { fin(true); };
+        u.onerror = function (ev) {
+          var er = ev && ev.error;
+          if (er && er !== 'canceled' && er !== 'interrupted') { Aud.err = er; renderBanner(); }
+          fin(false);
+        };
+        window.speechSynthesis.speak(u);
+        setTimeout(function () { if (!started && !done) { Aud.stuck = true; renderBanner(); } }, 3000);
+        setTimeout(function () { fin(false); }, Math.max(5000, text.length * 260 / (u.rate || 1) + 4000));
+      } catch (e) { fin(false); }
+    });
+  }
+  function meanVoice() { return isEn() ? Aud.en : Aud.ta; }
+  async function speakItem(it, myRun) {
+    var o = (typeof it.r === 'number') ? { voice: it.r, pitch: it.r ? 0.8 : 1.05 } : {};
+    await say(spoken(it.sp || it.hi), { rate: rateHi(), pitch: o.pitch, voice: o.voice });
+    if (myRun !== run) return false;
+    if (prefs.mean && meanVoice()) {
+      var m = spoken(meaning(it));
+      if (m && m !== '—') {
+        await after(250);
+        if (myRun !== run) return false;
+        await say(m, { lang: isEn() ? 'en-US' : 'ta-IN', rate: 0.95 });
+        if (myRun !== run) return false;
+      }
+    }
+    return true;
+  }
+  function setOn(id) {
+    $$('.row.on, .bub.on, .bigplay.on, .daily.on').forEach(function (e) { e.classList.remove('on'); });
+    if (id) { $$('[data-id="' + id + '"]').forEach(function (e) { if (e.classList.contains('row') || e.classList.contains('bub') || e.classList.contains('bigplay') || e.classList.contains('daily')) e.classList.add('on'); }); }
+  }
+  function stopAll() {
+    run++; aiStopRec(); try { if (NTTS) NTTS.stop(); } catch (e) { }
+    try { if (Aud.ok) window.speechSynthesis.cancel(); } catch (e) { }
+    S.seq = false; setOn(null); syncSeq();
+  }
+  function playOne(id) {
+    var it = ITEM[id]; if (!it) return;
+    stopAll();
+    var r = run;
+    setOn(id);
+    speakItem(it, r).then(function () { if (r === run) setOn(null); });
+  }
+  async function playSeq(ids) {
+    stopAll();
+    var r = run; S.seq = true; syncSeq();
+    for (var i = 0; i < ids.length; i++) {
+      if (r !== run) return;
+      setOn(ids[i]);
+      var el = $('[data-id="' + ids[i] + '"]');
+      if (el && el.scrollIntoView) el.scrollIntoView({ block: 'center', behavior: REDUCED ? 'auto' : 'smooth' });
+      await speakItem(ITEM[ids[i]], r);
+      if (r !== run) return;
+      await after(450);
+    }
+    if (r === run) { S.seq = false; setOn(null); syncSeq(); }
+  }
+  function syncSeq() {
+    $$('.seqbtn').forEach(function (b) {
+      b.setAttribute('aria-pressed', S.seq ? 'true' : 'false');
+      b.innerHTML = S.seq ? I.stop + ' ' + esc(t('seqStop')) : I.playS + ' ' + esc(t('seqPlay'));
+    });
+  }
+  function syncCtl() {
+    var slow = $('#tSlow'), mean = $('#tMean'), lt = $('#lTa'), le = $('#lEn');
+    if (lt) lt.setAttribute('aria-pressed', isEn() ? 'false' : 'true');
+    if (le) le.setAttribute('aria-pressed', isEn() ? 'true' : 'false');
+    if (slow) { slow.setAttribute('aria-pressed', prefs.rate === 'slow' ? 'true' : 'false'); slow.textContent = t('slow'); slow.title = t('slowTitle'); }
+    if (mean) {
+      var has = !!meanVoice();
+      mean.textContent = t('meanLbl');
+      mean.setAttribute('aria-pressed', prefs.mean && has ? 'true' : 'false');
+      mean.disabled = !has && Aud.ready;
+      mean.title = (!has && Aud.ready) ? t('meanNoVoice') : t('meanTitle');
+      mean.setAttribute('aria-label', mean.title);
+    }
+  }
+  function applyStatic() {
+    var map = { learn: 'tabLearn', dialogues: 'tabTalk', ai: 'tabAi', practice: 'tabPractice', plan: 'tabPlan' };
+    $$('.tab').forEach(function (b) {
+      var key = map[b.getAttribute('data-tab')];
+      var tn = Array.prototype.slice.call(b.childNodes).filter(function (n) { return n.nodeType === 3 && n.textContent.trim(); })[0];
+      if (tn && key) tn.textContent = '\n      ' + t(key) + '\n    ';
+    });
+    var nav = $('.tabs'); if (nav) nav.setAttribute('aria-label', t('navAria'));
+    var app = $('#app'); if (app) app.setAttribute('lang', isEn() ? 'en' : 'ta');
+    syncCtl();
+  }
+  function renderBanner() {
+    var b = $('#banner'); if (!b) return;
+    var msg = '';
+    var bad = Aud.ok && (Aud.stuck || Aud.err);
+    if (!Aud.ok) msg = t('bnNoSpeech');
+    else if (bad) msg = t('bnStuck', Aud.err ? ' (' + Aud.err + ')' : '');
+    else if (Aud.ready && !Aud.hi.length) msg = t('bnNoHindi');
+    if (!msg || (S.dismissed && !bad)) { b.innerHTML = ''; return; }
+    b.innerHTML = '<div class="notice">' + esc(msg) + ' <button type="button" data-act="dismiss" style="text-decoration:underline;color:var(--accent);min-height:32px">' + esc(t('ok')) + '</button></div>';
+  }
+
+  /* ---------- views ---------- */
+  function soundLines(it) {
+    // Tamil mode: Tamil-script sound + Roman line. English mode: Roman line only, as the main sound line.
+    if (isEn()) return it.ro ? '<div class="pr">' + esc(it.ro) + '</div>' : '';
+    return (it.pr ? '<div class="pr">' + esc(it.pr) + '</div>' : '') + (it.ro ? '<div class="ro">' + esc(it.ro) + '</div>' : '');
+  }
+  function meanBlock(it) {
+    if (isEn()) return it.en ? esc(it.en) : '';
+    var m = (it.ta && it.ta !== '—') ? esc(it.ta) : '';
+    return m + (it.en ? '<small>' + esc(it.en) + '</small>' : '');
+  }
+  function rowHtml(it) {
+    var big = (it.sec.letters && it.hi.length <= 3) ? ' big' : '';
+    var fav = isFav(it.id);
+    return '<div class="row" data-id="' + it.id + '">' +
+      '<button type="button" class="play" data-act="play" aria-label="' + esc(t('listen')) + '">' + I.play + '</button>' +
+      '<div class="txt" data-act="play"><div class="hi' + big + '">' + esc(it.hi) + '</div>' + soundLines(it) +
+      '<div class="mn">' + meanBlock(it) + '</div></div>' +
+      '<button type="button" class="star" data-act="star" aria-pressed="' + fav + '" aria-label="' + esc(t('starAria')) + '">' + (fav ? I.starOn : I.starOff) + '</button></div>';
+  }
+  function dailyItem() {
+    var ids = ['patterns', 'useful', 'intro', 'feel', 'greet'];
+    var pool = ALL.filter(function (x) { return ids.indexOf(x.sid) > -1 && x.hi.indexOf('...') < 0 && x.hi.length < 40; });
+    var d = Math.floor(Date.now() / 864e5);
+    return pool[d % pool.length];
+  }
+  function viewLearn() {
+    if (S.sec) return viewSection(S.sec);
+    return '<div class="hero"><h1>सुनिए और बोलिए</h1>' +
+      '<p>' + esc(t('heroP')) + '</p>' +
+      '<div class="stats"><span><b>' + ALL.length + '</b> ' + esc(t('statWords')) + '</span><span><b>' + DLGS.length + '</b> ' + esc(t('statDlg')) + '</span><span><b>17</b> ' + esc(t('statVerbs')) + '</span></div>' +
+      '<div class="actions" style="margin:10px 0 0;align-items:center"><button type="button" class="btn" data-act="test">' + I.playS + ' ' + esc(t('testBtn')) + '</button><span id="tinfo" class="ta" style="color:var(--mute);font-size:13px"></span></div>' +
+      '<input class="search" id="q" type="search" placeholder="' + esc(t('searchPh')) + '" value="' + esc(S.q) + '" autocomplete="off" aria-label="' + esc(t('searchAria')) + '"></div>' +
+      '<div id="lb"></div>';
+  }
+  function fillLearn() {
+    var box = $('#lb'); if (!box) return;
+    var q = S.q.trim().toLowerCase();
+    if (q) {
+      var res = ALL.filter(function (it) { return (it.hi + ' ' + it.pr + ' ' + it.ro + ' ' + it.ta + ' ' + it.en).toLowerCase().indexOf(q) > -1; });
+      var shown = res.slice(0, 60);
+      box.innerHTML = '<div class="gh"><h2>' + esc(t('results')) + '</h2><span>' + res.length + '</span></div>' +
+        (shown.length ? '<div class="list">' + shown.map(rowHtml).join('') + '</div>' : '<div class="empty">' + esc(t('none')) + '</div>') +
+        (res.length > 60 ? '<div class="empty">' + esc(t('more')) + '</div>' : '');
+      return;
+    }
+    var d = dailyItem(), h = '';
+    if (d) h += '<div class="daily" data-id="' + d.id + '"><button type="button" class="play" data-act="play" aria-label="' + esc(t('listen')) + '">' + I.play + '</button><div><div class="lbl">' + esc(t('daily')) + '</div><div class="hi">' + esc(d.hi) + '</div><div class="ta">' + esc(meaning(d)) + '</div></div></div>';
+    GROUPS.forEach(function (g) {
+      var ss = SECS.filter(function (s) { return s.grp === g.id; });
+      h += '<div class="gh"><h2>' + esc(isEn() ? g.en : g.ta) + '</h2>' + (isEn() ? '' : '<span>' + esc(g.en) + '</span>') + '</div><div class="grid">';
+      ss.forEach(function (s) {
+        var sample = s.letters ? s.items.slice(0, 4).map(function (x) { return x.hi; }).join(' ') : s.items[0].hi;
+        h += '<button type="button" class="card" data-act="open" data-sec="' + s.id + '"><div class="g">' + esc(sample) + '</div><div class="t">' + esc(secTitle(s)) + '</div>' + (isEn() ? '' : '<div class="e">' + esc(s.en) + '</div>') + '<div class="n">' + s.items.length + '</div></button>';
+      });
+      h += '</div>';
+    });
+    box.innerHTML = h;
+  }
+  function viewSection(id) {
+    var s = SBY[id], g = GROUPS.filter(function (x) { return x.id === s.grp; })[0];
+    var items = S.favOnly ? s.items.filter(function (i) { return isFav(i.id); }) : s.items;
+    var h = '<div class="bar"><button type="button" class="back" data-act="back" aria-label="' + esc(t('back')) + '">' + I.back + '</button></div>';
+    h += '<div class="sh"><h2>' + esc(secTitle(s)) + '</h2><div class="e">' + (isEn() ? '' : esc(s.en) + ' · ') + esc(t('items', s.items.length)) + '</div></div>';
+    var n1 = noteOf(s); if (n1) h += '<div class="note">' + esc(n1) + '</div>';
+    var n2 = s.grp === 'verbs' ? (isEn() ? VERB_NOTE_EN : g.note) : ''; if (n2) h += '<div class="note">' + esc(n2) + '</div>';
+    h += '<div class="actions"><button type="button" class="btn pri seqbtn" data-act="seq" aria-pressed="false"></button>' +
+      '<button type="button" class="btn" data-act="favonly" aria-pressed="' + S.favOnly + '">' + I.starOff + ' ' + esc(t('favOnly')) + '</button></div>';
+    h += items.length ? '<div class="list">' + items.map(rowHtml).join('') + '</div>' : '<div class="empty">' + esc(t('favEmpty')) + '</div>';
+    return h;
+  }
+
+  function dTitle(d) { return isEn() ? d.en : d.ta; }
+  function roleName(d, r) { return isEn() ? ROLES_EN[d.id][r] : d.roles[r]; }
+  function viewDialogues() {
+    if (S.dlg) return viewDialog(S.dlg);
+    var h = '<div class="hero"><h1>बातचीत</h1><p>' + esc(t('dlgP')) + '</p></div><div class="list">';
+    DLGS.forEach(function (d, i) {
+      h += '<button type="button" class="dcard" data-act="dopen" data-d="' + d.id + '"><span class="ic">' + (i + 1) + '</span><span><div class="t">' + esc(dTitle(d)) + '</div>' + (isEn() ? '' : '<div class="e">' + esc(d.en) + '</div>') + '</span><span class="c">' + esc(t('lines', d.lines.length)) + '</span></button>';
+    });
+    return h + '</div>';
+  }
+  function viewDialog(id) {
+    var d = DBY[id];
+    var h = '<div class="bar"><button type="button" class="back" data-act="back" aria-label="' + esc(t('back')) + '">' + I.back + '</button></div>';
+    h += '<div class="sh"><h2>' + esc(dTitle(d)) + '</h2>' + (isEn() ? '' : '<div class="e">' + esc(d.en) + '</div>') + '</div>';
+    h += '<div class="actions"><button type="button" class="btn pri seqbtn" data-act="dseq" aria-pressed="false"></button>' +
+      '<div class="seg" role="group" aria-label="' + esc(t('viewAria')) + '">' +
+      [t('vAll'), t('vHp'), t('vH')].map(function (x, i) { return '<button type="button" data-act="dmode" data-v="' + i + '" aria-pressed="' + (S.dmode === i) + '">' + esc(x) + '</button>'; }).join('') +
+      '</div></div><div class="chat">';
+    d.lines.forEach(function (l) {
+      h += '<div class="bub r' + l.r + '" data-id="' + l.id + '" data-act="dline" role="button" tabindex="0"><span class="bplay">' + I.playS + '</span><div class="body"><div class="who">' + esc(roleName(d, l.r)) + '</div><div class="hi">' + esc(l.hi) + '</div>' +
+        (S.dmode < 2 ? soundLines(l) : '') +
+        (S.dmode < 1 ? '<div class="mn">' + meanBlock(l) + '</div>' : '') + '</div></div>';
+    });
+    return h + '</div>';
+  }
+
+  /* ---------- practice ---------- */
+  var P = { mode: null, src: 'all', deck: [], i: 0, shown: false, known: 0, miss: [], qs: [], qi: 0, score: 0, cur: null };
+  function poolFor(src) {
+    var base = ALL.filter(function (x) { return !x.sec.noquiz; });
+    if (src === 'fav') return base.filter(function (x) { return isFav(x.id); });
+    if (src === 'all') return base;
+    return ALL.filter(function (x) { return x.sid === src; });
+  }
+  function viewPractice() {
+    if (P.mode === 'flash') return viewFlash();
+    if (P.mode === 'quiz') return viewQuiz();
+    var opts = '<option value="all"' + (P.src === 'all' ? ' selected' : '') + '>' + esc(t('optAll', poolFor('all').length)) + '</option>' +
+      '<option value="fav"' + (P.src === 'fav' ? ' selected' : '') + '>' + esc(t('optFav', poolFor('fav').length)) + '</option>';
+    GROUPS.forEach(function (g) {
+      var ss = SECS.filter(function (s) { return s.grp === g.id && !s.noquiz; });
+      if (!ss.length) return;
+      opts += '<optgroup label="' + esc(isEn() ? g.en : g.ta) + '">' + ss.map(function (s) { return '<option value="' + s.id + '"' + (P.src === s.id ? ' selected' : '') + '>' + esc(secTitle(s)) + ' (' + s.items.length + ')</option>'; }).join('') + '</optgroup>';
+    });
+    var n = poolFor(P.src).length;
+    return '<div class="hero"><h1>अभ्यास</h1><p>' + esc(t('pracP')) + '</p></div>' +
+      '<div class="panel stack"><div><h3>' + esc(t('pFrom')) + '</h3><label for="src" class="ta" style="color:var(--mute);font-size:13px">' + esc(t('pChoose')) + '</label></div>' +
+      '<select id="src" class="sel">' + opts + '</select>' +
+      (n ? '' : '<div class="empty" style="padding:6px">' + esc(t('poolEmpty')) + '</div>') +
+      '<button type="button" class="btn pri" data-act="pstart" data-mode="flash"' + (n ? '' : ' disabled') + '>' + esc(t('flashBtn')) + '</button>' +
+      '<button type="button" class="btn pri" data-act="pstart" data-mode="quiz"' + (n ? '' : ' disabled') + '>' + esc(t('quizBtn')) + '</button></div>';
+  }
+  function topBar(label, i, n, extra) {
+    return '<div class="bar" style="justify-content:space-between;margin-bottom:10px"><button type="button" class="back" data-act="pend" aria-label="' + esc(t('finish')) + '">' + I.back + '</button><div class="meta" style="flex:1;gap:12px"><span>' + esc(label) + ' ' + Math.min(i + 1, n) + ' / ' + n + '</span><span>' + esc(extra) + '</span></div></div>' +
+      '<div class="prog" style="margin-bottom:12px"><i style="width:' + (n ? Math.round(i / n * 100) : 0) + '%"></i></div>';
+  }
+  function viewFlash() {
+    var n = P.deck.length;
+    if (P.i >= n) {
+      return '<div class="panel stack" style="text-align:center"><h3>' + esc(t('roundDone')) + '</h3><div class="score">' + P.known + ' / ' + n + '</div><div class="ta" style="color:var(--mute)">' + esc(t('known')) + '</div>' +
+        (P.miss.length ? '<button type="button" class="btn pri" data-act="pmissed" style="justify-content:center">' + esc(t('retry', P.miss.length)) + '</button>' : '') +
+        '<button type="button" class="btn" data-act="pagain" data-mode="flash" style="justify-content:center">' + esc(t('newRound')) + '</button>' +
+        '<button type="button" class="btn" data-act="pend" style="justify-content:center">' + esc(t('finish')) + '</button></div>';
+    }
+    var it = P.deck[P.i];
+    var h = topBar(t('card'), P.i, n, '✓ ' + P.known);
+    h += '<div class="panel fc"><button type="button" class="bigplay" data-act="fplay" data-id="' + it.id + '" aria-label="' + esc(t('replay')) + '">' + I.playL + '</button><div class="hi">' + esc(it.hi) + '</div>';
+    if (P.shown) h += soundLines(it) + '<div class="mn">' + meanBlock(it) + '</div>';
+    else h += '<div class="ta" style="color:var(--mute);font-size:14px">' + esc(t('thinkP')) + '</div>';
+    h += '</div><div class="actions" style="margin-top:12px">';
+    if (!P.shown) h += '<button type="button" class="btn pri" data-act="freveal" style="flex:1;justify-content:center">' + esc(t('showMean')) + '</button>';
+    else h += '<button type="button" class="btn" data-act="fno" style="flex:1;justify-content:center">' + esc(t('again')) + '</button><button type="button" class="btn pri" data-act="fyes" style="flex:1;justify-content:center">' + esc(t('know')) + '</button>';
+    return h + '</div>';
+  }
+  function makeOpts(it) {
+    var seen = {}; seen[meaning(it)] = 1;
+    var same = shuffle(ALL.filter(function (x) { return x.sid === it.sid && x.id !== it.id && x.ta !== '—'; }));
+    var other = shuffle(ALL.filter(function (x) { return !x.sec.noquiz && x.sid !== it.sid; }));
+    var d = [];
+    [same, other].forEach(function (arr) {
+      for (var i = 0; i < arr.length && d.length < 3; i++) { var k = meaning(arr[i]); if (!seen[k]) { seen[k] = 1; d.push(arr[i]); } }
+    });
+    return shuffle([it].concat(d));
+  }
+  function setQ() { var it = P.qs[P.qi]; P.cur = { it: it, opts: makeOpts(it), pick: -1 }; }
+  function viewQuiz() {
+    var n = P.qs.length;
+    if (P.qi >= n) {
+      var h = '<div class="panel stack" style="text-align:center"><h3>' + esc(t('quizDone')) + '</h3><div class="score">' + P.score + ' / ' + n + '</div>';
+      if (P.miss.length) {
+        h += '<div class="ta" style="color:var(--mute)">' + esc(t('reheat')) + '</div><div class="miss">' + P.miss.map(function (m) { return '<div><span class="hi">' + esc(m.hi) + '</span><span class="ta">' + esc(meaning(m)) + '</span></div>'; }).join('') + '</div>';
+      } else h += '<div class="ta" style="color:var(--good)">' + esc(t('allRight')) + '</div>';
+      return h + '<button type="button" class="btn pri" data-act="pagain" data-mode="quiz" style="justify-content:center">' + esc(t('quizAgain')) + '</button><button type="button" class="btn" data-act="pend" style="justify-content:center">' + esc(t('finish')) + '</button></div>';
+    }
+    var c = P.cur, it = c.it, done = c.pick > -1;
+    var out = topBar(t('question'), P.qi, n, t('score') + ' ' + P.score);
+    out += '<div class="panel stack" style="align-items:center;text-align:center"><button type="button" class="bigplay" data-act="fplay" data-id="' + it.id + '" aria-label="' + esc(t('replay')) + '">' + I.playL + '</button>';
+    out += '<div class="ta" style="color:var(--mute)">' + esc(t('quizPrompt')) + '</div>';
+    if (done) out += '<div class="hi" style="font-size:26px;line-height:1.35">' + esc(it.hi) + '</div><div class="ta" style="color:var(--accent)">' + esc(isEn() ? it.ro : it.pr) + '</div>';
+    out += '</div><div class="stack" style="margin-top:12px">';
+    c.opts.forEach(function (o, k) {
+      var cls = 'opt';
+      if (done) { if (o === it) cls += ' ok'; else if (k === c.pick) cls += ' no'; }
+      var sub = (!isEn() && o.en) ? '<small>' + esc(o.en) + '</small>' : '';
+      out += '<button type="button" class="' + cls + '" data-act="qpick" data-k="' + k + '"' + (done ? ' disabled' : '') + '>' + esc(meaning(o)) + sub + '</button>';
+    });
+    out += '</div>';
+    if (done) out += '<div class="actions"><button type="button" class="btn pri" data-act="qnext" style="flex:1;justify-content:center">' + esc(P.qi + 1 >= n ? t('seeResult') : t('next')) + '</button></div>';
+    return out;
+  }
+  function startFlash(deck) {
+    P.mode = 'flash'; P.deck = deck; P.i = 0; P.known = 0; P.miss = []; P.shown = false;
+    render(); if (P.deck.length) playOne(P.deck[0].id);
+  }
+  function startQuiz() {
+    var pool = poolFor(P.src); if (!pool.length) return;
+    P.mode = 'quiz'; P.qs = shuffle(pool).slice(0, Math.min(10, pool.length)); P.qi = 0; P.score = 0; P.miss = [];
+    setQ(); render(); playOne(P.cur.it.id);
+  }
+
+  /* ---------- plan ---------- */
+  function weekOf(d) { return PLAN.weeks.filter(function (w) { return d >= w.from && d <= w.to; })[0]; }
+  function weekText(w) { return isEn() ? PLAN_EN.weeks[w.n] : { goal: w.goal, todo: w.todo }; }
+  function viewPlan() {
+    var next = 0;
+    for (var d = 1; d <= 30; d++) { if (!isDay(d)) { next = d; break; } }
+    var pct = Math.round(DAYS.length / 30 * 100);
+    var h = '<div class="hero"><h1>३० दिन</h1><p>' + esc(t('planP')) + '</p></div>';
+    h += '<div class="meta"><span>' + esc(t('daysDone', DAYS.length)) + '</span><span>' + pct + '%</span></div><div class="prog" style="margin-top:6px"><i style="width:' + pct + '%"></i></div>';
+    h += '<div class="days">';
+    for (var i = 1; i <= 30; i++) h += '<button type="button" class="day" data-act="day" data-d="' + i + '" aria-pressed="' + isDay(i) + '" aria-label="' + esc(t('dayAria', i)) + '">' + i + '</button>';
+    h += '</div>';
+    var cur = next ? weekOf(next) : null;
+    if (next && cur) {
+      h += '<div class="panel" style="margin-bottom:14px"><h3>' + esc(t('today', next)) + '</h3><p class="ta" style="margin:4px 0 12px">' + esc(t('week', cur.n)) + ': ' + esc(weekText(cur).todo) + '</p><button type="button" class="btn pri" data-act="go" data-tab="' + cur.go.tab + '" data-sec="' + (cur.go.sec || '') + '">' + esc(t('start')) + '</button></div>';
+    } else if (!next) {
+      h += '<div class="panel" style="margin-bottom:14px"><h3>' + esc(t('allDone')) + '</h3><p class="ta" style="margin:4px 0 0">' + esc(t('congrats')) + '</p></div>';
+    }
+    PLAN.weeks.forEach(function (w) {
+      var wt = weekText(w);
+      h += '<div class="week' + (cur && cur.n === w.n ? ' now' : '') + '"><h3>' + esc(t('week', w.n)) + '<span>' + esc(t('day')) + ' ' + w.from + '–' + w.to + '</span></h3><p class="goal">' + esc(t('goal')) + ': ' + esc(wt.goal) + '</p><p>' + esc(wt.todo) + '</p></div>';
+    });
+    h += '<div class="gh"><h2>' + esc(t('tips')) + '</h2></div>';
+    (isEn() ? PLAN_EN.tips : PLAN.tips).forEach(function (x) { h += '<div class="tip"><b>' + esc(x[0]) + '</b><span>' + esc(x[1]) + '</span></div>'; });
+    return h;
+  }
+
+  /* ---------- render ---------- */
+  function render() {
+    $$('.tab').forEach(function (b) { b.setAttribute('aria-current', b.getAttribute('data-tab') === S.tab ? 'page' : 'false'); });
+    var h = S.tab === 'learn' ? viewLearn() : S.tab === 'dialogues' ? viewDialogues() : S.tab === 'ai' ? viewAi() : S.tab === 'practice' ? viewPractice() : viewPlan();
+    $('#view').innerHTML = h;
+    if (S.tab === 'learn' && !S.sec) fillLearn();
+    syncSeq(); syncCtl(); renderBanner();
+  }
+  function toTop() { try { window.scrollTo(0, 0); } catch (e) { } }
+
+  /* ---------- events ---------- */
+  document.addEventListener('click', function (e) {
+    var tg = e.target.closest('[data-act]'); if (!tg) return;
+    var a = tg.getAttribute('data-act');
+    var holder = tg.closest('[data-id]'); var id = holder ? holder.getAttribute('data-id') : null;
+    switch (a) {
+      case 'tab': {
+        var tab = tg.getAttribute('data-tab');
+        stopAll();
+        if (S.tab === tab) { S.sec = null; S.dlg = null; P.mode = null; }
+        S.tab = tab; render(); toTop(); break;
+      }
+      case 'lang': {
+        var v = tg.getAttribute('data-v'); if (v === LANG) break;
+        stopAll(); LANG = v; prefs.lang = v; sset('hindi.prefs', prefs);
+        applyStatic(); render(); break;
+      }
+      case 'open': stopAll(); S.sec = tg.getAttribute('data-sec'); S.favOnly = false; render(); toTop(); break;
+      case 'back': stopAll(); if (S.tab === 'learn') S.sec = null; else S.dlg = null; render(); toTop(); break;
+      case 'play': case 'fplay': case 'dline': if (id) playOne(id); break;
+      case 'star': {
+        if (!id) break;
+        var ix = FAV.indexOf(id);
+        if (ix > -1) FAV.splice(ix, 1); else FAV.push(id);
+        sset('hindi.fav', FAV);
+        if (S.favOnly) { render(); break; }
+        tg.setAttribute('aria-pressed', isFav(id) ? 'true' : 'false'); tg.innerHTML = isFav(id) ? I.starOn : I.starOff;
+        break;
+      }
+      case 'favonly': S.favOnly = !S.favOnly; stopAll(); render(); break;
+      case 'seq': {
+        if (S.seq) { stopAll(); break; }
+        var s = SBY[S.sec]; var items = S.favOnly ? s.items.filter(function (i) { return isFav(i.id); }) : s.items;
+        playSeq(items.map(function (i) { return i.id; })); break;
+      }
+      case 'dopen': stopAll(); S.dlg = tg.getAttribute('data-d'); render(); toTop(); break;
+      case 'dmode': S.dmode = +tg.getAttribute('data-v'); stopAll(); render(); break;
+      case 'dseq': {
+        if (S.seq) { stopAll(); break; }
+        playSeq(DBY[S.dlg].lines.map(function (l) { return l.id; })); break;
+      }
+      case 'rate': prefs.rate = prefs.rate === 'slow' ? 'norm' : 'slow'; sset('hindi.prefs', prefs); syncCtl(); break;
+      case 'mean': if (meanVoice()) { prefs.mean = !prefs.mean; sset('hindi.prefs', prefs); syncCtl(); } break;
+      case 'dismiss': S.dismissed = true; renderBanner(); break;
+      case 'test': {
+        stopAll();
+        var info = $('#tinfo');
+        if (info) info.textContent = !Aud.ok ? t('noSpeechShort') : t('voicesInfo', Aud.hi.length, (isEn() ? Aud.en : Aud.ta) ? t('yes') : t('no'));
+        say('नमस्ते, आप कैसे हैं?', { rate: rateHi() });
+        break;
+      }
+      case 'pstart': {
+        var m = tg.getAttribute('data-mode'), pool = poolFor(P.src);
+        if (!pool.length) break;
+        if (m === 'flash') startFlash(shuffle(pool).slice(0, 20)); else startQuiz();
+        toTop(); break;
+      }
+      case 'pagain': {
+        if (tg.getAttribute('data-mode') === 'flash') startFlash(shuffle(poolFor(P.src)).slice(0, 20)); else startQuiz();
+        toTop(); break;
+      }
+      case 'pmissed': startFlash(shuffle(P.miss)); break;
+      case 'pend': stopAll(); P.mode = null; render(); toTop(); break;
+      case 'freveal': P.shown = true; render(); break;
+      case 'fyes': case 'fno': {
+        if (a === 'fyes') P.known++; else P.miss.push(P.deck[P.i]);
+        P.i++; P.shown = false; render();
+        if (P.i < P.deck.length) playOne(P.deck[P.i].id); else stopAll();
+        break;
+      }
+      case 'qpick': {
+        if (!P.cur || P.cur.pick > -1) break;
+        var k = +tg.getAttribute('data-k'); P.cur.pick = k;
+        if (P.cur.opts[k] === P.cur.it) P.score++; else P.miss.push(P.cur.it);
+        render(); break;
+      }
+      case 'qnext': {
+        P.qi++;
+        if (P.qi < P.qs.length) { setQ(); render(); playOne(P.cur.it.id); } else { stopAll(); render(); }
+        toTop(); break;
+      }
+      case 'day': {
+        var dn = +tg.getAttribute('data-d'), di = DAYS.indexOf(dn);
+        if (di > -1) DAYS.splice(di, 1); else DAYS.push(dn);
+        sset('hindi.days', DAYS); render(); break;
+      }
+      case 'go': {
+        stopAll(); S.tab = tg.getAttribute('data-tab'); var gs = tg.getAttribute('data-sec');
+        S.sec = (S.tab === 'learn' && gs) ? gs : null; S.dlg = null; S.favOnly = false; render(); toTop(); break;
+      }
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target && e.target.getAttribute && e.target.getAttribute('role') === 'button') { e.preventDefault(); e.target.click(); }
+  });
+  document.addEventListener('input', function (e) {
+    if (e.target && e.target.id === 'q') { S.q = e.target.value; fillLearn(); }
+  });
+  document.addEventListener('change', function (e) {
+    if (e.target && e.target.id === 'src') { P.src = e.target.value; render(); }
+  });
+
+
+  /* ---------- AI talk: speak Hindi, get corrected ---------- */
+  Object.assign(TX, {
+    tabAi: ['பேசு', 'Speak'],
+    aiP: ['சூழ்நிலையைத் தேர்ந்தெடுங்கள். மைக்கில் இந்தியில் பேசுங்கள். தவறு இருந்தால் AI திருத்தி, எப்படிச் சொல்வது, எப்படி உச்சரிப்பது என்று சொல்லித் தரும்.', 'Pick a situation and speak Hindi into the mic. If you make a mistake, the AI corrects it and shows how to say and pronounce it.'],
+    aiNote: ['உச்சரிப்பு திருத்தம், உங்கள் phone கேட்ட சொற்களின் அடிப்படையில் அமையும்.', 'Pronunciation feedback is based on the words your phone heard.'],
+    aiYou: ['நீங்கள்', 'You'], aiAI: ['AI', 'AI'],
+    aiOk: ['✓ சரி! நன்றாகச் சொன்னீர்கள்.', '✓ Correct! Well said.'], aiFix: ['சரியான வடிவம்', 'Correct form'],
+    aiRepeat: ['திரும்பச் சொல்லுங்கள்', 'Repeat it'], aiHear: ['கேள்', 'Listen'],
+    aiPh: ['இந்தியில் தட்டச்சு செய்யுங்கள்…', 'Type in Hindi…'], aiSend: ['அனுப்பு', 'Send'],
+    aiMic: ['பேசத் தொடுங்கள்', 'Tap to speak'], aiListening: ['கேட்கிறேன்… இப்போது பேசுங்கள்', 'Listening… speak now'],
+    aiThink: ['AI யோசிக்கிறது…', 'AI is thinking…'],
+    aiNoSR: ['இந்த browser-ல் மைக் வசதி இல்லை. கீழே தட்டச்சு செய்யுங்கள், அல்லது Chrome / Safari-ல் திறக்கவும்.', 'Voice input is not supported here. Type below, or open this in Chrome or Safari.'],
+    aiMicBlock: ['மைக் அனுமதி இல்லை. இந்தப் பக்கத்தை Chrome அல்லது Safari-ல் நேரடியாகத் திறந்து மைக்கை Allow செய்யுங்கள். இப்போது கீழே தட்டச்சு செய்யலாம்.', 'Microphone is blocked. Open this page directly in Chrome or Safari and allow the mic. You can type below meanwhile.'],
+    aiNoSpeech: ['எதுவும் கேட்கவில்லை. மீண்டும் மைக்கைத் தொட்டுப் பேசுங்கள்.', 'Did not hear anything. Tap the mic and speak again.'],
+    aiNet: ['Speech service-க்கு internet தேவை. இணைப்பைப் பாருங்கள்.', 'Speech service needs internet. Please check your connection.'],
+    aiNoAI: ['AI வசதி இங்கே கிடைக்கவில்லை. இந்தப் பக்கத்தை Claude-ன் artifact link வழியாகத் திறக்கவும்.', 'AI is not available here. Open this page from its Claude artifact link.'],
+    aiGrant: ['API key தவறு அல்லது இல்லை. மீண்டும் AI-ஐத் தொட்டு சரியான key கொடுங்கள்.', 'API key missing or invalid. Start a chat again and enter a valid key.'],
+    aiRate: ['நிறைய கோரிக்கைகள். சிறிது நேரம் கழித்து முயலுங்கள்.', 'Too many requests. Try again in a little while.'],
+    aiErr: ['AI பதில் வரவில்லை. மீண்டும் அனுப்புங்கள்.', 'No reply from AI. Please send again.'],
+    aiScore: ['ஒப்பீடு', 'Match'], aiSaid: ['நீங்கள் சொன்னது', 'You said'],
+    aiGreat: ['அருமை!', 'Great!'], aiClose: ['கிட்டத்தட்ட சரி', 'Almost there'], aiAgain: ['மீண்டும் முயலுங்கள்', 'Try again'],
+    aiTapWord: ['சொல்லைத் தொட்டால் ஒலிக்கும்', 'tap a word to hear it']
+  });
+  var AIS = [
+    { id: 'free', ta: 'தடையற்ற பேச்சு', en: 'Free chat', p: 'A free friendly chat about daily life: family, food, the day.' },
+    { id: 'intro', ta: 'அறிமுகம்', en: 'Meeting someone', p: 'Two people meeting for the first time: greetings, names, where from, work.' },
+    { id: 'shop', ta: 'கடையில்', en: 'Shopping', p: 'The student is a customer buying vegetables or clothes; you are the shopkeeper: price, quantity, discount.' },
+    { id: 'resto', ta: 'உணவகம்', en: 'Restaurant', p: 'The student orders food in a restaurant; you are the waiter.' },
+    { id: 'way', ta: 'வழி கேட்க', en: 'Asking the way', p: 'The student is a traveller asking you, a passer-by, for directions.' },
+    { id: 'work', ta: 'வேலை இடம்', en: 'At work', p: 'Two colleagues at work (office or factory) talking about today\'s tasks, timing and targets.' }
+  ];
+  var AI = { scen: null, turns: [], log: [], busy: false, rec: null, listening: false, smp: undefined };
+  /* ---------- native Android bridge (Capacitor) ---------- */
+  var CAP = window.Capacitor, NATIVE = !!(CAP && CAP.isNativePlatform && CAP.isNativePlatform());
+  var NSR = NATIVE ? CAP.registerPlugin('SpeechRecognition') : null, NTTS = NATIVE ? CAP.registerPlugin('TextToSpeech') : null;
+  if (NTTS) { Aud.ok = true; Aud.hi = [{ lang: 'hi-IN' }]; Aud.ta = { lang: 'ta-IN' }; Aud.en = { lang: 'en-US' }; Aud.ready = true; }
+  function nativeSay(text, o) {
+    if (!text) return Promise.resolve(false);
+    return NTTS.speak({ text: text, lang: o.lang || 'hi-IN', rate: o.rate || 1, pitch: o.pitch || 1, volume: 1, category: 'ambient' }).then(function () { return true; }).catch(function () { return false; });
+  }
+  function NativeSR() {
+    var me = this, last = [], h1, h2, live = false;
+    function done() { live = false; try { if (h1) h1.remove(); if (h2) h2.remove(); } catch (e) { } }
+    function res(m, fin) { var r = m.map(function (x) { return { transcript: x }; }); r.isFinal = fin; if (me.onresult) me.onresult({ results: [r] }); }
+    this.start = async function () {
+      try {
+        var p = await NSR.requestPermissions();
+        if (p.speechRecognition !== 'granted') { if (me.onerror) me.onerror({ error: 'not-allowed' }); if (me.onend) me.onend(); return; }
+        live = true;
+        h1 = await NSR.addListener('partialResults', function (e) { last = e.matches || []; if (last.length) res(last, false); });
+        h2 = await NSR.addListener('listeningState', function (e) { if (e.status === 'stopped' && live) { done(); if (last.length) res(last, true); if (me.onend) me.onend(); } });
+        if (me.onstart) me.onstart();
+        await NSR.start({ language: me.lang || 'hi-IN', maxResults: 3, partialResults: true, popup: false });
+      } catch (e) { done(); if (me.onerror) me.onerror({ error: 'not-allowed' }); if (me.onend) me.onend(); }
+    };
+    this.stop = function () { try { NSR.stop(); } catch (e) { } };
+    this.abort = function () { done(); last = []; try { NSR.stop(); } catch (e) { } };
+  }
+  function keySmp() {
+    return {
+      json: async function (turns) {
+        var key = localStorage.getItem('hb.key');
+        if (!key) { key = window.prompt('Anthropic API key (sk-ant-...)'); if (!key) throw { code: 'not_granted' }; localStorage.setItem('hb.key', key.trim()); }
+        var rsp = await fetch('https://api.anthropic.com/v1/messages', { method: 'POST', headers: { 'content-type': 'application/json', 'x-api-key': key.trim(), 'anthropic-version': '2023-06-01', 'anthropic-dangerous-direct-browser-access': 'true' }, body: JSON.stringify({ model: 'claude-haiku-5-5', max_tokens: 1000, messages: turns }) });
+        if (rsp.status === 401 || rsp.status === 403) { localStorage.removeItem('hb.key'); throw { code: 'not_granted' }; }
+        if (rsp.status === 429) throw { code: 'rate_limited' };
+        if (!rsp.ok) throw { code: 'upstream_error' };
+        var d = await rsp.json(), tx = (d.content || []).map(function (c) { return c.text || ''; }).join('');
+        try { return JSON.parse(tx.slice(tx.indexOf('{'), tx.lastIndexOf('}') + 1)); } catch (e) { throw { code: 'invalid_json' }; }
+      }
+    };
+  }
+  var SR = NATIVE ? NativeSR : (window.SpeechRecognition || window.webkitSpeechRecognition);
+  if (NATIVE || !(window.claude && window.claude.use)) AI.smp = keySmp();
+  else { try { window.claude.use('sample').then(function (s) { AI.smp = s || null; if (S.tab === 'ai' && !AI.busy && !AI.log.length) render(); }).catch(function () { AI.smp = null; }); } catch (e) { AI.smp = null; } }
+
+  function aiInstr() {
+    var L = isEn() ? 'English' : 'Tamil', PR = isEn() ? 'simple English phonetics like na-mas-tay' : 'Tamil script';
+    return 'You are a warm Hindi conversation partner and pronunciation coach. The student is a beginner (A1-A2) whose mother tongue is ' + L + '. Scenario: ' + AI.scen.p + ' You play the other person and keep the conversation going.\n' +
+      'Each student turn is one Hindi sentence, either from a phone speech recognizer (it shows what the phone heard; you cannot hear audio) or typed (maybe in Roman letters or ' + L + '). If recognized text looks like a mis-hearing of a common word, treat it as a likely pronunciation problem and name the sound that probably went wrong.\n' +
+      'Reply with ONLY one JSON object (no markdown) with these string keys:\n' +
+      '"heard": what the student said, in Devanagari.\n' +
+      '"ok": true if natural and correct enough (grammar, word choice, gender, polite form, word order), else false.\n' +
+      '"fix": corrected natural Hindi sentence in Devanagari (same as heard when ok).\n' +
+      '"fix_ro": Roman transliteration of fix.\n' +
+      '"fix_pr": how to pronounce fix, written in ' + PR + '.\n' +
+      '"why": one or two short sentences in ' + L + ' naming each mistake: the wrong word, the right word, the reason. Empty when ok.\n' +
+      '"pron": one short tip in ' + L + ' on the hardest sound in fix for a ' + L + ' speaker (aspirated kh/gh/th/dh/bh, retroflex ट ड vs dental त द, ड़, nasal ं, ज़ फ़ etc). Empty if none.\n' +
+      '"reply": your short natural Hindi reply (one or two simple sentences, आप form, Devanagari) ending with a simple question.\n' +
+      '"reply_ro": Roman transliteration of reply.\n' +
+      '"reply_pr": pronunciation of reply in ' + PR + '.\n' +
+      '"reply_mean": meaning of reply in ' + L + '.\n' +
+      'Rules: be encouraging; correct only what is truly wrong; keep your own Hindi very simple. If the input is empty or unclear, set ok=false, fix="" and politely ask in reply for it again. If the student wrote in ' + L + ' or Roman letters, put the natural Hindi in fix and set ok=false. Never write anything outside the JSON object.';
+  }
+  function aiStat(m, bad) { var s = $('#aistat'); if (s) { s.textContent = m || ''; s.className = 'aistat' + (bad ? ' bad' : ''); } }
+  function aiSay(x) { if (!x) return; stopAll(); say(spoken(x), { rate: rateHi() }); }
+  function aiMicErr(c) { return (c === 'not-allowed' || c === 'service-not-allowed') ? t('aiMicBlock') : c === 'nosr' ? t('aiNoSR') : c === 'network' ? t('aiNet') : t('aiNoSpeech'); }
+  function aiSErr(c) { return (c === 'not_granted' || c === 'sampling_disabled' || c === 'not_declared') ? t('aiGrant') : c === 'rate_limited' ? t('aiRate') : t('aiErr'); }
+  function syncMic() { var m = $('#aimic'); if (m) { m.classList.toggle('on', AI.listening); m.setAttribute('aria-label', AI.listening ? t('aiListening') : t('aiMic')); } if (AI.listening) aiStat(t('aiListening')); }
+  function aiStopRec() { try { if (AI.rec) AI.rec.abort(); } catch (e) { } if (AI) { AI.rec = null; AI.listening = false; } }
+  function aiListen(onRes, onErr) {
+    if (!SR) { onErr('nosr'); return; }
+    aiStopRec(); stopAll();
+    var rc = new SR(), got = false; AI.rec = rc;
+    rc.lang = 'hi-IN'; rc.interimResults = true; rc.maxAlternatives = 3; rc.continuous = false;
+    rc.onstart = function () { AI.listening = true; syncMic(); };
+    rc.onresult = function (ev) {
+      var r = ev.results[ev.results.length - 1];
+      if (r.isFinal) { got = true; var a = []; for (var k = 0; k < r.length; k++) a.push(r[k].transcript.trim()); onRes(a); }
+      else aiStat(r[0].transcript);
+    };
+    rc.onerror = function (ev) { if (!got && ev.error !== 'aborted') onErr(ev.error); got = true; };
+    rc.onend = function () { AI.listening = false; AI.rec = null; syncMic(); if (!got) { got = true; onErr('no-speech'); } };
+    try { rc.start(); } catch (e) { onErr('start'); }
+  }
+
+  /* compare what was said with the target sentence, word by word */
+  function aiWords(s) { return String(s).normalize('NFC').replace(/[।.,!?;:'"“”()\-]/g, ' ').replace(/\s+/g, ' ').trim().split(' ').filter(Boolean); }
+  function aiSim(a, b) {
+    var m = a.length, n = b.length, d = [], i, j; if (!m && !n) return 1;
+    for (i = 0; i <= m; i++) d[i] = [i]; for (j = 1; j <= n; j++) d[0][j] = j;
+    for (i = 1; i <= m; i++) for (j = 1; j <= n; j++) d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1));
+    return 1 - d[m][n] / Math.max(m, n);
+  }
+  function aiCmp(target, alts) {
+    var T = aiWords(target), best = null;
+    alts.forEach(function (a) {
+      var H = aiWords(a), used = {}, sc = 0;
+      var out = T.map(function (w) {
+        var bi = -1, bs = 0;
+        H.forEach(function (x, k) { if (used[k]) return; var s = aiSim(w, x); if (s > bs) { bs = s; bi = k; } });
+        var st = bs >= 0.99 ? 2 : bs >= 0.6 ? 1 : 0; if (st && bi > -1) used[bi] = 1;
+        sc += st === 2 ? 1 : st === 1 ? 0.5 : 0; return { w: w, st: st };
+      });
+      var pct = Math.round(100 * sc / Math.max(T.length, 1));
+      if (!best || pct > best.pct) best = { pct: pct, out: out, said: a };
+    });
+    return best;
+  }
+  function aiSwHtml(b) {
+    var msg = b.pct >= 85 ? t('aiGreat') : b.pct >= 50 ? t('aiClose') : t('aiAgain');
+    return '<div><b>' + esc(t('aiScore')) + ': ' + b.pct + '%</b> · ' + esc(msg) + '</div><div>' +
+      b.out.map(function (o) { return '<button type="button" class="w w' + o.st + '" data-act="aisay" data-t="' + esc(o.w) + '">' + esc(o.w) + '</button>'; }).join('') +
+      '</div><div class="aistat">' + esc(t('aiSaid')) + ': ' + esc(b.said) + ' · ' + esc(t('aiTapWord')) + '</div>';
+  }
+
+  /* chat rendering */
+  function aiBtns(i, k) {
+    return '<div class="aiact"><button type="button" class="btn" data-act="aiplay" data-i="' + i + '" data-k="' + k + '">' + I.playS + ' ' + esc(t('aiHear')) + '</button>' +
+      (k === 'fix' ? '<button type="button" class="btn" data-act="aishadow" data-i="' + i + '">🎤 ' + esc(t('aiRepeat')) + '</button>' : '') + '</div>';
+  }
+  function aiFb(r, i) {
+    var h = '';
+    if (r.ok || !r.fix) { if (!r.ok) return ''; h = '<div class="aifb"><b>' + esc(t('aiOk')) + '</b>'; }
+    else h = '<div class="aifb bad"><div class="lbl">' + esc(t('aiFix')) + '</div><div class="hi">' + esc(r.fix) + '</div>';
+    if (!r.ok || r.pron) h += '<div class="pr">' + esc(r.fix_pr || '') + '</div><div class="ro">' + esc(r.fix_ro || '') + '</div>';
+    if (r.why) h += '<div class="why">' + esc(r.why) + '</div>';
+    if (r.pron) h += '<div class="tip">🔊 ' + esc(r.pron) + '</div>';
+    if (r.fix) h += aiBtns(i, 'fix') + '<div class="aisw" id="sw' + i + '"></div>';
+    return h + '</div>';
+  }
+  function aiLogHtml() {
+    var h = '';
+    AI.log.forEach(function (m, i) {
+      if (m.u !== null) {
+        var shown = /[\u0900-\u097F]/.test(m.u) ? m.u : ((m.r && m.r.heard) || m.u);
+        h += '<div class="aib me"><div class="who">' + esc(t('aiYou')) + '</div><div class="hi">' + esc(shown) + '</div></div>';
+      }
+      if (m.r) {
+        h += aiFb(m.r, i);
+        h += '<div class="aib"><button type="button" class="bplay" data-act="aiplay" data-i="' + i + '" data-k="reply" aria-label="' + esc(t('aiHear')) + '">' + I.playS + '</button><div class="body"><div class="who">' + esc(t('aiAI')) + '</div><div class="hi">' + esc(m.r.reply) + '</div>' +
+          (isEn() ? '' : '<div class="pr">' + esc(m.r.reply_pr || '') + '</div>') + '<div class="ro">' + esc(m.r.reply_ro || '') + '</div><div class="mn">' + esc(m.r.reply_mean || '') + '</div></div></div>';
+      }
+    });
+    return h;
+  }
+  function aiPaint() {
+    var c = $('#aichat'); if (!c) return;
+    c.innerHTML = aiLogHtml();
+    var last = c.lastElementChild; if (last && last.scrollIntoView) last.scrollIntoView({ block: 'center', behavior: REDUCED ? 'auto' : 'smooth' });
+  }
+  function viewAi() {
+    var h;
+    if (!AI.scen) {
+      h = '<div class="hero"><h1>बोलिए</h1><p>' + esc(t('aiP')) + '</p></div>';
+      if (AI.smp === null) h += '<div class="notice">' + esc(t('aiNoAI')) + '</div>';
+      if (!SR) h += '<div class="notice">' + esc(t('aiNoSR')) + '</div>';
+      h += '<div class="list" style="margin-top:12px">';
+      AIS.forEach(function (s, i) {
+        h += '<button type="button" class="dcard" data-act="aistart" data-s="' + s.id + '"><span class="ic">' + (i + 1) + '</span><span><div class="t">' + esc(isEn() ? s.en : s.ta) + '</div>' + (isEn() ? '' : '<div class="e">' + esc(s.en) + '</div>') + '</span></button>';
+      });
+      return h + '</div><p class="ta" style="color:var(--mute);font-size:13px">' + esc(t('aiNote')) + '</p>';
+    }
+    h = '<div class="bar"><button type="button" class="back" data-act="aiback" aria-label="' + esc(t('back')) + '">' + I.back + '</button><div class="sh" style="margin:0"><h2>' + esc(isEn() ? AI.scen.en : AI.scen.ta) + '</h2></div></div>';
+    h += '<div class="chat" id="aichat">' + aiLogHtml() + '</div><div class="aistat" id="aistat" role="status" aria-live="polite"></div>';
+    h += '<div class="aibar"><input id="aitxt" type="text" lang="hi" autocomplete="off" placeholder="' + esc(t('aiPh')) + '" aria-label="' + esc(t('aiPh')) + '">' +
+      '<button type="button" class="snd" data-act="aisend" aria-label="' + esc(t('aiSend')) + '"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M3 20.5v-6.8l9-1.7-9-1.7V3.5L22 12z"/></svg></button>' +
+      '<button type="button" class="mic" id="aimic" data-act="aimic" aria-label="' + esc(t('aiMic')) + '"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></button></div>';
+    return h;
+  }
+
+  /* ask Claude */
+  async function aiAsk(txt, how, alts) {
+    if (AI.busy) return;
+    if (!AI.smp) { aiStat(t('aiNoAI'), true); return; }
+    var content = txt === null ? 'Start now: greet me in Hindi and open the scenario with one simple question. Use heard="", ok=true, fix="".' :
+      'Student (' + how + '): "' + txt + '"' + (alts && alts.length > 1 ? ' | other recognizer guesses: ' + alts.slice(1).join(' | ') : '');
+    var m = { u: txt, r: null }; AI.log.push(m); AI.busy = true; aiPaint(); aiStat(t('aiThink'));
+    try {
+      var r = await AI.smp.json([{ role: 'user', content: aiInstr() }].concat(AI.turns, [{ role: 'user', content: content }]), { modelTier: 'quick', cache: false });
+      if (AI.log.indexOf(m) < 0) { AI.busy = false; return; }
+      if (!r || typeof r !== 'object' || !r.reply) throw { code: 'invalid_json' };
+      m.r = r; AI.busy = false;
+      AI.turns.push({ role: 'user', content: content }, { role: 'assistant', content: JSON.stringify(r) }); AI.turns = AI.turns.slice(-16);
+      aiPaint(); aiStat(''); aiSay(r.reply);
+    } catch (e) {
+      if (AI.log.indexOf(m) < 0) { AI.busy = false; return; }
+      AI.busy = false; AI.log.pop(); aiPaint();
+      var inp = $('#aitxt'); if (inp && txt) inp.value = txt;
+      aiStat(aiSErr(e && e.code), true);
+    }
+  }
+  function aiSendTyped() { var inp = $('#aitxt'); if (!inp) return; var v = inp.value.trim(); if (!v || AI.busy) return; inp.value = ''; aiAsk(v, 'typed', null); }
+
+  document.addEventListener('click', function (e) {
+    var tg = e.target.closest('[data-act^="ai"]'); if (!tg) return;
+    var a = tg.getAttribute('data-act'), i = +tg.getAttribute('data-i'), k = tg.getAttribute('data-k');
+    if (a === 'aistart') {
+      AI.scen = AIS.filter(function (s) { return s.id === tg.getAttribute('data-s'); })[0]; AI.log = []; AI.turns = []; AI.busy = false;
+      render(); toTop(); aiAsk(null);
+    } else if (a === 'aiback') {
+      stopAll(); AI.scen = null; AI.log = []; AI.turns = []; AI.busy = false; render(); toTop();
+    } else if (a === 'aiplay') {
+      var r = AI.log[i] && AI.log[i].r; if (r) aiSay(k === 'fix' ? r.fix : r.reply);
+    } else if (a === 'aisay') { aiSay(tg.getAttribute('data-t')); }
+    else if (a === 'aisend') { aiSendTyped(); }
+    else if (a === 'aimic') {
+      if (AI.listening && AI.rec) { AI.rec.stop(); return; }
+      if (AI.busy) return;
+      aiStat('');
+      aiListen(function (alts) { aiAsk(alts[0], 'by voice', alts); }, function (c) { aiStat(aiMicErr(c), true); });
+    } else if (a === 'aishadow') {
+      var m = AI.log[i], box = $('#sw' + i); if (!m || !m.r || !m.r.fix || !box) return;
+      if (AI.listening && AI.rec) { AI.rec.stop(); return; }
+      box.innerHTML = '<div class="aistat">' + esc(t('aiListening')) + '</div>';
+      aiListen(function (alts) { box.innerHTML = aiSwHtml(aiCmp(m.r.fix, alts)); }, function (c) { box.innerHTML = ''; aiStat(aiMicErr(c), true); });
+    }
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.isComposing && e.target && e.target.id === 'aitxt') { e.preventDefault(); aiSendTyped(); }
+  });
+
+  /* ---------- boot ---------- */
+  if (Aud.ok) {
+    loadVoices();
+    try { window.speechSynthesis.addEventListener('voiceschanged', loadVoices); } catch (e) { window.speechSynthesis.onvoiceschanged = loadVoices; }
+  }
+  setTimeout(function () { Aud.ready = true; syncCtl(); renderBanner(); }, 2500);
+  window.addEventListener('pagehide', function () { try { window.speechSynthesis.cancel(); } catch (e) { } });
+  applyStatic();
+  render();
+})();
+
+</script>
+
+</body></html>
